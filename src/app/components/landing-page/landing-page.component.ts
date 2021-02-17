@@ -1,16 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, HostListener } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingPageComponent implements OnInit {
-  title = 'subsequent';
+export class LandingPageComponent {
+  opened = true;
+  @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
-  constructor() { }
+  ngOnInit() {
+    console.log(window.innerWidth)
+    if (window.innerWidth < 768) {
+      this.sidenav.fixedTopGap = 55;
+      this.opened = false;
+    } else {
+      this.sidenav.fixedTopGap = 55;
+      this.opened = true;
+    }
+  }
 
-  ngOnInit(): void {
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    if (event.target.innerWidth < 768) {
+      this.sidenav.fixedTopGap = 55;
+      this.opened = false;
+    } else {
+      this.sidenav.fixedTopGap = 55
+      this.opened = true;
+    }
+  }
+
+  isBiggerScreen() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (width < 768) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
