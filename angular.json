@@ -34,6 +34,11 @@
               "src/assets/scss/styles.scss",
               "src/assets/scss/custom_material.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/assets/scss"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
