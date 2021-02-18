@@ -8,7 +8,7 @@
 
 // Define the default theme (same as the example above).
 $subsequent-primary: mat-palette($mat-cyan, 600, 300, 900);
-$subsequent-accent:  mat-palette($mat-grey, A600, A400, A700);
+$subsequent-accent:  mat-palette($mat-grey, 600, 400, 700);
 $subsequent-warn:  mat-palette($mat-red, 600, A400, A700);
 
 $subsequent-theme:   mat-light-theme((
