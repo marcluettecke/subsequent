@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './modules/angular-material.module';
 import { MainNavComponent } from './components/landing-page/misc/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { CoverImageComponent } from './components/landing-page/cover-image/cover-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    MainNavComponent
+    MainNavComponent,
+    CoverImageComponent
     ],
   imports: [
     BrowserModule,

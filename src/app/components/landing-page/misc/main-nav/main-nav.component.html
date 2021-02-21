@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" autosize>
   <mat-sidenav #drawer class="sidenav" 
       autoFocus
       fixedInViewport
@@ -19,7 +19,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar>
+    <mat-toolbar class="mat-primary">
       
       <!-- <button
         type="button"
@@ -31,7 +31,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button> -->
       <a class="navbar-brand" routerLink="/">
-        <img src="../../../../../assets/images/logo_navbar.png" height="40px" />
+        <img src="../../../../../assets/images/logo_navbar.png" height="60px" />
       </a>
       <span class="spacer"></span>
       <button
