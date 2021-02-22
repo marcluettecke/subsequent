@@ -27,7 +27,7 @@
 }
 
 .spacer {
-	flex: 1 1 auto;
+	flex: auto;
 }
 
 // mat-toolbar {
@@ -45,7 +45,7 @@ button {
 
 	mat-icon {
 		font-size: 40px;
-		margin-right: 50px;
+		padding-right: 100px;
 		margin-top: 20px;
 	}
 }

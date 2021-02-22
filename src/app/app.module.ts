@@ -9,13 +9,15 @@ import { AngularMaterialModule } from './modules/angular-material.module';
 import { MainNavComponent } from './components/landing-page/misc/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CoverImageComponent } from './components/landing-page/cover-image/cover-image.component';
+import { FeatureListComponent } from './components/landing-page/feature-list/feature-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     MainNavComponent,
-    CoverImageComponent
+    CoverImageComponent,
+    FeatureListComponent
     ],
   imports: [
     BrowserModule,
