@@ -1,0 +1,38 @@
+@import 'variables';
+
+.extraction-container {
+	height: 1000px;
+	background: $--white;
+	position: relative;
+	min-width: 30px;
+
+	&_text-container {
+		position: absolute;
+		overflow: hidden;
+		height: 30px;
+		line-height: 30px;
+		width: 480px; /*matches the height of the container*/
+		left: 2%;
+		bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
+		transform: rotate(-90deg);
+		transform-origin: top left;
+		h1 {
+			text-transform: uppercase;
+			text-align: right;
+			font-size: 40px;
+			color: $--black;
+      position: relative;
+
+      &:before{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 120px;
+        height: 4px;
+        background: $--black;
+        left: 0;
+        top: 50%;
+      }
+		}
+	}
+}

@@ -1,1 +1,14 @@
 @import 'variables';
+
+.feature-list {
+  display: flex;
+
+  &_data-extraction {
+    flex: 1;
+    width:50%;
+  }
+
+  &_data-analysis {
+    flex: 1;
+  }
+}
