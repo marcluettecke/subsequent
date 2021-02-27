@@ -11,6 +11,8 @@ import { MainNavComponent } from './components/landing-page/misc/main-nav/main-n
 import { FeatureDataExtractionComponent } from './components/landing-page/feature-data-extraction/feature-data-extraction.component';
 import { FeatureDataAnalysisComponent } from './components/landing-page/feature-data-analysis/feature-data-analysis.component';
 import { CoverImageComponent } from './components/landing-page/cover-image/cover-image.component';
+import { SkeletalDataComponent } from './components/landing-page/feature-data-extraction/skeletal-data/skeletal-data.component';
+import { FeatureDetailsDirective } from './shared/components/feature-details.directive';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { CoverImageComponent } from './components/landing-page/cover-image/cover
     MainNavComponent,
     CoverImageComponent,
     FeatureDataExtractionComponent,
-    FeatureDataAnalysisComponent
+    FeatureDataAnalysisComponent,
+    SkeletalDataComponent,
+    FeatureDetailsDirective
     ],
   imports: [
     BrowserModule,

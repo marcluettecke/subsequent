@@ -21,23 +21,18 @@
 
 .mat-toolbar.mat-primary {
 	position: fixed;
-	top: 0;
 	z-index: 1;
-  background: transparent;
+	height: fit-content;
+  background: $--black-transparent-05;
 }
 
 .spacer {
 	flex: auto;
 }
 
-// mat-toolbar {
-	
-// }
-
 img {
 	vertical-align: middle;
 	margin-left: 30px;
-	margin-top: 20px;
 }
 
 button {
@@ -46,6 +41,6 @@ button {
 	mat-icon {
 		font-size: 40px;
 		padding-right: 100px;
-		margin-top: 20px;
+		// margin-top: 20px;
 	}
 }
