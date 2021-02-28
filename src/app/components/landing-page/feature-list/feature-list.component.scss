@@ -1,0 +1,160 @@
+@import 'variables';
+
+#container-featureList {
+	height: 1000px;
+	background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
+	position: relative;
+	min-width: 30px;
+
+	.text-container-extraction {
+		position: absolute;
+		overflow: hidden;
+		height: 30px;
+		line-height: 30px;
+		width: 480px; /*matches the height of the container*/
+		left: 1%;
+		bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
+		transform: rotate(-90deg);
+		transform-origin: top left;
+		#extraction {
+			text-transform: uppercase;
+			text-align: right;
+			font-size: 40px;
+			color: $--black;
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 120px;
+				height: 4px;
+				background: $--black;
+				left: 0;
+				top: 50%;
+			}
+		}
+	}
+
+	.text-container-analysis {
+		position: absolute;
+		overflow: hidden;
+		height: 30px;
+		line-height: 30px;
+		width: 430px; /*matches the height of the container*/
+		left: 98%;
+		bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
+		transform: rotate(-90deg);
+		transform-origin: top left;
+		#analysis {
+			text-transform: uppercase;
+			text-align: right;
+			font-size: 40px;
+			color: $--white;
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 120px;
+				height: 4px;
+				background: $--white;
+				left: 0;
+				top: 50%;
+			}
+		}
+	}
+
+	.details-container {
+		.container1 {
+			position: absolute;
+			top: 15%;
+			left: 30%;
+		}
+
+		.container2 {
+			position: absolute;
+			top: 55%;
+			left: 23%;
+		}
+
+		.container3 {
+			position: absolute;
+			top: 20%;
+			left: 52%;
+		}
+
+		.container4 {
+			position: absolute;
+			top: 50%;
+			left: 55%;
+		}
+
+		.container5 {
+			position: absolute;
+			top: 10%;
+			left: 70%;
+		}
+
+		input[type='checkbox'] {
+			display: none;
+		}
+		.background {
+			display: none;
+			bottom: 0;
+			right: 0;
+			height: 100%;
+			width: 100vw;
+			background: rgba(0, 0, 0, 0.9);
+		}
+
+		.promoText {
+			display: none;
+			margin-left: 18%;
+			width: 55vw;
+			color: $--white;
+			font-size: 25px;
+			line-height: 100%;
+		}
+		.imgContainer {
+			.featureImage {
+				// transform-origin: top;
+				// transform: perspective(1000px) rotateY(50deg) rotateZ(3deg);
+				height:25vh;
+				&:hover {
+					transition: 0.5s;
+					transform: scale(1.1);
+					// transform: scale(1.1) perspective(1000px) rotateY(50deg);
+					cursor: pointer;
+				}
+			}
+		}
+		input[type='checkbox']:checked {
+			& ~ label > .flexContainer {
+				display: flex;
+        align-items: center;
+				position: fixed;
+				top: 15%;
+				left: 16%;
+				z-index: 5;
+				& > .imgContainer > .featureImage {
+					transform: scale(1.8);
+					cursor: zoom-out;
+
+					&:hover {
+						transform: scale(1.8);
+					}
+				}
+				& > p {
+					display: unset;
+				}
+			}
+			& ~ .background {
+				z-index: 2;
+				display: unset;
+				position: fixed;
+			}
+		}
+	}
+}

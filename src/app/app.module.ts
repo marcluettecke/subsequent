@@ -8,11 +8,9 @@ import { AngularMaterialModule } from './modules/angular-material.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { MainNavComponent } from './components/landing-page/misc/main-nav/main-nav.component';
-import { FeatureDataExtractionComponent } from './components/landing-page/feature-data-extraction/feature-data-extraction.component';
-import { FeatureDataAnalysisComponent } from './components/landing-page/feature-data-analysis/feature-data-analysis.component';
 import { CoverImageComponent } from './components/landing-page/cover-image/cover-image.component';
-import { SkeletalDataComponent } from './components/landing-page/feature-data-extraction/skeletal-data/skeletal-data.component';
 import { FeatureDetailsDirective } from './shared/components/feature-details.directive';
+import { FeatureListComponent } from './components/landing-page/feature-list/feature-list.component';
 
 
 @NgModule({
@@ -21,10 +19,8 @@ import { FeatureDetailsDirective } from './shared/components/feature-details.dir
     LandingPageComponent,
     MainNavComponent,
     CoverImageComponent,
-    FeatureDataExtractionComponent,
-    FeatureDataAnalysisComponent,
-    SkeletalDataComponent,
-    FeatureDetailsDirective
+    FeatureDetailsDirective,
+    FeatureListComponent
     ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkeletalDataComponent } from './skeletal-data.component';
+import { FeatureListComponent } from './feature-list.component';
 
-describe('SkeletalDataComponent', () => {
-  let component: SkeletalDataComponent;
-  let fixture: ComponentFixture<SkeletalDataComponent>;
+describe('FeatureListComponent', () => {
+  let component: FeatureListComponent;
+  let fixture: ComponentFixture<FeatureListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkeletalDataComponent ]
+      declarations: [ FeatureListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkeletalDataComponent);
+    fixture = TestBed.createComponent(FeatureListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

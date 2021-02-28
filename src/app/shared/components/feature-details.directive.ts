@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 import { promoTexts } from '../../../assets/text/landingPage/promoTexts'
-import { IPromoText } from '../../components/landing-page/models/iLandingPage'
+import { IPromoText } from '../../components/landing-page/models/LandingPage'
 
 @Directive({
 	selector: '[featureDetails]'
