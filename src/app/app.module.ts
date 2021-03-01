@@ -11,6 +11,7 @@ import { MainNavComponent } from './components/landing-page/misc/main-nav/main-n
 import { CoverImageComponent } from './components/landing-page/cover-image/cover-image.component';
 import { FeatureDetailsDirective } from './shared/components/feature-details.directive';
 import { FeatureListComponent } from './components/landing-page/feature-list/feature-list.component';
+import { AboutUsComponent } from './components/landing-page/about-us/about-us.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FeatureListComponent } from './components/landing-page/feature-list/fea
     MainNavComponent,
     CoverImageComponent,
     FeatureDetailsDirective,
-    FeatureListComponent
+    FeatureListComponent,
+    AboutUsComponent
     ],
   imports: [
     BrowserModule,
