@@ -1,26 +1,190 @@
-	<div class="profile_container">
-		<div class="card">
-      <div class="card__side card__side--front">
-        <div class="card__picture card__picture--1">&nbsp;</div>
-        <h4 class="card__heading">
-          <span class="card__heading-span card__heading-span--1">
-            Manuel Stein
-          </span>
-        </h4>
-        <div class="card__details">
-            <span>CEO</span>
-        </div>
-        <div class="card__icon">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_forward_ios</mat-icon>
-        </div>
-      </div>
-      <div class="card__overlay">
-        <a href="#" class="icon" title="User Profile">
-          <i class="fa fa-user"></i>
-        </a>
-      </div>
-    </div>
-		<div class="card">Hello</div>
-		<div class="card">Hello</div>
-		<div class="card">Hello</div>
+<div class="profile_container" id="aboutUs">
+  <!-- Manuel Card -->
+	<div class="card">
+		<div class="card__side card__side--front">
+			<div class="card__picture card__picture--1">&nbsp;</div>
+			<h4 class="card__heading">
+				<span class="card__heading-span card__heading-span--1"> Manuel Stein </span>
+			</h4>
+			<div class="card__details">
+				<span>CEO</span>
+				<div class="card__icon">
+					<mat-icon aria-hidden="false" aria-label="Example home icon"
+						>arrow_forward_ios</mat-icon
+					>
+				</div>
+			</div>
+		</div>
+		<div class="card__overlay">
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<mat-icon aria-hidden="false">school</mat-icon>
+					<div class="type">Education</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Manuel?.education }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<!-- <mat-icon aria-hidden="false">person</mat-icon> -->
+					<fa-icon [icon]="['fas', 'sitemap']"></fa-icon>
+					<div class="type">Rolle</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Manuel?.role }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<fa-icon [icon]="['far', 'heart']"></fa-icon>
+					<div class="type">Leidenschaft</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Manuel?.random }}
+				</div>
+			</div>
+		</div>
 	</div>
+  <!-- Philip Card -->
+	<div class="card">
+		<div class="card__side card__side--front">
+			<div class="card__picture card__picture--2">&nbsp;</div>
+			<h4 class="card__heading">
+				<span> Philip Zimmermann </span>
+			</h4>
+			<div class="card__details">
+				<span>CTO</span>
+				<div class="card__icon">
+					<mat-icon aria-hidden="false" aria-label="Example home icon"
+						>arrow_forward_ios</mat-icon
+					>
+				</div>
+			</div>
+		</div>
+		<div class="card__overlay">
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<mat-icon aria-hidden="false">school</mat-icon>
+					<div class="type">Education</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Philip?.education }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<!-- <mat-icon aria-hidden="false">person</mat-icon> -->
+					<fa-icon [icon]="['fas', 'sitemap']"></fa-icon>
+					<div class="type">Rolle</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Philip?.role }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<fa-icon [icon]="['far', 'heart']"></fa-icon>
+					<div class="type">Leidenschaft</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Philip?.random }}
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- Marc Card -->
+	<div class="card">
+		<div class="card__side card__side--front">
+			<div class="card__picture card__picture--3">&nbsp;</div>
+			<h4 class="card__heading">
+				<span> Marc Lüttecke </span>
+			</h4>
+			<div class="card__details">
+				<span>CFO</span>
+				<div class="card__icon">
+					<mat-icon aria-hidden="false" aria-label="Example home icon"
+						>arrow_forward_ios</mat-icon
+					>
+				</div>
+			</div>
+		</div>
+		<div class="card__overlay">
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<mat-icon aria-hidden="false">school</mat-icon>
+					<div class="type">Education</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Marc?.education }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<!-- <mat-icon aria-hidden="false">person</mat-icon> -->
+					<fa-icon [icon]="['fas', 'sitemap']"></fa-icon>
+					<div class="type">Rolle</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Marc?.role }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<fa-icon [icon]="['far', 'heart']"></fa-icon>
+					<div class="type">Leidenschaft</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Marc?.random }}
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- Markus Card -->
+	<div class="card">
+		<div class="card__side card__side--front">
+			<div class="card__picture card__picture--4">&nbsp;</div>
+			<h4 class="card__heading">
+				<span > Markus Schopp </span>
+			</h4>
+			<div class="card__details">
+				<span>CSO</span>
+				<div class="card__icon">
+					<mat-icon aria-hidden="false" aria-label="Example home icon"
+						>arrow_forward_ios</mat-icon
+					>
+				</div>
+			</div>
+		</div>
+		<div class="card__overlay">
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+          <fa-icon [icon]="['fas', 'award']"></fa-icon>
+					<div class="type">Qualifikationen</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Markus?.education }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<!-- <mat-icon aria-hidden="false">person</mat-icon> -->
+					<fa-icon [icon]="['fas', 'sitemap']"></fa-icon>
+					<div class="type">Rolle</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Markus?.role }}
+				</div>
+			</div>
+			<div class="card__overlay__detail__container">
+				<div class="card__overlay__detail__container__header">
+					<fa-icon [icon]="['far', 'heart']"></fa-icon>
+					<div class="type">Leidenschaft</div>
+				</div>
+				<div class="card__overlay__detail__container__point">
+					{{ descriptions?.Markus?.random }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

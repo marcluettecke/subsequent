@@ -7,7 +7,7 @@
 		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
 		mode="over"
 	>
-		<!-- <mat-sidenav #drawer class="sidenav" 
+		<!-- <mat-sidenav #drawer class="sidenav"
       autoFocus
       [fixedInViewport]="false"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -17,6 +17,7 @@
 		<mat-nav-list>
 			<a mat-list-item (click)="scrollTo('#coverImage')">Top</a>
 			<a mat-list-item (click)="scrollTo('#container-featureList')">Feature List</a>
+			<a mat-list-item (click)="scrollTo('#aboutUs')">About us</a>
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content>
