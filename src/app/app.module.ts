@@ -16,6 +16,7 @@ import { CoverImageComponent } from './components/landing-page/cover-image/cover
 import { FeatureDetailsDirective } from './shared/components/feature-details.directive';
 import { FeatureListComponent } from './components/landing-page/feature-list/feature-list.component';
 import { AboutUsComponent } from './components/landing-page/about-us/about-us.component';
+import { FooterComponent } from './components/landing-page/misc/footer/footer.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -24,7 +25,8 @@ import { AboutUsComponent } from './components/landing-page/about-us/about-us.co
 		CoverImageComponent,
 		FeatureDetailsDirective,
 		FeatureListComponent,
-		AboutUsComponent
+		AboutUsComponent,
+		FooterComponent
 	],
 	imports: [
 		BrowserModule,
