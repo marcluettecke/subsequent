@@ -17,6 +17,7 @@ import { FeatureDetailsDirective } from './shared/components/feature-details.dir
 import { FeatureListComponent } from './components/landing-page/feature-list/feature-list.component';
 import { AboutUsComponent } from './components/landing-page/about-us/about-us.component';
 import { FooterComponent } from './components/landing-page/misc/footer/footer.component';
+import { RotatingBodyComponent } from './components/landing-page/rotating-body/rotating-body.component';
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -26,7 +27,8 @@ import { FooterComponent } from './components/landing-page/misc/footer/footer.co
 		FeatureDetailsDirective,
 		FeatureListComponent,
 		AboutUsComponent,
-		FooterComponent
+		FooterComponent,
+		RotatingBodyComponent
 	],
 	imports: [
 		BrowserModule,

@@ -1,74 +1,72 @@
 @import 'variables';
 
 .footer {
-  background-color: $--accent-light;
-  padding-top: 50px;
-  font-size: 1.4rem;
-  color: $--white;
+	background-color: $--accent-light;
+	padding-top: 50px;
+	font-size: 1.4rem;
+	color: $--white;
 
-  .content-container {
-    display: flex;
-    justify-content: space-around;
+	.content-container {
+		display: flex;
+		justify-content: space-around;
 
-    .copyright_container {
-      width: 700px;
-    }
-  }
+		.copyright_container {
+			width: 700px;
+		}
+	}
 
-  &__logo-box {
-    text-align: center;
-    margin-bottom: 50px;
-  }
+	&__logo-box {
+		text-align: center;
+		margin-bottom: 50px;
+	}
 
-  &__logo {
-    width: 30rem;
-    height: auto;
-  }
+	&__logo {
+		width: 30rem;
+		height: auto;
+	}
 
-  &__navigation {
-    width: 600px;
-    border-top: 1px solid $--white;
-    padding-top: 2rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+	&__navigation {
+		width: 600px;
+		border-top: 1px solid $--white;
+		padding-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
 
+	&__item {
+		display: inline-block;
 
-  &__item {
-    display: inline-block;
+		&:not(:last-child) {
+			margin-right: 1.5rem;
+		}
+	}
 
-    &:not(:last-child) {
-      margin-right: 1.5rem;
-    }
+	&__link {
+		&:link,
+		&:visited {
+			color: $--white;
+			margin: 0;
+			background-color: rgba($--accent-light, 0.8);
+			//background-color: transparent;
+			text-decoration: none;
+			text-transform: uppercase;
+			display: inline-block;
+			transition: all 0.2s;
+		}
 
-  }
+		&:hover,
+		&:active {
+			color: $--primary;
+			// box-shadow: $box-shadow;
+			transform: scale(1.1);
+		}
+	}
 
-  &__link {
-    &:link,
-    &:visited {
-      color: $--white;
-      margin: 0;
-      background-color: rgba($--accent-light, 0.8);
-      //background-color: transparent;
-      text-decoration: none;
-      text-transform: uppercase;
-      display: inline-block;
-      transition: all .2s;
-    }
-
-    &:hover,
-    &:active {
-      color: $--primary;
-      // box-shadow: $box-shadow;
-      transform: scale(1.1);
-    }
-  }
-
-  &__copyright {
-    float: right;
-    width: 80%;
-    border-top: 1px solid $--white;
-    padding-top: 2rem;
-  }
+	&__copyright {
+		float: right;
+		width: 80%;
+		border-top: 1px solid $--white;
+		padding-top: 2rem;
+	}
 }
