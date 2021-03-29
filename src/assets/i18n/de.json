@@ -1,0 +1,40 @@
+{
+	"features-analysis": {
+		"first": {
+			"text": "Dummy text.",
+			"title": "Erste Analyse Feature"
+		},
+		"second": {
+			"text": "Dummy text.",
+			"title": "Zweite Analyse Feature"
+		},
+		"third": {
+			"text": "Dummy text.",
+			"title": "Dritte Analyse Feature"
+		}
+	},
+	"features-extraction": {
+		"first": {
+			"text": "Dummy text.",
+			"title": "Erste Erhebungs Feature"
+		},
+		"second": {
+			"text": "Dummy text.",
+			"title": "Zweite Erhebungs Feature"
+		},
+		"third": {
+			"text": "Dummy text.",
+			"title": "Dritte Erhebungs Feature"
+		}
+	},
+	"sidenav": {
+		"header": "Menü",
+		"sidenav-items": {
+			"about-us": "Über uns",
+			"beginning": "Anfang",
+			"contact-us": "Kontaktier uns",
+			"details": "Feature Liste",
+			"overview": "Übersicht Features"
+		}
+	}
+}

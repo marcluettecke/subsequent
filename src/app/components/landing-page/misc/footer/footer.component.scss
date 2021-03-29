@@ -1,7 +1,8 @@
 @import 'variables';
 
 .footer {
-	background-color: $--accent-light;
+	// background-color: $--accent-light;
+	background-color: $--black;
 	padding-top: 50px;
 	font-size: 1.4rem;
 	color: $--white;
@@ -47,7 +48,7 @@
 		&:visited {
 			color: $--white;
 			margin: 0;
-			background-color: rgba($--accent-light, 0.8);
+			background-color: rgba($--black, 0.8);
 			//background-color: transparent;
 			text-decoration: none;
 			text-transform: uppercase;

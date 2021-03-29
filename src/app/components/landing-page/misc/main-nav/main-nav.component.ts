@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
 	selector: 'app-main-nav',
@@ -14,11 +15,19 @@ export class MainNavComponent {
 		shareReplay()
 	);
 
-	constructor(private breakpointObserver: BreakpointObserver) {}
+	constructor(
+		private breakpointObserver: BreakpointObserver,
+		private translate: TranslateService
+	) {
+    translate.setDefaultLang('de');
+  }
 
-  
 	scrollTo(searchID: string) {
-    const element = document.querySelector(searchID);
+		const element = document.querySelector(searchID);
 		if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	useLanguage(language: string): void {
+		this.translate.use(language);
 	}
 }
