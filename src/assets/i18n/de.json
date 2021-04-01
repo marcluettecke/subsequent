@@ -1,4 +1,7 @@
 {
+	"buttons": {
+		"back": "Zurück"
+	},
 	"features-analysis": {
 		"first": {
 			"text": "Dummy text.",
@@ -11,6 +14,32 @@
 		"third": {
 			"text": "Dummy text.",
 			"title": "Dritte Analyse Feature"
+		}
+	},
+	"features-details": {
+		"feature1": {
+			"description": "Dies ist die längere Beschreibung einer Funktion. Es handelt sich um einen Dummy-Text, um die modale Ansicht zu testen, und wird bald durch den tatsächlichen Text für diese Funktion ersetzt. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Es handelt sich um einen Dummy-Text zum Testen der modalen Ansicht, der in Kürze durch den tatsächlichen Text für diese Funktion ersetzt werden wird.",
+			"title": "Analyse 1"
+		},
+		"feature2": {
+			"description": "Dies ist die längere Beschreibung einer Funktion. Es handelt sich um einen Dummy-Text, um die modale Ansicht zu testen, und wird bald durch den tatsächlichen Text für diese Funktion ersetzt. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Es handelt sich um einen Dummy-Text zum Testen der modalen Ansicht, der in Kürze durch den tatsächlichen Text für diese Funktion ersetzt werden wird.",
+			"title": "Analyse 2"
+		},
+		"feature3": {
+			"description": "Dies ist die längere Beschreibung einer Funktion. Es handelt sich um einen Dummy-Text, um die modale Ansicht zu testen, und wird bald durch den tatsächlichen Text für diese Funktion ersetzt. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Es handelt sich um einen Dummy-Text zum Testen der modalen Ansicht, der in Kürze durch den tatsächlichen Text für diese Funktion ersetzt werden wird.",
+			"title": "Analyse 3"
+		},
+		"feature4": {
+			"description": "Dies ist die längere Beschreibung einer Funktion. Es handelt sich um einen Dummy-Text, um die modale Ansicht zu testen, und wird bald durch den tatsächlichen Text für diese Funktion ersetzt. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Es handelt sich um einen Dummy-Text zum Testen der modalen Ansicht, der in Kürze durch den tatsächlichen Text für diese Funktion ersetzt werden wird.",
+			"title": "Analyse 4"
+		},
+		"feature5": {
+			"description": "Dies ist die längere Beschreibung einer Funktion. Es handelt sich um einen Dummy-Text, um die modale Ansicht zu testen, und wird bald durch den tatsächlichen Text für diese Funktion ersetzt. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Es handelt sich um einen Dummy-Text zum Testen der modalen Ansicht, der in Kürze durch den tatsächlichen Text für diese Funktion ersetzt werden wird.",
+			"title": "Analyse 5"
+		},
+		"feature6": {
+			"description": "Dies ist die längere Beschreibung einer Funktion. Es handelt sich um einen Dummy-Text, um die modale Ansicht zu testen, und wird bald durch den tatsächlichen Text für diese Funktion ersetzt. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Dies ist ein Dummy-Text zum Testen der modalen Ansicht und wird in Kürze durch den eigentlichen Text für diese Funktion ersetzt werden. Dies ist die längere Beschreibung eines Merkmals. Es handelt sich um einen Dummy-Text zum Testen der modalen Ansicht, der in Kürze durch den tatsächlichen Text für diese Funktion ersetzt werden wird.",
+			"title": "Analyse 6"
 		}
 	},
 	"features-extraction": {
@@ -26,6 +55,10 @@
 			"text": "Dummy text.",
 			"title": "Dritte Erhebungs Feature"
 		}
+	},
+	"layout": {
+		"data-analysis": "Daten Analyse",
+		"data-extraction": "Daten Erhebung"
 	},
 	"sidenav": {
 		"header": "Menü",

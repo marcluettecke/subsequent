@@ -1,0 +1,10 @@
+<div id="modal-content-wrapper">
+	<header id="modal-header">
+		<h1 id="modal-title">{{ featureTitlePath | translate }}</h1>
+	</header>
+	<img [src]="imagePath" />
+	<span>{{ featureDescriptionPath | translate}}</span>
+	<footer id="modal-footer">
+		<button mat-raised-button id="modal-cancel-button" (click)="closeModal()">{{ 'buttons.back' | translate }}</button>
+	</footer>
+</div>

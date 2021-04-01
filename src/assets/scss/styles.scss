@@ -7,5 +7,11 @@ body {
 body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
-  background-color: $--black;
+	background-color: $--black;
+}
+
+mat-dialog-container#modal-component {
+	border: 3px solid $--black;
+	border-radius: 11px;
+	background-color: $--black;
 }

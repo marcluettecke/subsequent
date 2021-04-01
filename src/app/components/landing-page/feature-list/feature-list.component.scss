@@ -67,94 +67,109 @@
 	}
 
 	.details-container {
-		.container1 {
-			position: absolute;
-			top: 15%;
-			left: 30%;
-		}
+		display: grid;
+		grid-template: repeat(3, auto) / 1fr 1fr;
+		grid-gap: 30px;
+		justify-items: center;
 
-		.container2 {
-			position: absolute;
-			top: 55%;
-			left: 23%;
-		}
+		img {
+			width: 350px;
+			height: 250px;
 
-		.container3 {
-			position: absolute;
-			top: 20%;
-			left: 52%;
-		}
-
-		.container4 {
-			position: absolute;
-			top: 50%;
-			left: 55%;
-		}
-
-		.container5 {
-			position: absolute;
-			top: 10%;
-			left: 70%;
-		}
-
-		input[type='checkbox'] {
-			display: none;
-		}
-		.background {
-			display: none;
-			bottom: 0;
-			right: 0;
-			height: 100%;
-			width: 100vw;
-			background: rgba(0, 0, 0, 0.9);
-		}
-
-		.promoText {
-			display: none;
-			margin-left: 18%;
-			width: 55vw;
-			color: $--white;
-			font-size: 25px;
-			line-height: 100%;
-		}
-		.imgContainer {
-			.featureImage {
-				// transform-origin: top;
-				// transform: perspective(1000px) rotateY(50deg) rotateZ(3deg);
-				height:25vh;
-				&:hover {
-					transition: 0.5s;
-					transform: scale(1.1);
-					// transform: scale(1.1) perspective(1000px) rotateY(50deg);
-					cursor: pointer;
-				}
+			&:hover {
+				transition: 0.5s;
+				transform: scale(1.1);
+				cursor: pointer;
 			}
 		}
-		input[type='checkbox']:checked {
-			& ~ label > .flexContainer {
-				display: flex;
-        align-items: center;
-				position: fixed;
-				top: 15%;
-				left: 16%;
-				z-index: 5;
-				& > .imgContainer > .featureImage {
-					transform: scale(1.8);
-					cursor: zoom-out;
+		// .container1 {
+		// 	position: absolute;
+		// 	top: 15%;
+		// 	left: 30%;
+		// }
 
-					&:hover {
-						transform: scale(1.8);
-					}
-				}
-				& > p {
-					display: unset;
-				}
-			}
-			& ~ .background {
-				z-index: 2;
-				display: unset;
-				position: fixed;
-			}
-		}
+		// .container2 {
+		// 	position: absolute;
+		// 	top: 55%;
+		// 	left: 23%;
+		// }
+
+		// .container3 {
+		// 	position: absolute;
+		// 	top: 20%;
+		// 	left: 52%;
+		// }
+
+		// .container4 {
+		// 	position: absolute;
+		// 	top: 50%;
+		// 	left: 55%;
+		// }
+
+		// .container5 {
+		// 	position: absolute;
+		// 	top: 10%;
+		// 	left: 70%;
+		// }
+
+		// input[type='checkbox'] {
+		// 	display: none;
+		// }
+		// .background {
+		// 	display: none;
+		// 	bottom: 0;
+		// 	right: 0;
+		// 	height: 100%;
+		// 	width: 100vw;
+		// 	background: rgba(0, 0, 0, 0.9);
+		// }
+
+		// .promoText {
+		// 	display: none;
+		// 	margin-left: 18%;
+		// 	width: 55vw;
+		// 	color: $--white;
+		// 	font-size: 25px;
+		// 	line-height: 100%;
+		// }
+		// .imgContainer {
+		// 	.featureImage {
+		// 		// transform-origin: top;
+		// 		// transform: perspective(1000px) rotateY(50deg) rotateZ(3deg);
+		// 		height:25vh;
+		// 		&:hover {
+		// 			transition: 0.5s;
+		// 			transform: scale(1.1);
+		// 			// transform: scale(1.1) perspective(1000px) rotateY(50deg);
+		// 			cursor: pointer;
+		// 		}
+		// 	}
+		// }
+		// input[type='checkbox']:checked {
+		// 	& ~ label > .flexContainer {
+		// 		display: flex;
+		//     align-items: center;
+		// 		position: fixed;
+		// 		top: 15%;
+		// 		left: 16%;
+		// 		z-index: 5;
+		// 		& > .imgContainer > .featureImage {
+		// 			transform: scale(1.8);
+		// 			cursor: zoom-out;
+
+		// 			&:hover {
+		// 				transform: scale(1.8);
+		// 			}
+		// 		}
+		// 		& > p {
+		// 			display: unset;
+		// 		}
+		// 	}
+		// 	& ~ .background {
+		// 		z-index: 2;
+		// 		display: unset;
+		// 		position: fixed;
+		// 	}
+		// }
 	}
 }

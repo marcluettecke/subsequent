@@ -22,6 +22,9 @@ import { FeatureListComponent } from './components/landing-page/feature-list/fea
 import { AboutUsComponent } from './components/landing-page/about-us/about-us.component';
 import { FooterComponent } from './components/landing-page/misc/footer/footer.component';
 import { RotatingBodyComponent } from './components/landing-page/rotating-body/rotating-body.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FeatureModalComponent } from './components/landing-page/feature-list/feature-modal/feature-modal.component';
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -32,7 +35,8 @@ import { RotatingBodyComponent } from './components/landing-page/rotating-body/r
 		FeatureListComponent,
 		AboutUsComponent,
 		FooterComponent,
-		RotatingBodyComponent
+		RotatingBodyComponent,
+    FeatureModalComponent
 	],
 	imports: [
 		BrowserModule,
@@ -48,8 +52,10 @@ import { RotatingBodyComponent } from './components/landing-page/rotating-body/r
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+  }),
+  MatDialogModule
 	],
+  exports: [TranslateModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

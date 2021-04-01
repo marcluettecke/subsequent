@@ -1,4 +1,7 @@
 {
+	"buttons": {
+		"back": "Back"
+	},
 	"features-analysis": {
 		"first": {
 			"text": "Dummy text.",
@@ -11,6 +14,32 @@
 		"third": {
 			"text": "Dummy text.",
 			"title": "Third analysis feature"
+		}
+	},
+	"features-details": {
+		"feature1": {
+			"description": "This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature.",
+			"title": "Analysis 1"
+		},
+		"feature2": {
+			"description": "This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature.",
+			"title": "Analysis 2"
+		},
+		"feature3": {
+			"description": "This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature.",
+			"title": "Analysis 3"
+		},
+		"feature4": {
+			"description": "This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature.",
+			"title": "Analysis 4"
+		},
+		"feature5": {
+			"description": "This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature.",
+			"title": "Analysis 5"
+		},
+		"feature6": {
+			"description": "This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature. This is the longer description of a feature. It is a dummy text to test the modal view and will soon be replaced with the actual text for this feature.",
+			"title": "Analysis 6"
 		}
 	},
 	"features-extraction": {
@@ -26,6 +55,10 @@
 			"text": "Dummy text.",
 			"title": "Third survey feature"
 		}
+	},
+	"layout": {
+		"data-analysis": "Data analysis",
+		"data-extraction": "Data Extraction"
 	},
 	"sidenav": {
 		"header": "Menu",

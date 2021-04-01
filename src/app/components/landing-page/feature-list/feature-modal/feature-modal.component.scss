@@ -1,0 +1,40 @@
+@import 'variables';
+
+#modal-content-wrapper {
+	height: 100%;
+	color: white;
+	display: grid;
+	grid-template: 100px 1fr 100px / 1fr 1fr;
+  grid-gap: 0 3%;
+	justify-items: center;
+}
+#modal-header {
+	grid-column: span 2;
+}
+#modal-title {
+	font-size: 22px;
+}
+
+img {
+  grid-column: 1;
+  grid-row: 2;
+	width: 400px;
+	height: 300px;
+}
+
+span {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+}
+
+#modal-footer {
+	grid-area: 3 / span 2;
+	justify-self: right;
+	align-self: center;
+}
+
+#modal-cancel-button {
+	background-color: #4e4e4e;
+	color: white;
+}
