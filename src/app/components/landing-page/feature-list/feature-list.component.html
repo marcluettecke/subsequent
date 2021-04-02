@@ -1,4 +1,22 @@
-<div id="container-featureList">
+<section class="rotating-body-container" id="feature-overview">
+  <ul class="extraction-list-container">
+    <li>{{ 'features-extraction.first.title' | translate }}</li>
+    <li>{{ 'features-extraction.second.title' | translate }}</li>
+    <li>{{ 'features-extraction.third.title' | translate }}</li>
+  </ul>
+  <div class="rotation-video-container">
+    <video autoplay="" loop="" muted="" width="100%" height="100%" preload="auto" autobuffer="true">
+      <source type="video/mp4" src="../../../../assets/videos/spaceX_rotation_cropped.mp4">
+    </video>
+  </div>
+  <ul class="analysis-list-container">
+    <li>{{ 'features-analysis.first.title' | translate }}</li>
+    <li>{{ 'features-analysis.second.title' | translate }}</li>
+    <li>{{ 'features-analysis.third.title' | translate }}</li>
+  </ul>
+</section>
+
+<section id="container-featureList">
 	<div class="text-container-extraction">
 		<h1 id="extraction">{{ 'layout.data-extraction' | translate }}</h1>
 	</div>
@@ -7,12 +25,6 @@
 	</div>
 
   <div class="details-container">
-    <!-- <div featureDetails [imgUrl]="'../../../../../assets/images/skeletal.png'" [number]="'1'"></div>
-    <div featureDetails [imgUrl]="'../../../../../assets/images/freespace.jpg'" [number]="'2'"></div>
-    <div featureDetails [imgUrl]="'../../../../../assets/images/skeletal.png'" [number]="'3'"></div>
-    <div featureDetails [imgUrl]="'../../../../../assets/images/freespace.jpg'" [number]="'4'"></div>
-    <div featureDetails [imgUrl]="'../../../../../assets/images/skeletal.png'" [number]="'5'"></div> -->
     <img *ngFor="let feature of featureImagePath, let i = index" [src]="featureImagePath[i]" (click)="openModal($event, i)">
-
   </div>
-</div>
+</section>

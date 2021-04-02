@@ -21,7 +21,6 @@ import { FeatureDetailsDirective } from './shared/components/feature-details.dir
 import { FeatureListComponent } from './components/landing-page/feature-list/feature-list.component';
 import { AboutUsComponent } from './components/landing-page/about-us/about-us.component';
 import { FooterComponent } from './components/landing-page/misc/footer/footer.component';
-import { RotatingBodyComponent } from './components/landing-page/rotating-body/rotating-body.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FeatureModalComponent } from './components/landing-page/feature-list/feature-modal/feature-modal.component';
 
@@ -35,7 +34,6 @@ import { FeatureModalComponent } from './components/landing-page/feature-list/fe
 		FeatureListComponent,
 		AboutUsComponent,
 		FooterComponent,
-		RotatingBodyComponent,
     FeatureModalComponent
 	],
 	imports: [
@@ -64,7 +62,6 @@ export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas);
     library.addIconPacks(far);
-    // library.addIcons(faCoffee);
   }
 }
 
