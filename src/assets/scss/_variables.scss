@@ -1,3 +1,17 @@
+// breakpoints
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+
 $--primary: #00acc1;
 $--primary-light: #4dd0e1;
 $--primary-dark: #006064;
