@@ -27,7 +27,6 @@
 		'feature6 rotating';
   }
   @include md {
-    // height: 120vh;
     background: linear-gradient(to bottom, $--white, $--white 65%, $--black 65%);
     grid-template: 30% repeat(6, 10%)/ 100vw;
     grid-template-areas:

@@ -2,7 +2,6 @@
 @import 'mixins';
 
 .footer {
-	// background-color: $--accent-light;
 	background-color: $--black;
 	padding-top: 50px;
 	font-size: 1.4rem;
@@ -42,9 +41,7 @@
 		mat-icon {
 			padding-right: 10px;
 		}
-		// display: flex;
-		// justify-content: space-between;
-		// flex-wrap: wrap;
+
 		@include footer {
 			grid-template: repeat(6, 1fr);
 			grid-template-areas:
@@ -80,36 +77,6 @@
 			color: $--white;
 		}
 	}
-
-	// &__item {
-	// 	display: inline-block;
-
-	// 	&:not(:last-child) {
-	// 		margin-right: 1.5rem;
-	// 	}
-	// }
-
-	// &__link {
-	// 	&:link,
-	// 	&:visited {
-	// 		color: $--white;
-	// 		margin: 0;
-	// 		background-color: rgba($--black, 0.8);
-	// 		//background-color: transparent;
-	// 		text-decoration: none;
-	// 		text-transform: uppercase;
-	// 		display: inline-block;
-	// 		transition: all 0.2s;
-	// 	}
-
-	// 	&:hover,
-	// 	&:active {
-	// 		color: $--primary;
-	// 		// box-shadow: $box-shadow;
-	// 		transform: scale(1.1);
-	// 	}
-	// }
-
 	&__copyright {
 		float: right;
 		width: 80%;
