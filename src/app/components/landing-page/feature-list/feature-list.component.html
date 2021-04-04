@@ -67,10 +67,16 @@
 	</div>
 
 	<div class="details-container">
-		<img
+		<img [src]="featureImagePath[0]" (click)="openModal($event, 0)" class="first-extraction-feature" />
+		<img [src]="featureImagePath[1]" (click)="openModal($event, 1)" class="first-analysis-feature" />
+		<img [src]="featureImagePath[2]" (click)="openModal($event, 2)" class="second-extraction-feature" />
+		<img [src]="featureImagePath[3]" (click)="openModal($event, 3)" class="second-analysis-feature" />
+		<img [src]="featureImagePath[4]" (click)="openModal($event, 4)" class="third-extraction-feature" />
+		<img [src]="featureImagePath[5]" (click)="openModal($event, 5)" class="third-analysis-feature" />
+		<!-- <img
 			*ngFor="let feature of featureImagePath; let i = index"
 			[src]="featureImagePath[i]"
 			(click)="openModal($event, i)"
-		/>
+		/> -->
 	</div>
 </section>

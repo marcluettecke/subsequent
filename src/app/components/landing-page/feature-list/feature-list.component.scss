@@ -160,23 +160,54 @@
 
 	.details-container {
 		display: grid;
-		grid-template: repeat(3, auto) / 1fr 1fr;
 		grid-gap: 30px;
 		justify-items: center;
+		grid-template: repeat(3, auto) / 1fr 1fr;
+    grid-template-areas:
+		'extraction1 analysis1'
+		'extraction2 analysis2'
+		'extraction3 analysis3';
 
     @include lg {
       grid-template: repeat(6, auto) / 1fr;
+
+      grid-template-areas:
+		'extraction1'
+		'extraction2'
+		'extraction3'
+		'analysis1'
+		'analysis2'
+		'analysis3';
     }
 
-		img {
-			width: 350px;
-			height: 250px;
 
-			&:hover {
-				transition: 0.5s;
-				transform: scale(1.1);
-				cursor: pointer;
-			}
-		}
+    .first-extraction-feature {
+      grid-area: extraction1
+    }
+    .second-extraction-feature {
+      grid-area: extraction2
+    }
+    .third-extraction-feature {
+      grid-area: extraction3
+    }
+    .first-analysis-feature {
+      grid-area: analysis1
+    }
+    .first-analysis-feature {
+      grid-area: analysis2
+    }
+    .first-analysis-feature {
+      grid-area: analysis3
+    }
+    img {
+      width: 350px;
+      height: 250px;
+
+      &:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
 	}
 }

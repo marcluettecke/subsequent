@@ -8,15 +8,30 @@
 	</div>
 	<div class="content-container">
 		<div class="footer__navigation">
-			<a href="#" class="footer__link">Company</a>
-			<a href="#" class="footer__link">Contact us</a>
-			<a href="#" class="footer__link">Careers</a>
-			<a href="#privacy-popup" class="footer__link">Privacy</a>
-			<a href="#" class="footer__link">Terms</a>
+			<p class="address1">Subsequent GmbH</p>
+			<p class="address2">Gnadenseeweg 29</p>
+			<p class="address3">78467 Konstanz</p>
+			<div class="address4">
+				<mat-icon>alternate_email</mat-icon>
+				<a href="mailto:contact@subsequent.ai?subject=website contact"
+					>contact@subsequent.ai</a
+				>
+			</div>
+			<a href="tel:49-17697997180" class="address5"
+				><mat-icon>phone</mat-icon>
+				<p>+49 (0) 176 9799 7180</p></a
+			>
+			<!-- <a href="#" class="footer__link">{{ 'footer.footer-items.company' | translate }}</a>
+			<a href="#" class="footer__link">{{ 'footer.footer-items.contact' | translate }}</a>
+			<a href="#" class="footer__link">{{ 'footer.footer-items.career' | translate }}</a>
+			<a href="#privacy-popup" class="footer__link">{{ 'footer.footer-items.privacy' | translate }}</a>
+			<a href="#" class="footer__link">{{ 'footer.footer-items.terms' | translate }}</a> -->
 		</div>
 
 		<div class="copyright_container">
-			<p class="footer__copyright">&copy; 2021 Subsequent GmbH All Rights Reserved</p>
+			<p class="footer__copyright">
+				&copy; {{ 'footer.footer-items.copyright' | translate }}
+			</p>
 		</div>
 	</div>
 </footer>

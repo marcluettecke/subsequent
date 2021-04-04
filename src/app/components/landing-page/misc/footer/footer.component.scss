@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixins';
 
 .footer {
 	// background-color: $--accent-light;
@@ -30,39 +31,84 @@
 		width: 600px;
 		border-top: 1px solid $--white;
 		padding-top: 2rem;
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-	}
+		display: grid;
+		grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+		grid-template-areas:
+			'address1 address2 address3'
+			'address4 address4 address4'
+			'address5 address5 address5';
+		gap: 10px 5px;
 
-	&__item {
-		display: inline-block;
-
-		&:not(:last-child) {
-			margin-right: 1.5rem;
+		mat-icon {
+			padding-right: 10px;
 		}
-	}
+		// display: flex;
+		// justify-content: space-between;
+		// flex-wrap: wrap;
+		@include footer {
+			grid-template: repeat(6, 1fr);
+			grid-template-areas:
+				'address1'
+				'address2'
+				'address3'
+				'address4'
+				'address5';
+		}
 
-	&__link {
-		&:link,
-		&:visited {
-			color: $--white;
-			margin: 0;
-			background-color: rgba($--black, 0.8);
-			//background-color: transparent;
+		.address1 {
+			grid-area: address1;
+		}
+		.address2 {
+			grid-area: address2;
+		}
+		.address3 {
+			grid-area: address3;
+		}
+		.address4 {
+			grid-area: address4;
+			display: flex;
+
+			a {
+				text-decoration: none;
+				color: $--white;
+			}
+		}
+		.address5 {
+			grid-area: address5;
+			display: flex;
 			text-decoration: none;
-			text-transform: uppercase;
-			display: inline-block;
-			transition: all 0.2s;
-		}
-
-		&:hover,
-		&:active {
-			color: $--primary;
-			// box-shadow: $box-shadow;
-			transform: scale(1.1);
+			color: $--white;
 		}
 	}
+
+	// &__item {
+	// 	display: inline-block;
+
+	// 	&:not(:last-child) {
+	// 		margin-right: 1.5rem;
+	// 	}
+	// }
+
+	// &__link {
+	// 	&:link,
+	// 	&:visited {
+	// 		color: $--white;
+	// 		margin: 0;
+	// 		background-color: rgba($--black, 0.8);
+	// 		//background-color: transparent;
+	// 		text-decoration: none;
+	// 		text-transform: uppercase;
+	// 		display: inline-block;
+	// 		transition: all 0.2s;
+	// 	}
+
+	// 	&:hover,
+	// 	&:active {
+	// 		color: $--primary;
+	// 		// box-shadow: $box-shadow;
+	// 		transform: scale(1.1);
+	// 	}
+	// }
 
 	&__copyright {
 		float: right;
