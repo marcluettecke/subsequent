@@ -2,6 +2,16 @@
 @import 'mixins';
 
 .footer {
+
+  hr {
+    background-color: $--black;
+    border: none;
+    @include lg {
+      background-color: $--white;
+      border: 1px solid;
+    }
+  }
+
 	background-color: $--black;
 	padding-top: 50px;
 	font-size: 1.4rem;

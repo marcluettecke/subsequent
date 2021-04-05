@@ -1,6 +1,64 @@
 @import 'variables';
 @import 'mixins';
 
+.text-container-extraction {
+  overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+	width: 430px;
+	left: 1%;
+	bottom: 50%; /*0 = bottom of container, then subtract (line-height+border)*/
+	transform: rotate(-90deg);
+	transform-origin: top left;
+	#extraction {
+		text-transform: uppercase;
+		text-align: right;
+		font-size: 40px;
+		color: $--black;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 120px;
+			height: 4px;
+			background: $--black;
+			left: 0;
+			top: 50%;
+		}
+	}
+}
+
+.text-container-analysis {
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+	width: 430px; /*matches the height of the container*/
+	left: 98%;
+	bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
+	transform: rotate(-90deg);
+	transform-origin: top left;
+	#analysis {
+		text-transform: uppercase;
+		text-align: right;
+		font-size: 40px;
+		color: $--white;
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 120px;
+			height: 4px;
+			background: $--white;
+			left: 0;
+			top: 50%;
+		}
+	}
+}
+
 #feature-overview {
 	height: 100vh;
 	background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
@@ -14,42 +72,43 @@
 	gap: 15px 10px;
 	align-items: center;
 	justify-items: center;
+  // margin: 0 50px;
 
-  @include lg {
-    background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
-    grid-template: repeat(6, 1fr) / 60% 40%;
-    grid-template-areas:
-		'feature1 rotating'
-		'feature2 rotating'
-		'feature3 rotating'
-		'feature4 rotating'
-		'feature5 rotating'
-		'feature6 rotating';
-  }
-  @include md {
-    background: linear-gradient(to bottom, $--white, $--white 65%, $--black 65%);
-    grid-template: 30% repeat(6, 10%)/ 100vw;
-    grid-template-areas:
-		'rotating'
-		'feature1'
-		'feature2'
-		'feature3'
-		'feature4'
-		'feature5'
-		'feature6';
-  }
+	@include lg {
+		background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
+		grid-template: repeat(6, 1fr) / 60% 40%;
+		grid-template-areas:
+			'feature1 rotating'
+			'feature2 rotating'
+			'feature3 rotating'
+			'feature4 rotating'
+			'feature5 rotating'
+			'feature6 rotating';
+	}
+	@include md {
+		background: linear-gradient(to bottom, $--white, $--white 65%, $--black 65%);
+		grid-template: 30% repeat(6, 10%) / 100vw;
+		grid-template-areas:
+			'rotating'
+			'feature1'
+			'feature2'
+			'feature3'
+			'feature4'
+			'feature5'
+			'feature6';
+	}
 
 	.rotating-body {
 		grid-area: rotating;
 
 		video {
 			height: 600px;
-      @include lg {
-        height: 500px;
-      }
-      @include md {
-        height: 200px;
-      }
+			@include lg {
+				height: 500px;
+			}
+			@include md {
+				height: 200px;
+			}
 		}
 	}
 
@@ -87,74 +146,13 @@
 }
 
 #container-featureList {
-	// height: 1000px;
 	background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
-	position: relative;
+	// position: relative;
 	min-width: 30px;
 
-  @include lg {
-    // height: 2000px;
-    background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
-  }
-
-	.text-container-extraction {
-		position: absolute;
-		overflow: hidden;
-		height: 30px;
-		line-height: 30px;
-		width: 480px; /*matches the height of the container*/
-		left: 1%;
-		bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
-		transform: rotate(-90deg);
-		transform-origin: top left;
-		#extraction {
-			text-transform: uppercase;
-			text-align: right;
-			font-size: 40px;
-			color: $--black;
-			position: relative;
-
-			&:before {
-				content: '';
-				position: absolute;
-				display: block;
-				width: 120px;
-				height: 4px;
-				background: $--black;
-				left: 0;
-				top: 50%;
-			}
-		}
-	}
-
-	.text-container-analysis {
-		position: absolute;
-		overflow: hidden;
-		height: 30px;
-		line-height: 30px;
-		width: 430px; /*matches the height of the container*/
-		left: 98%;
-		bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
-		transform: rotate(-90deg);
-		transform-origin: top left;
-		#analysis {
-			text-transform: uppercase;
-			text-align: right;
-			font-size: 40px;
-			color: $--white;
-			position: relative;
-
-			&:before {
-				content: '';
-				position: absolute;
-				display: block;
-				width: 120px;
-				height: 4px;
-				background: $--white;
-				left: 0;
-				top: 50%;
-			}
-		}
+	@include lg {
+		// height: 2000px;
+		background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
 	}
 
 	.details-container {
@@ -162,51 +160,50 @@
 		grid-gap: 30px;
 		justify-items: center;
 		grid-template: repeat(3, auto) / 1fr 1fr;
-    grid-template-areas:
-		'extraction1 analysis1'
-		'extraction2 analysis2'
-		'extraction3 analysis3';
+		grid-template-areas:
+			'extraction1 analysis1'
+			'extraction2 analysis2'
+			'extraction3 analysis3';
 
-    @include lg {
-      grid-template: repeat(6, auto) / 1fr;
+		@include lg {
+			grid-template: repeat(6, auto) / 1fr;
 
-      grid-template-areas:
-		'extraction1'
-		'extraction2'
-		'extraction3'
-		'analysis1'
-		'analysis2'
-		'analysis3';
-    }
+			grid-template-areas:
+				'extraction1'
+				'extraction2'
+				'extraction3'
+				'analysis1'
+				'analysis2'
+				'analysis3';
+		}
 
+		.first-extraction-feature {
+			grid-area: extraction1;
+		}
+		.second-extraction-feature {
+			grid-area: extraction2;
+		}
+		.third-extraction-feature {
+			grid-area: extraction3;
+		}
+		.first-analysis-feature {
+			grid-area: analysis1;
+		}
+		.first-analysis-feature {
+			grid-area: analysis2;
+		}
+		.first-analysis-feature {
+			grid-area: analysis3;
+		}
+		img {
+			width: 350px;
+			height: 250px;
 
-    .first-extraction-feature {
-      grid-area: extraction1
-    }
-    .second-extraction-feature {
-      grid-area: extraction2
-    }
-    .third-extraction-feature {
-      grid-area: extraction3
-    }
-    .first-analysis-feature {
-      grid-area: analysis1
-    }
-    .first-analysis-feature {
-      grid-area: analysis2
-    }
-    .first-analysis-feature {
-      grid-area: analysis3
-    }
-    img {
-      width: 350px;
-      height: 250px;
-
-      &:hover {
-        transition: 0.5s;
-        transform: scale(1.1);
-        cursor: pointer;
-      }
-    }
+			&:hover {
+				transition: 0.5s;
+				transform: scale(1.1);
+				cursor: pointer;
+			}
+		}
 	}
 }

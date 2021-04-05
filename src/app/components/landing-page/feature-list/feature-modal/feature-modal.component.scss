@@ -1,12 +1,33 @@
 @import 'variables';
+@import 'mixins';
 
 #modal-content-wrapper {
 	height: 100%;
 	color: white;
 	display: grid;
 	grid-template: 100px 1fr 100px / 1fr 1fr;
-  grid-gap: 0 3%;
+	grid-template-areas:
+		'header header'
+		'image description'
+		'footer footer';
+	grid-gap: 0 3%;
 	justify-items: center;
+
+	@include lg {
+		grid-template: 100px 1fr 1fr 100px / 1fr;
+		grid-template-areas:
+			'header'
+			'image'
+			'description'
+			'footer';
+	}
+	@include md {
+		grid-template: 100px 1fr 100px / 1fr;
+		grid-template-areas:
+			'header'
+			'description'
+			'footer';
+	}
 }
 #modal-header {
 	grid-column: span 2;
@@ -16,20 +37,29 @@
 }
 
 img {
-  grid-column: 1;
-  grid-row: 2;
+	grid-area: image;
 	width: 400px;
 	height: 300px;
+
+	@include lg {
+		margin-bottom: 20px;
+	}
+
+	@include md {
+		display: none;
+	}
 }
 
 span {
-  grid-column: 2;
-  grid-row: 2;
-  justify-self: start;
+	// grid-column: 2;
+	// grid-row: 2;
+  grid-area: description;
+	justify-self: start;
+
 }
 
 #modal-footer {
-	grid-area: 3 / span 2;
+	grid-area: footer;
 	justify-self: right;
 	align-self: center;
 }

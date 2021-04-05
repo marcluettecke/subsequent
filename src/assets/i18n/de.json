@@ -56,6 +56,9 @@
 			"title": "Dritte Erhebungs Feature"
 		}
 	},
+	"footer": {
+		"copyright": "2021 Subsequent GmbH Alle Rechte vorbehalten"
+	},
 	"layout": {
 		"data-analysis": "Daten Analyse",
 		"data-extraction": "Daten Erhebung"

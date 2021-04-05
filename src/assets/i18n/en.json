@@ -56,6 +56,9 @@
 			"title": "Third survey feature"
 		}
 	},
+	"footer": {
+		"copyright": "2021 Subsequent GmbH All rights reserved"
+	},
 	"layout": {
 		"data-analysis": "Data analysis",
 		"data-extraction": "Data Extraction"
