@@ -2,23 +2,25 @@
 @import 'mixins';
 
 .footer {
+	text-align: center;
 
-  hr {
-    background-color: $--black;
-    border: none;
-    @include lg {
-      background-color: $--white;
-      border: 1px solid;
-    }
-  }
+	hr {
+		background-color: $--black;
+		border          : none;
+
+		@include lg {
+			background-color: $--white;
+			border          : 1px solid;
+		}
+	}
 
 	background-color: $--black;
-	padding-top: 50px;
-	font-size: 1.4rem;
-	color: $--white;
+	padding-top     : 50px;
+	font-size       : 1.4rem;
+	color           : $--white;
 
 	.content-container {
-		display: flex;
+		display        : flex;
 		justify-content: space-around;
 
 		.copyright_container {
@@ -27,20 +29,20 @@
 	}
 
 	&__logo-box {
-		text-align: center;
+		text-align   : center;
 		margin-bottom: 50px;
 	}
 
 	&__logo {
-		width: 30rem;
+		width : 30rem;
 		height: auto;
 	}
 
 	&__navigation {
-		width: 600px;
-		border-top: 1px solid $--white;
-		padding-top: 2rem;
-		display: grid;
+		width        : 600px;
+		border-top   : 1px solid $--white;
+		padding-top  : 2rem;
+		display      : grid;
 		grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 		grid-template-areas:
 			'address1 address2 address3'
@@ -65,32 +67,37 @@
 		.address1 {
 			grid-area: address1;
 		}
+
 		.address2 {
 			grid-area: address2;
 		}
+
 		.address3 {
 			grid-area: address3;
 		}
+
 		.address4 {
 			grid-area: address4;
-			display: flex;
+			display  : flex;
 
 			a {
 				text-decoration: none;
-				color: $--white;
+				color          : $--white;
 			}
 		}
+
 		.address5 {
-			grid-area: address5;
-			display: flex;
+			grid-area      : address5;
+			display        : flex;
 			text-decoration: none;
-			color: $--white;
+			color          : $--white;
 		}
 	}
+
 	&__copyright {
-		float: right;
-		width: 80%;
-		border-top: 1px solid $--white;
+		float      : right;
+		width      : 80%;
+		border-top : 1px solid $--white;
 		padding-top: 2rem;
 	}
 }

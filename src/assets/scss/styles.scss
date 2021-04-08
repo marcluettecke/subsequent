@@ -15,3 +15,10 @@ mat-dialog-container#modal-component {
 	border-radius: 11px;
 	background-color: $--black;
 }
+
+.inner-container {
+	display: inline-block;
+	width: 100%;
+	max-width: 900px;
+	margin: 0px auto;
+}
