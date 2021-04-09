@@ -57,11 +57,15 @@
 		}
 	},
 	"footer": {
-		"copyright": "2021 Subsequent GmbH Alle Rechte vorbehalten"
+		"copyright": "Alle Rechte vorbehalten",
+		"datenschutz": "Datenschutz",
+		"impressum": "Impressum",
+		"kontakt": "Kontakt",
+		"medien": "Medien"
 	},
 	"layout": {
-		"data-analysis": "Daten Analyse",
-		"data-extraction": "Daten Erhebung"
+		"data-analysis": "Datenanalyse",
+		"data-extraction": "Datenerhebung"
 	},
 	"sidenav": {
 		"header": "Menü",

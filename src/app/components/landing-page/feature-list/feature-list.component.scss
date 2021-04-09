@@ -1,148 +1,106 @@
 @import 'variables';
 @import 'mixins';
 
-.text-container-extraction {
-  overflow: hidden;
-	height: 30px;
-	line-height: 30px;
-	width: 430px;
-	left: 1%;
-	bottom: 50%; /*0 = bottom of container, then subtract (line-height+border)*/
-	transform: rotate(-90deg);
-	transform-origin: top left;
-	#extraction {
-		text-transform: uppercase;
-		text-align: right;
-		font-size: 40px;
-		color: $--black;
-		position: relative;
-
-		&:before {
-			content: '';
-			position: absolute;
-			display: block;
-			width: 120px;
-			height: 4px;
-			background: $--black;
-			left: 0;
-			top: 50%;
-		}
-	}
-}
-
-.text-container-analysis {
-	overflow: hidden;
-	height: 30px;
-	line-height: 30px;
-	width: 430px; /*matches the height of the container*/
-	left: 98%;
-	bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
-	transform: rotate(-90deg);
-	transform-origin: top left;
-	#analysis {
-		text-transform: uppercase;
-		text-align: right;
-		font-size: 40px;
-		color: $--white;
-		position: relative;
-
-		&:before {
-			content: '';
-			position: absolute;
-			display: block;
-			width: 120px;
-			height: 4px;
-			background: $--white;
-			left: 0;
-			top: 50%;
-		}
-	}
-}
-
 #feature-overview {
-	height: 100vh;
+  width: 100%;
 	background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
+  color: $--black;
 
-	display: grid;
-	grid-template: repeat(3, auto) / repeat(3, 1fr);
-	grid-template-areas:
-		'feature1 rotating feature4'
-		'feature2 rotating feature5'
-		'feature3 rotating feature6';
-	gap: 15px 10px;
-	align-items: center;
-	justify-items: center;
-  // margin: 0 50px;
-
-	@include lg {
-		background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
-		grid-template: repeat(6, 1fr) / 60% 40%;
+	.feature-grid {
+    height: 100vh;
+		display: grid;
+		grid-template:  repeat(4, 1fr) / 30% 1fr 1fr 30%;
 		grid-template-areas:
-			'feature1 rotating'
-			'feature2 rotating'
-			'feature3 rotating'
-			'feature4 rotating'
-			'feature5 rotating'
-			'feature6 rotating';
-	}
-	@include md {
-		background: linear-gradient(to bottom, $--white, $--white 65%, $--black 65%);
-		grid-template: 30% repeat(6, 10%) / 100vw;
-		grid-template-areas:
-			'rotating'
-			'feature1'
-			'feature2'
-			'feature3'
-			'feature4'
-			'feature5'
-			'feature6';
-	}
+			'heading1 heading1 heading2 heading2'
+			'feature1 rotating rotating feature4'
+			'feature2 rotating rotating feature5'
+			'feature3 rotating rotating feature6';
+		grid-gap: 15px;
+		align-items: center;
+		justify-items: center;
+		// @include lg {
+		// 	background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
+		// 	grid-template: repeat(6, 1fr) / 60% 40%;
+		// 	grid-template-areas:
+		// 		'feature1 rotating'
+		// 		'feature2 rotating'
+		// 		'feature3 rotating'
+		// 		'feature4 rotating'
+		// 		'feature5 rotating'
+		// 		'feature6 rotating';
+		// }
+		@include md {
+			grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+			grid-template-areas:
+			'heading1 heading2'
+			'feature1 feature4'
+			'feature2 feature5'
+			'feature3 feature6';
+		}
 
-	.rotating-body {
-		grid-area: rotating;
+		.rotating-body {
+			grid-area: rotating;
 
-		video {
-			height: 600px;
-			@include lg {
-				height: 500px;
-			}
-			@include md {
-				height: 200px;
+			video {
+				height: 450px;
+
+				@include md {
+          display: none;
+				}
 			}
 		}
+    .feature-bullet {
+      font-size: 30px;
+    }
+
+    .text-container-extraction {
+      grid-area: heading1;
+
+      h1 {
+        font-size: 40px;
+        font-weight: bold;
+      }
+    }
+
+    .text-container-analysis {
+      grid-area: heading2;
+
+      h1 {
+        font-size: 40px;
+        font-weight: bold;
+        color: $--white;
+      }
+    }
+
+    .first-feature {
+      grid-area: feature1;
+    }
+
+    .second-feature {
+      grid-area: feature2;
+    }
+
+    .third-feature {
+      grid-area: feature3;
+    }
+
+    .fourth-feature {
+      grid-area: feature4;
+    }
+
+    .fifth-feature {
+      grid-area: feature5;
+    }
+
+    .sixth-feature {
+      grid-area: feature6;
+    }
+
+    .analysis-features {
+      color: white;
+    }
 	}
 
-	.feature-bullet {
-		font-size: 30px;
-	}
-
-	.first-feature {
-		grid-area: feature1;
-	}
-
-	.second-feature {
-		grid-area: feature2;
-	}
-
-	.third-feature {
-		grid-area: feature3;
-	}
-
-	.fourth-feature {
-		grid-area: feature4;
-	}
-
-	.fifth-feature {
-		grid-area: feature5;
-	}
-
-	.sixth-feature {
-		grid-area: feature6;
-	}
-
-	.analysis-features {
-		color: white;
-	}
 }
 
 #container-featureList {
@@ -207,3 +165,64 @@
 		}
 	}
 }
+
+
+
+/// sideway styling of text with line in front of original design
+// .text-container-extraction {
+//   overflow: hidden;
+// 	height: 30px;
+// 	line-height: 30px;
+// 	width: 430px;
+// 	left: 1%;
+// 	bottom: 50%; /*0 = bottom of container, then subtract (line-height+border)*/
+// 	transform: rotate(-90deg);
+// 	transform-origin: top left;
+// 	#extraction {
+// 		text-transform: uppercase;
+// 		text-align: right;
+// 		font-size: 40px;
+// 		color: $--black;
+// 		position: relative;
+
+// 		&:before {
+// 			content: '';
+// 			position: absolute;
+// 			display: block;
+// 			width: 120px;
+// 			height: 4px;
+// 			background: $--black;
+// 			left: 0;
+// 			top: 50%;
+// 		}
+// 	}
+// }
+
+// .text-container-analysis {
+// 	overflow: hidden;
+// 	height: 30px;
+// 	line-height: 30px;
+// 	width: 430px; /*matches the height of the container*/
+// 	left: 98%;
+// 	bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
+// 	transform: rotate(-90deg);
+// 	transform-origin: top left;
+// 	#analysis {
+// 		text-transform: uppercase;
+// 		text-align: right;
+// 		font-size: 40px;
+// 		color: $--white;
+// 		position: relative;
+
+// 		&:before {
+// 			content: '';
+// 			position: absolute;
+// 			display: block;
+// 			width: 120px;
+// 			height: 4px;
+// 			background: $--white;
+// 			left: 0;
+// 			top: 50%;
+// 		}
+// 	}
+// }

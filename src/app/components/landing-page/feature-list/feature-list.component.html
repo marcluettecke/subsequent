@@ -1,78 +1,82 @@
+<section id="feature-overview">
+	<div class="inner-container feature-grid">
+		<div class="text-container-extraction">
+			<h1 id="extraction">{{ 'layout.data-extraction' | translate }}</h1>
+		</div>
+		<div class="first-feature feature-bullet">
+			{{ 'features-extraction.first.title' | translate }}
+		</div>
+		<div class="second-feature feature-bullet">
+			{{ 'features-extraction.second.title' | translate }}
+		</div>
+		<div class="third-feature feature-bullet">
+			{{ 'features-extraction.third.title' | translate }}
+		</div>
+		<div class="rotating-body">
+			<video
+				autoplay=""
+				loop=""
+				muted=""
+				width="100%"
+				height="100%"
+				preload="auto"
+				autobuffer="true"
+			>
+				<source
+					type="video/mp4"
+					src="../../../../assets/videos/spaceX_rotation_cropped.mp4"
+				/>
+			</video>
+		</div>
+		<div class="text-container-analysis">
+			<h1 id="analysis">{{ 'layout.data-analysis' | translate }}</h1>
+		</div>
 
-  <section id="feature-overview">
-    <div class="first-feature feature-bullet">
-      {{ 'features-extraction.first.title' | translate }}
-    </div>
-    <div class="second-feature feature-bullet">
-      {{ 'features-extraction.second.title' | translate }}
-    </div>
-    <div class="third-feature feature-bullet">
-      {{ 'features-extraction.third.title' | translate }}
-    </div>
-    <div class="rotating-body">
-      <video
-        autoplay=""
-        loop=""
-        muted=""
-        width="100%"
-        height="100%"
-        preload="auto"
-        autobuffer="true"
-      >
-        <source type="video/mp4" src="../../../../assets/videos/spaceX_rotation_cropped.mp4" />
-      </video>
-    </div>
-    <div class="fourth-feature feature-bullet analysis-features">
-      {{ 'features-analysis.first.title' | translate }}
-    </div>
-    <div class="fifth-feature feature-bullet analysis-features">
-      {{ 'features-analysis.second.title' | translate }}
-    </div>
-    <div class="sixth-feature feature-bullet analysis-features">
-      {{ 'features-analysis.third.title' | translate }}
-    </div>
-  </section>
+		<div class="fourth-feature feature-bullet analysis-features">
+			{{ 'features-analysis.first.title' | translate }}
+		</div>
+		<div class="fifth-feature feature-bullet analysis-features">
+			{{ 'features-analysis.second.title' | translate }}
+		</div>
+		<div class="sixth-feature feature-bullet analysis-features">
+			{{ 'features-analysis.third.title' | translate }}
+		</div>
+	</div>
+</section>
 
-  <!-- <div class="text-container-extraction">
-    <h1 id="extraction">{{ 'layout.data-extraction' | translate }}</h1>
-  </div>
-
-  <div class="text-container-analysis">
-    <h1 id="analysis">{{ 'layout.data-analysis' | translate }}</h1>
-  </div> -->
-
-  <section id="container-featureList">
-    <div class="details-container">
-      <img
-        [src]="featureImagePath[0]"
-        (click)="openModal($event, 0)"
-        class="first-extraction-feature"
-      />
-      <img
-        [src]="featureImagePath[1]"
-        (click)="openModal($event, 1)"
-        class="first-analysis-feature"
-      />
-      <img
-        [src]="featureImagePath[2]"
-        (click)="openModal($event, 2)"
-        class="second-extraction-feature"
-      />
-      <img
-        [src]="featureImagePath[3]"
-        (click)="openModal($event, 3)"
-        class="second-analysis-feature"
-      />
-      <img
-        [src]="featureImagePath[4]"
-        (click)="openModal($event, 4)"
-        class="third-extraction-feature"
-      />
-      <img
-        [src]="featureImagePath[5]"
-        (click)="openModal($event, 5)"
-        class="third-analysis-feature"
-      />
-    </div>
-  </section>
-
+<section id="container-featureList">
+	<div class="inner-container">
+		<div class="details-container">
+			<img
+				[src]="featureImagePath[0]"
+				(click)="openModal($event, 0)"
+				class="first-extraction-feature"
+			/>
+			<img
+				[src]="featureImagePath[1]"
+				(click)="openModal($event, 1)"
+				class="first-analysis-feature"
+			/>
+			<img
+				[src]="featureImagePath[2]"
+				(click)="openModal($event, 2)"
+				class="second-extraction-feature"
+			/>
+			<img
+				[src]="featureImagePath[3]"
+				(click)="openModal($event, 3)"
+				class="second-analysis-feature"
+			/>
+			<img
+				[src]="featureImagePath[4]"
+				(click)="openModal($event, 4)"
+				class="third-extraction-feature"
+			/>
+			<img
+				[src]="featureImagePath[5]"
+				(click)="openModal($event, 5)"
+				class="third-analysis-feature"
+			/>
+		</div>
+	</div>
+</section>

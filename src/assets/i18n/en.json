@@ -57,7 +57,11 @@
 		}
 	},
 	"footer": {
-		"copyright": "2021 Subsequent GmbH All rights reserved"
+		"copyright": "GmbH All rights reserved",
+		"datenschutz": "Privacy",
+		"impressum": "Imprint",
+		"kontakt": "Contact",
+		"medien": "Media"
 	},
 	"layout": {
 		"data-analysis": "Data analysis",
