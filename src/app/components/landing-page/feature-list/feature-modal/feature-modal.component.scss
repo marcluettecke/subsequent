@@ -3,66 +3,96 @@
 
 #modal-content-wrapper {
 	height: 100%;
-	color: white;
+	color: $--white;
 	display: grid;
-	grid-template: 100px 1fr 100px / 1fr 1fr;
+	grid-template: 50px 1fr 300px / 200px 1fr 20px;
 	grid-template-areas:
-		'header header'
-		'image description'
-		'footer footer';
-	grid-gap: 0 3%;
+		'. header close'
+		'bulletpoints image image'
+		'. description description';
+	grid-gap: 0 1%;
 	justify-items: center;
+	align-items: center;
 
 	@include lg {
-		grid-template: 100px 1fr 1fr 100px / 1fr;
+		grid-template: 50px 1fr 300px / 200px 1fr 20px;
 		grid-template-areas:
-			'header'
-			'image'
-			'description'
-			'footer';
+			'. header close'
+			'bulletpoints image image'
+			'description description description';
 	}
+
+	#modal-header {
+		grid-area: header;
+		#modal-title {
+			font-size: 22px;
+		}
+	}
+	.bulletpoints {
+		grid-area: bulletpoints;
+		justify-self: end;
+		text-align: right;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	mat-icon {
+		grid-area: close;
+		align-self: start;
+		background-color: $--black;
+
+		&:hover {
+			color: $--primary;
+			cursor: pointer;
+		}
+	}
+
+	#featureImage {
+		grid-area: image;
+		width: 70%;
+		height: auto;
+	}
+
+	#description {
+		grid-area: description;
+		text-align: justify;
+		justify-self: center;
+		width: 70%;
+	}
+
 	@include md {
-		grid-template: 100px 1fr 100px / 1fr;
+		grid-template: 1fr 1fr / 1fr 20px;
 		grid-template-areas:
-			'header'
-			'description'
-			'footer';
+			'image close'
+			'description description';
+
+		#featureImage {
+			width: 90%;
+			height: auto;
+		}
+
+		#description {
+			width: 90%;
+		}
+
+		#modal-header {
+			display: none;
+		}
+
+		.bulletpoints {
+			display: none;
+		}
 	}
-}
-#modal-header {
-	grid-column: span 2;
-}
-#modal-title {
-	font-size: 22px;
-}
 
-img {
-	grid-area: image;
-	width: 400px;
-	height: 300px;
+	// #modal-footer {
+	// 	grid-area: footer;
+	// 	justify-self: right;
+	// 	align-self: center;
+	// }
 
-	@include lg {
-		margin-bottom: 20px;
-	}
-
-	@include md {
-		display: none;
-	}
-}
-
-span {
-  grid-area: description;
-	justify-self: start;
-
-}
-
-#modal-footer {
-	grid-area: footer;
-	justify-self: right;
-	align-self: center;
-}
-
-#modal-cancel-button {
-	background-color: #4e4e4e;
-	color: white;
+	// #modal-cancel-button {
+	// 	background-color: #4e4e4e;
+	// 	color: white;
+	// }
 }

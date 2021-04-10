@@ -32,7 +32,7 @@ export class FeatureModalComponent implements OnInit {
 		return `features-details.feature${this.featureID + 1}.title`;
 	}
 
-	closeModal() {
-		this.dialogRef.close();
-	}
+	// closeModal() {
+	// 	this.dialogRef.close();
+	// }
 }

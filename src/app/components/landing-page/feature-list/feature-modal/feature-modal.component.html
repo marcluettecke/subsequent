@@ -2,9 +2,15 @@
 	<header id="modal-header">
 		<h1 id="modal-title">{{ featureTitlePath | translate }}</h1>
 	</header>
-	<img [src]="imagePath" />
-	<span>{{ featureDescriptionPath | translate}}</span>
-	<footer id="modal-footer">
+	<mat-icon [mat-dialog-close]="true">close</mat-icon>
+	<div class="bulletpoints">
+		<p id="bullet1">fast and real-time prediction</p>
+		<p id="bullet2">easy to read data</p>
+		<p id="bullet3">accurate and reliable</p>
+	</div>
+	<img id="featureImage" [src]="imagePath" />
+	<span id="description">{{ featureDescriptionPath | translate }}</span>
+	<!-- <footer id="modal-footer">
 		<button mat-raised-button id="modal-cancel-button" (click)="closeModal()">{{ 'buttons.back' | translate }}</button>
-	</footer>
+	</footer> -->
 </div>
