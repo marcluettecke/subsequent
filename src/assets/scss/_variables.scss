@@ -1,15 +1,11 @@
 // breakpoints
-// Small tablets and large smartphones (landscape view)
-$screen-sm-min: 576px;
 
-// Small tablets (portrait view)
-$screen-md-min: 768px;
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px (1200 / 16 --> average font-size)
+$bp-large: 62em; // 992px (992 / 16 --> average font-size)
+$bp-medium: 48em; // 768px (768 / 16 --> average font-size)
+$bp-small: 36em; // 576px (576 / 16 --> average font-size)
 
-// Tablets and small desktops
-$screen-lg-min: 992px;
-
-// Large tablets and desktops
-$screen-xl-min: 1200px;
 
 
 $--primary: #8cd0de;

@@ -4,20 +4,32 @@
 .footer {
 	background: linear-gradient(to bottom, $--black 50%, $--primary);
 	padding-top: 20px;
-	font-size: 1.4rem;
-	color: $--white;
+	font-size: 2rem;
+  display: flex;
 
 	.footer-grid {
+    grid-area: content;
 		display: grid;
-		grid-template: 1fr 50px 20px 50px / 100px repeat(4, 1fr) 100px;
+		grid-template-rows: min-content min-content 2rem min-content;
+    grid-template-columns: 10rem repeat(4, 1fr) 10rem;
 		grid-template-areas:
 			'logo logo logo logo logo log'
 			'. impressum datenschutz medien kontakt .'
 			'hr hr hr hr hr hr'
 			'copyright copyright copyright copyright copyright copyright';
-		grid-gap: 15px;
+		grid-gap: 1rem 1.5rem;
 		justify-items: center;
 		align-items: center;
+
+    @include md {
+      grid-template-rows: min-content min-content 2rem min-content;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+			'logo logo logo logo'
+			'impressum datenschutz medien kontakt'
+			'hr hr hr hr'
+			'copyright copyright copyright copyright';
+    }
 
     a:hover {
       color: $--primary;
@@ -25,13 +37,22 @@
     }
 
     img {
-      height: 80px;
+      height: 10rem;
       width: auto;
+      display: block;
+
+      @include md {
+        height: 7rem;
+      }
     }
 
 		#logo {
 			grid-area: logo;
       justify-self: flex-start;
+
+      @include md {
+        justify-self: center;
+      }
 		}
     #hr {
       width: 100%;
@@ -60,13 +81,3 @@
 		}
 	}
 }
-
-// @include footer {
-// 	grid-template: repeat(6, 1fr);
-// 	grid-template-areas:
-// 		'address1'
-// 		'address2'
-// 		'address3'
-// 		'address4'
-// 		'address5';
-// }

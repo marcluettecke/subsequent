@@ -4,25 +4,40 @@
 html,
 body {
 	height: 100%;
-  overflow: hidden;
+  box-sizing: border-box;
+	font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px;
+  // overflow: hidden; //attepmpt to hide scrollbar
+
+  @include md {
+		font-size: 50%;
+	}
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
 }
 
 
 body {
 	margin: 0;
 	font-family: Roboto, 'Helvetica Neue', sans-serif;
+  color: $--black;
 	background-color: $--black;
 }
 
 mat-dialog-container#modal-component {
 	border: 3px solid $--black;
-	border-radius: 11px;
+	border-radius: 1.1rem;
 	background-color: $--black;
 }
 
 .inner-container {
 	display: inline-block;
 	width: 100%;
-	max-width: 1300px;
-	margin: 0px auto;
+	max-width: 65em;
+  margin: 0 auto;
 }

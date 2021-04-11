@@ -2,35 +2,29 @@
 @import 'variables';
 
 @mixin sm {
-  @media (max-width: #{$screen-sm-min}) {
+  @media (max-width: #{$bp-small}) {
       @content;
   }
 }
 
 // Medium devices
 @mixin md {
-  @media (max-width: #{$screen-md-min}) {
+  @media screen and(max-width: #{$bp-medium}) {
       @content;
   }
 }
 
 // Large devices
 @mixin lg {
-  @media (max-width: #{$screen-lg-min}) {
+  @media screen and(max-width: #{$bp-large}) {
       @content;
   }
 }
 
 // Extra large devices
 @mixin xl {
-  @media (max-width: #{$screen-xl-min}) {
+  @media screen and(max-width: #{$bp-largest}) {
       @content;
   }
 }
 
-// Custom footer breakpoint
-@mixin footer {
-  @media (max-width: #{1250px}) {
-      @content;
-  }
-}
