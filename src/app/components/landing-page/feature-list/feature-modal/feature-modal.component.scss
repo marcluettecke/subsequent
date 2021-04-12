@@ -5,27 +5,19 @@
 	height: 100%;
 	color: $--white;
 	display: grid;
-	grid-template: 50px 1fr 300px / 200px 1fr 20px;
+	grid-template: 1fr min-content / max-content 1fr min-content;
 	grid-template-areas:
-		'. header close'
-		'bulletpoints image image'
-		'. description description';
-	grid-gap: 0 1%;
+		'bulletpoints image close'
+		'description description description';
+	grid-gap: 3rem 1%;
 	justify-items: center;
 	align-items: center;
-
-	@include lg {
-		grid-template: 50px 1fr 300px / 200px 1fr 20px;
-		grid-template-areas:
-			'. header close'
-			'bulletpoints image image'
-			'description description description';
-	}
 
 	#modal-header {
 		grid-area: header;
 		#modal-title {
 			font-size: 22px;
+      margin: 0;
 		}
 	}
 	.bulletpoints {
@@ -58,41 +50,33 @@
 		grid-area: description;
 		text-align: justify;
 		justify-self: center;
-		width: 70%;
+		width: 100%;
 	}
 
 	@include md {
-		grid-template: 1fr 1fr / 1fr 20px;
+		grid-template: max-content min-content / 1fr;
 		grid-template-areas:
-			'image close'
-			'description description';
+			'image'
+			'description';
 
 		#featureImage {
-			width: 90%;
-			height: auto;
-		}
-
-		#description {
-			width: 90%;
-		}
+			width: 100%;
+      z-index: 1;
+    }
 
 		#modal-header {
 			display: none;
 		}
 
+    mat-icon {
+      grid-area: image;
+      justify-self: end;
+      z-index: 2;
+      margin: 1rem;
+    }
+
 		.bulletpoints {
 			display: none;
 		}
 	}
-
-	// #modal-footer {
-	// 	grid-area: footer;
-	// 	justify-self: right;
-	// 	align-self: center;
-	// }
-
-	// #modal-cancel-button {
-	// 	background-color: #4e4e4e;
-	// 	color: white;
-	// }
 }

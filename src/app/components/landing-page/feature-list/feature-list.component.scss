@@ -1,15 +1,21 @@
 @import 'variables';
 @import 'mixins';
 
+%heading {
+	font-size: 40px;
+	font-weight: bold;
+  letter-spacing: 5px;
+}
+
 #feature-overview {
-  width: 100%;
+	width: 100%;
 	background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
-  color: $--black;
+	color: $--black;
 
 	.feature-grid {
-    height: 100vh;
+		height: 100vh;
 		display: grid;
-		grid-template:  repeat(4, 1fr) / 30% 1fr 1fr 30%;
+		grid-template: repeat(4, 1fr) / 30% 1fr 1fr 30%;
 		grid-template-areas:
 			'heading1 heading1 heading2 heading2'
 			'feature1 rotating rotating feature4'
@@ -32,10 +38,10 @@
 		@include md {
 			grid-template: repeat(4, 1fr) / repeat(2, 1fr);
 			grid-template-areas:
-			'heading1 heading2'
-			'feature1 feature4'
-			'feature2 feature5'
-			'feature3 feature6';
+				'heading1 heading2'
+				'feature1 feature4'
+				'feature2 feature5'
+				'feature3 feature6';
 		}
 
 		.rotating-body {
@@ -45,62 +51,57 @@
 				height: 450px;
 
 				@include md {
-          display: none;
+					display: none;
 				}
 			}
 		}
-    .feature-bullet {
-      font-size: 30px;
-    }
+		.feature-bullet {
+			font-size: 30px;
+		}
 
-    .text-container-extraction {
-      grid-area: heading1;
+		.text-container-extraction {
+			grid-area: heading1;
 
-      h1 {
-        font-size: 40px;
-        font-weight: bold;
-      }
-    }
+			h1 {@extend %heading;}
+		}
 
-    .text-container-analysis {
-      grid-area: heading2;
+		.text-container-analysis {
+			grid-area: heading2;
 
-      h1 {
-        font-size: 40px;
-        font-weight: bold;
-        color: $--white;
-      }
-    }
+			h1 {
+				@extend %heading;
+				color: $--white;
+			}
+		}
 
-    .first-feature {
-      grid-area: feature1;
-    }
+		.first-feature {
+			grid-area: feature1;
+		}
 
-    .second-feature {
-      grid-area: feature2;
-    }
+		.second-feature {
+			grid-area: feature2;
+		}
 
-    .third-feature {
-      grid-area: feature3;
-    }
+		.third-feature {
+			grid-area: feature3;
+		}
 
-    .fourth-feature {
-      grid-area: feature4;
-    }
+		.fourth-feature {
+			grid-area: feature4;
+		}
 
-    .fifth-feature {
-      grid-area: feature5;
-    }
+		.fifth-feature {
+			grid-area: feature5;
+		}
 
-    .sixth-feature {
-      grid-area: feature6;
-    }
+		.sixth-feature {
+			grid-area: feature6;
+		}
 
-    .analysis-features {
-      color: white;
-    }
+		.analysis-features {
+			color: white;
+		}
 	}
-
 }
 
 #container-featureList {
@@ -170,8 +171,6 @@
 //   height: 1000px;
 //   width: 1000px;
 // }
-
-
 
 /// sideway styling of text with line in front of original design
 // .text-container-extraction {
