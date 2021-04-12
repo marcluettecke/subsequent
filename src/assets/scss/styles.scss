@@ -8,7 +8,7 @@ body {
 	font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px;
   // overflow: hidden; //attepmpt to hide scrollbar
 
-  @include md {
+  @include lg {
 		font-size: 50%;
 	}
 }
@@ -38,6 +38,6 @@ mat-dialog-container#modal-component {
 .inner-container {
 	display: inline-block;
 	width: 100%;
-	max-width: 65em;
+	max-width: 120rem;
   margin: 0 auto;
 }

@@ -2,9 +2,9 @@
 @import 'mixins';
 
 %heading {
-	font-size: 40px;
+	font-size: 5rem;
 	font-weight: bold;
-  letter-spacing: 5px;
+	letter-spacing: 0.5rem;
 }
 
 #feature-overview {
@@ -13,60 +13,79 @@
 	color: $--black;
 
 	.feature-grid {
-		height: 100vh;
+		height: calc(100vh - 6rem);
 		display: grid;
-		grid-template: repeat(4, 1fr) / 30% 1fr 1fr 30%;
+		grid-template: min-content repeat(3, 1fr) / minmax(3rem, 0.5fr) max-content 1fr 1fr max-content minmax(
+				3rem,
+				0.5fr
+			);
 		grid-template-areas:
-			'heading1 heading1 heading2 heading2'
-			'feature1 rotating rotating feature4'
-			'feature2 rotating rotating feature5'
-			'feature3 rotating rotating feature6';
-		grid-gap: 15px;
+			'. heading1 heading1 heading2 heading2 .'
+			'. feature1 rotating rotating feature4 .'
+			'. feature2 rotating rotating feature5 .'
+			'. feature3 rotating rotating feature6 .';
+		grid-gap: 1.5rem;
 		align-items: center;
 		justify-items: center;
-		// @include lg {
-		// 	background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
-		// 	grid-template: repeat(6, 1fr) / 60% 40%;
-		// 	grid-template-areas:
-		// 		'feature1 rotating'
-		// 		'feature2 rotating'
-		// 		'feature3 rotating'
-		// 		'feature4 rotating'
-		// 		'feature5 rotating'
-		// 		'feature6 rotating';
-		// }
-		@include md {
-			grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+
+		@include lg {
+			background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
+			grid-template-rows: min-content repeat(3, 1fr) min-content repeat(3, 1fr);
+			grid-template-columns: minmax(0.5rem, 0.3fr) max-content 1fr minmax(0.5rem, 0.3fr);
 			grid-template-areas:
-				'heading1 heading2'
-				'feature1 feature4'
-				'feature2 feature5'
-				'feature3 feature6';
+				'. heading1 rotating .'
+				'. feature1 rotating .'
+				'. feature2 rotating .'
+				'. feature3 rotating .'
+				'. heading2 rotating .'
+				'. feature4 rotating .'
+				'. feature5 rotating .'
+				'. feature6 rotating .';
+		}
+		@include md {
+			grid-template-rows: min-content repeat(3, 1fr) min-content repeat(3, 1fr);
+			grid-template-columns: minmax(0.5rem, 0.3fr) max-content minmax(0.5rem, 0.3fr);
+			grid-template-areas:
+				'. heading1 .'
+				'. feature1 .'
+				'. feature2 .'
+				'. feature3 .'
+				'. heading2 .'
+				'. feature4 .'
+				'. feature5 .'
+				'. feature6 .';
+			justify-content: center;
 		}
 
 		.rotating-body {
 			grid-area: rotating;
 
-			video {
-				height: 450px;
+			@include md {
+				display: none;
+			}
 
-				@include md {
-					display: none;
-				}
+			video {
+				width: 100%;
+				height: auto;
+				max-height: 65vh;
 			}
 		}
 		.feature-bullet {
-			font-size: 30px;
+			font-size: 3rem;
 		}
 
 		.text-container-extraction {
 			grid-area: heading1;
+			margin-top: 2rem;
 
-			h1 {@extend %heading;}
+			h1 {
+				@extend %heading;
+			}
 		}
 
 		.text-container-analysis {
 			grid-area: heading2;
+			margin-top: 2rem;
 
 			h1 {
 				@extend %heading;
@@ -106,57 +125,55 @@
 
 #container-featureList {
 	background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
-	// position: relative;
-	min-width: 30px;
 
-	@include lg {
-		// height: 2000px;
-		background: linear-gradient(to bottom, $--white, $--white 50%, $--black 50%);
-	}
+	display: grid;
+	grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
 
 	.details-container {
+		grid-column: 2;
+		height: calc(100vh - 6rem);
+		margin-bottom: 5rem;
+
+		// width: auto;
+
 		display: grid;
-		grid-gap: 30px;
+		grid-template-columns: repeat(8, 1fr);
+		grid-template-rows: repeat(7, 1fr);
+		grid-gap: 3rem;
 		justify-items: center;
-		grid-template: repeat(3, auto) / 1fr 1fr;
-		grid-template-areas:
-			'extraction1 analysis1'
-			'extraction2 analysis2'
-			'extraction3 analysis3';
-
-		@include lg {
-			grid-template: repeat(6, auto) / 1fr;
-
-			grid-template-areas:
-				'extraction1'
-				'extraction2'
-				'extraction3'
-				'analysis1'
-				'analysis2'
-				'analysis3';
-		}
+		align-items: center;
 
 		.first-extraction-feature {
-			grid-area: extraction1;
+			grid-row: 2 / span 2;
+			grid-column: 2 / span 3;
 		}
 		.second-extraction-feature {
-			grid-area: extraction2;
+			grid-row: 5 / span 2;
+			grid-column: 2 / span 2;
 		}
 		.third-extraction-feature {
-			grid-area: extraction3;
+			grid-row: 6 / span 1;
+			grid-column: 4 / span 2;
 		}
 		.first-analysis-feature {
-			grid-area: analysis1;
+			grid-row: 3 / span 2;
+			grid-column: 5 / span 2;
 		}
-		.first-analysis-feature {
-			grid-area: analysis2;
+		.second-analysis-feature {
+			grid-row: 4 / span 2;
+			grid-column: 8 / span 1;
 		}
-		.first-analysis-feature {
-			grid-area: analysis3;
+		.third-analysis-feature {
+			grid-row: 6 / span 1;
+			grid-column: 6 / span 2;
 		}
 		img {
-			width: 350px;
-			height: 250px;
+			width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+
+			transform: rotateX(-29deg) rotateY(51deg);
 
 			&:hover {
 				transition: 0.5s;
@@ -166,67 +183,3 @@
 		}
 	}
 }
-
-// mat-dialog-container#modal-component {
-//   height: 1000px;
-//   width: 1000px;
-// }
-
-/// sideway styling of text with line in front of original design
-// .text-container-extraction {
-//   overflow: hidden;
-// 	height: 30px;
-// 	line-height: 30px;
-// 	width: 430px;
-// 	left: 1%;
-// 	bottom: 50%; /*0 = bottom of container, then subtract (line-height+border)*/
-// 	transform: rotate(-90deg);
-// 	transform-origin: top left;
-// 	#extraction {
-// 		text-transform: uppercase;
-// 		text-align: right;
-// 		font-size: 40px;
-// 		color: $--black;
-// 		position: relative;
-
-// 		&:before {
-// 			content: '';
-// 			position: absolute;
-// 			display: block;
-// 			width: 120px;
-// 			height: 4px;
-// 			background: $--black;
-// 			left: 0;
-// 			top: 50%;
-// 		}
-// 	}
-// }
-
-// .text-container-analysis {
-// 	overflow: hidden;
-// 	height: 30px;
-// 	line-height: 30px;
-// 	width: 430px; /*matches the height of the container*/
-// 	left: 98%;
-// 	bottom: 250px; /*0 = bottom of container, then subtract (line-height+border)*/
-// 	transform: rotate(-90deg);
-// 	transform-origin: top left;
-// 	#analysis {
-// 		text-transform: uppercase;
-// 		text-align: right;
-// 		font-size: 40px;
-// 		color: $--white;
-// 		position: relative;
-
-// 		&:before {
-// 			content: '';
-// 			position: absolute;
-// 			display: block;
-// 			width: 120px;
-// 			height: 4px;
-// 			background: $--white;
-// 			left: 0;
-// 			top: 50%;
-// 		}
-// 	}
-// }

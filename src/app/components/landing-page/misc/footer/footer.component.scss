@@ -50,6 +50,10 @@
 			grid-area: logo;
       justify-self: flex-start;
 
+      @include xl {
+        margin-left: 2rem;
+      }
+
       @include md {
         justify-self: center;
       }

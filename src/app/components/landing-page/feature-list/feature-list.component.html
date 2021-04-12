@@ -1,5 +1,5 @@
 <section id="feature-overview">
-	<div class="inner-container feature-grid">
+	<div class="feature-grid">
 		<div class="text-container-extraction">
 			<h1 id="extraction">{{ 'layout.data-extraction' | translate }}</h1>
 		</div>
@@ -45,38 +45,36 @@
 </section>
 
 <section id="container-featureList">
-	<div class="inner-container">
-		<div class="details-container">
-			<img
-				[src]="featureImagePath[0]"
-				(click)="openModal($event, 0)"
-				class="first-extraction-feature"
-			/>
-			<img
-				[src]="featureImagePath[1]"
-				(click)="openModal($event, 1)"
-				class="first-analysis-feature"
-			/>
-			<img
-				[src]="featureImagePath[2]"
-				(click)="openModal($event, 2)"
-				class="second-extraction-feature"
-			/>
-			<img
-				[src]="featureImagePath[3]"
-				(click)="openModal($event, 3)"
-				class="second-analysis-feature"
-			/>
-			<img
-				[src]="featureImagePath[4]"
-				(click)="openModal($event, 4)"
-				class="third-extraction-feature"
-			/>
-			<img
-				[src]="featureImagePath[5]"
-				(click)="openModal($event, 5)"
-				class="third-analysis-feature"
-			/>
-		</div>
+	<div class="details-container">
+		<img
+			[src]="featureImagePath[0]"
+			(click)="openModal($event, 0)"
+			class="first-extraction-feature"
+		/>
+		<img
+			[src]="featureImagePath[1]"
+			(click)="openModal($event, 1)"
+			class="first-analysis-feature"
+		/>
+		<img
+			[src]="featureImagePath[2]"
+			(click)="openModal($event, 2)"
+			class="second-extraction-feature"
+		/>
+		<img
+			[src]="featureImagePath[3]"
+			(click)="openModal($event, 3)"
+			class="second-analysis-feature"
+		/>
+		<img
+			[src]="featureImagePath[4]"
+			(click)="openModal($event, 4)"
+			class="third-extraction-feature"
+		/>
+		<img
+			[src]="featureImagePath[5]"
+			(click)="openModal($event, 5)"
+			class="third-analysis-feature"
+		/>
 	</div>
 </section>
