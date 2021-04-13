@@ -19,8 +19,8 @@ export class MainNavComponent {
 		private breakpointObserver: BreakpointObserver,
 		private translate: TranslateService
 	) {
-    translate.setDefaultLang('de');
-  }
+		translate.setDefaultLang('de');
+	}
 
 	scrollTo(searchID: string) {
 		const element = document.querySelector(searchID);
