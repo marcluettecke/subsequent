@@ -6,22 +6,24 @@
           <img src="/assets/images/logo_navbar.png" alt="" />
         </a>
       </div>
-      <div class="desktop-nav">
-        <a (click)="scrollTo('#coverImage')">{{
-          "sidenav.sidenav-items.beginning" | translate
-        }}</a>
-        <a (click)="scrollTo('#feature-overview')">{{
-          "sidenav.sidenav-items.overview" | translate
-        }}</a>
-        <a (click)="scrollTo('#container-featureList')">{{
-          "sidenav.sidenav-items.details" | translate
-        }}</a>
-        <!-- <a (click)="scrollTo('#aboutUs')">{{
-          "sidenav.sidenav-items.about-us" | translate
-        }}</a> -->
-        <a (click)="scrollTo('#footer')">{{
-          "sidenav.sidenav-items.contact-us" | translate
-        }}</a>
+      <div class="desktop-nav-wrapper">
+        <div class="desktop-nav">
+          <!-- <a (click)="scrollTo('#coverImage')">{{
+            "sidenav.sidenav-items.beginning" | translate
+          }}</a> -->
+          <a (click)="scrollTo('#feature-overview')">{{
+            "sidenav.sidenav-items.overview" | translate
+          }}</a>
+          <a (click)="scrollTo('#container-featureList')">{{
+            "sidenav.sidenav-items.details" | translate
+          }}</a>
+          <!-- <a (click)="scrollTo('#aboutUs')">{{
+            "sidenav.sidenav-items.about-us" | translate
+          }}</a> -->
+          <a (click)="scrollTo('#footer')">{{
+            "sidenav.sidenav-items.contact-us" | translate
+          }}</a>
+        </div>
       </div>
       <div class="mobile-nav" (click)="burgerMenuClicked()">
         <span></span>

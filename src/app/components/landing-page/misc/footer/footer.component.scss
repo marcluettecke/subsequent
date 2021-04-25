@@ -4,8 +4,10 @@
 .footer {
   background: linear-gradient(to bottom, $--black 50%, $--primary);
   padding-top: 20px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   display: flex;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
   .footer-grid {
     grid-area: content;

@@ -21,24 +21,29 @@
           height: 60px;
         }
       }
-      .desktop-nav {
-        margin-left: 20px;
-        display: flex;
+      .desktop-nav-wrapper {
         align-self: center;
         justify-self: end;
+        .desktop-nav {
+          display: flex;
+          margin-left: 20px;
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
 
-        a {
-          margin-right: 10px;
-          &:hover {
-            cursor: pointer;
+          a {
+            margin-right: 15px;
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
       .mobile-nav {
-        display: inline-block;
+        display: none;
         align-self: center;
         justify-self: center;
-        padding: 10px;
+        padding: 5px;
         &:hover {
           cursor: pointer;
         }
@@ -53,6 +58,14 @@
           border-radius: 3px;
 
           z-index: 1;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .desktop-nav-wrapper .desktop-nav {
+          display: none;
+        }
+        .mobile-nav {
+          display: inline-block;
         }
       }
     }
