@@ -91,7 +91,7 @@
 
     .text-container-extraction {
       grid-area: heading1;
-      margin-top: 2rem;
+      margin-top: 4rem;
 
       h1 {
         @extend %heading;
@@ -100,7 +100,7 @@
 
     .text-container-analysis {
       grid-area: heading2;
-      margin-top: 2rem;
+      margin-top: 4rem;
 
       h1 {
         @extend %heading;

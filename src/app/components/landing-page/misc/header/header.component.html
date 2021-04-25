@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="desktop-nav-wrapper">
-        <div class="desktop-nav">
+        <div class="desktop-nav nav-container">
           <!-- <a (click)="scrollTo('#coverImage')">{{
             "sidenav.sidenav-items.beginning" | translate
           }}</a> -->
@@ -25,7 +25,26 @@
           }}</a>
         </div>
       </div>
-      <div class="mobile-nav" (click)="burgerMenuClicked()">
+      <div
+        class="mobile-nav"
+        [ngClass]="{ isOpen: circleNavMenuExtraClass }"
+        (click)="burgerMenuClicked()"
+      >
+        <div
+          class="circle-nav nav-container"
+          *ngIf="circleNavMenuExtraClass"
+          [ngClass]="circleNavMenuExtraClass"
+        >
+          <a (click)="scrollTo('#feature-overview')">{{
+            "sidenav.sidenav-items.overview" | translate
+          }}</a>
+          <a (click)="scrollTo('#container-featureList')">{{
+            "sidenav.sidenav-items.details" | translate
+          }}</a>
+          <a (click)="scrollTo('#footer')">{{
+            "sidenav.sidenav-items.contact-us" | translate
+          }}</a>
+        </div>
         <span></span>
         <span></span>
         <span></span>

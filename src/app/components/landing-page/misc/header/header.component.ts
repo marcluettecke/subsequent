@@ -6,6 +6,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
+  circleNavMenuExtraClass: string | null = null;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,6 +20,14 @@ export class HeaderComponent implements OnInit {
   }
 
   burgerMenuClicked() {
-    console.log("burgerMenuClicked");
+    // toggle extraClass:
+    if (!this.circleNavMenuExtraClass) {
+      this.circleNavMenuExtraClass = "tmp";
+      setTimeout(() => {
+        this.circleNavMenuExtraClass = "fadeIn";
+      }, 1);
+    } else {
+      this.circleNavMenuExtraClass = null;
+    }
   }
 }
