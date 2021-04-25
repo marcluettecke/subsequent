@@ -26,7 +26,11 @@ export class FeatureDetailsDirective implements OnInit {
   private renderFeature() {
     this.nativeElement = this.element.nativeElement;
     const container = this.renderer.createElement("div");
-    this.renderer.setAttribute(container, "class", `container${this.number}`);
+    this.renderer.setAttribute(
+      container,
+      "class",
+      `container${this.number} hide-scroll`
+    );
     const checkbox = this.renderer.createElement("input");
     this.renderer.setAttribute(checkbox, "type", "checkbox");
     this.renderer.setAttribute(checkbox, "id", `checkbox${this.number}`);

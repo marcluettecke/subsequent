@@ -1,0 +1,60 @@
+.container {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  color: #fff;
+  .inner-container {
+    .header {
+      display: grid;
+      grid-template-columns: [logo] auto [desk-nav] 1fr [burger-menu] auto;
+      grid-template-rows: auto;
+      .logo-wrapper {
+        display: inline-block;
+        align-self: center;
+        justify-self: center;
+        max-width: 200px;
+        img {
+          width: 100%;
+          height: 60px;
+        }
+      }
+      .desktop-nav {
+        margin-left: 20px;
+        display: flex;
+        align-self: center;
+        justify-self: end;
+
+        a {
+          margin-right: 10px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .mobile-nav {
+        display: inline-block;
+        align-self: center;
+        justify-self: center;
+        padding: 10px;
+        &:hover {
+          cursor: pointer;
+        }
+        span {
+          display: block;
+          width: 33px;
+          height: 4px;
+          margin-bottom: 5px;
+          position: relative;
+
+          background: #cdcdcd;
+          border-radius: 3px;
+
+          z-index: 1;
+        }
+      }
+    }
+  }
+}

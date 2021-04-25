@@ -25,6 +25,7 @@ import { FeatureListComponent } from "./components/landing-page/feature-list/fea
 import { AboutUsComponent } from "./components/landing-page/about-us/about-us.component";
 import { FooterComponent } from "./components/landing-page/misc/footer/footer.component";
 import { FeatureModalComponent } from "./components/landing-page/feature-list/feature-modal/feature-modal.component";
+import { HeaderComponent } from "./components/landing-page/misc/header/header.component";
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AboutUsComponent,
     FooterComponent,
     FeatureModalComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
