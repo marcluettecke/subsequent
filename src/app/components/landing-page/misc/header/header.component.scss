@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins";
+
 .container {
   position: fixed;
   text-align: center;
@@ -39,9 +42,6 @@
         align-self: center;
         justify-self: center;
         padding: 5px;
-        &:hover {
-          cursor: pointer;
-        }
         &.isOpen {
           background-color: #000;
           transition: background-color ease-in 0.2s;
@@ -77,10 +77,6 @@
 
           a {
             margin-bottom: 5px;
-            &:hover {
-              cursor: pointer;
-              text-decoration: underline;
-            }
             &:last-child {
               margin-bottom: 0px;
             }
@@ -94,7 +90,7 @@
         a {
           &:hover {
             cursor: pointer;
-            text-decoration: underline;
+            color: $--primary;
           }
         }
       }
