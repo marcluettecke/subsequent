@@ -1,34 +1,34 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 .footer {
-	background: linear-gradient(to bottom, $--black 50%, $--primary);
-	padding-top: 20px;
-	font-size: 2rem;
+  background: linear-gradient(to bottom, $--black 50%, $--primary);
+  padding-top: 20px;
+  font-size: 2rem;
   display: flex;
 
-	.footer-grid {
+  .footer-grid {
     grid-area: content;
-		display: grid;
-		grid-template-rows: min-content min-content 2rem min-content;
+    display: grid;
+    grid-template-rows: min-content min-content 2rem min-content;
     grid-template-columns: 10rem repeat(4, 1fr) 10rem;
-		grid-template-areas:
-			'logo logo logo logo logo log'
-			'. impressum datenschutz medien kontakt .'
-			'hr hr hr hr hr hr'
-			'copyright copyright copyright copyright copyright copyright';
-		grid-gap: 1rem 1.5rem;
-		justify-items: center;
-		align-items: center;
+    grid-template-areas:
+      "logo logo logo logo logo log"
+      ". impressum datenschutz medien kontakt ."
+      "hr hr hr hr hr hr"
+      "copyright copyright copyright copyright copyright copyright";
+    grid-gap: 1rem 1.5rem;
+    justify-items: center;
+    align-items: center;
 
     @include md {
       grid-template-rows: min-content min-content 2rem min-content;
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas:
-			'logo logo logo logo'
-			'impressum datenschutz medien kontakt'
-			'hr hr hr hr'
-			'copyright copyright copyright copyright';
+        "logo logo logo logo"
+        "impressum datenschutz medien kontakt"
+        "hr hr hr hr"
+        "copyright copyright copyright copyright";
     }
 
     a:hover {
@@ -46,8 +46,8 @@
       }
     }
 
-		#logo {
-			grid-area: logo;
+    #logo {
+      grid-area: logo;
       justify-self: flex-start;
 
       @include xl {
@@ -57,31 +57,31 @@
       @include md {
         justify-self: center;
       }
-		}
+    }
     #hr {
       width: 100%;
       grid-area: hr;
       border-top: 1px solid $--white;
     }
-		#impressum {
-			grid-area: impressum;
-		}
-		#datenschutz {
-			grid-area: datenschutz;
-		}
-		#medien {
-			grid-area: medien;
-		}
-		#kontakt {
-			grid-area: kontakt;
-		}
-		#copyright {
+    #impressum {
+      grid-area: impressum;
+    }
+    #datenschutz {
+      grid-area: datenschutz;
+    }
+    #medien {
+      grid-area: medien;
+    }
+    #kontakt {
+      grid-area: kontakt;
+    }
+    #copyright {
       grid-area: copyright;
-		}
+    }
 
-		a {
-			text-decoration: none;
-			color: $--white;
-		}
-	}
+    a {
+      text-decoration: none;
+      color: $--white;
+    }
+  }
 }

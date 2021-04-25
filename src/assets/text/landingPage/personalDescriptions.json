@@ -1,31 +1,30 @@
 [
-	{
-		"fullname": "Manuel Stein",
+  {
+    "fullname": "Manuel Stein",
     "title": "CEO",
-		"education": "Ph.D. Computer Science",
-		"role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
-		"random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
-	},
-	{
-		"fullname": "Philip Zimmermann",
+    "education": "Ph.D. Computer Science",
+    "role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
+    "random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
+  },
+  {
+    "fullname": "Philip Zimmermann",
     "title": "CTO",
-		"education": "M.Sc. Computer Science",
-		"role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
-		"random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
-	},
-	{
-		"fullname": "Marc Lüttecke",
+    "education": "M.Sc. Computer Science",
+    "role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
+    "random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
+  },
+  {
+    "fullname": "Marc Lüttecke",
     "title": "CFO",
-		"education": "M.Sc. Data Science / Finance",
-		"role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
-		"random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
-	},
-	{
-		"fullname": "Markus Schopp",
+    "education": "M.Sc. Data Science / Finance",
+    "role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
+    "random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
+  },
+  {
+    "fullname": "Markus Schopp",
     "title": "CSO",
-		"education": "Ex-Fußball Nationalspieler / Trainer / Analyst",
-		"role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
-		"random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
-	}
+    "education": "Ex-Fußball Nationalspieler / Trainer / Analyst",
+    "role": "Strategische Produktplatzierung mit den richtigen Partnern um langwierige Visionen zu erfüllen.",
+    "random": "Als Vater des Projekts hat sich Manuel über die Jahre ein großes Netzwerk and Experten, sowie eigener Expertise erarbeitet, die er mit Subsequent nutzen will."
+  }
 ]
-

@@ -1,56 +1,55 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
-    height: 100%;
-    box-sizing: border-box;
-    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px;
-    // overflow: hidden; //attepmpt to hide scrollbar
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px;
+  // overflow: hidden; //attepmpt to hide scrollbar
 
-    @include lg {
-        font-size: 50%;
-    }
+  @include lg {
+    font-size: 50%;
+  }
 }
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-
 body {
-    margin: 0;
-    font-family: Poppins, 'Helvetica Neue', sans-serif;
-    color: $--black;
-    background-color: $--black;
+  margin: 0;
+  font-family: Poppins, "Helvetica Neue", sans-serif;
+  color: $--black;
+  background-color: $--black;
 }
 
 mat-dialog-container#modal-component {
-    border: 3px solid $--black;
-    border-radius: 1.1rem;
-    background-color: $--black;
+  border: 3px solid $--black;
+  border-radius: 1.1rem;
+  background-color: $--black;
 }
 
 .inner-container {
-    display: inline-block;
-    width: 100%;
-    max-width: 120rem;
-    margin: 0 auto;
+  display: inline-block;
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-hidden::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge add Firefox */
 .scrollbar-hidden {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* Firefox */
 }

@@ -1,11 +1,11 @@
 export interface IPromoText {
-	skeletalExtraction: string;
+  skeletalExtraction: string;
 }
 
 export interface IPersonalDescription {
   fullname: string;
   title: string;
-	education: string;
-	role: string;
-	random: string;
+  education: string;
+  role: string;
+  random: string;
 }

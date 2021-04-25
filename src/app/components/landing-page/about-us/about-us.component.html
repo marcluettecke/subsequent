@@ -1,59 +1,63 @@
 <div class="profile_container" id="aboutUs">
-	<div *ngFor="let person of descriptions; let i = index" class="card">
-		<div class="card__side card__side--front">
-			<div [class]="'card__picture card__picture--' + (i + 1)">&nbsp;</div>
-			<h4 class="card__heading">
-				<span class="card__heading-span card__heading-span--1">
-					{{ person.fullname }}
-				</span>
-			</h4>
-			<div class="card__details">
-				<span>{{ person.title }}</span>
-				<div class="card__icon">
-					<mat-icon aria-hidden="false" aria-label="Example home icon"
-						>arrow_forward_ios</mat-icon
-					>
-				</div>
-			</div>
-		</div>
-		<div class="card__overlay">
-			<div class="card__overlay__detail__container">
-				<div class="card__overlay__detail__container__header">
-					<div
-						*ngIf="person.fullname !== 'Markus Schopp'; then thenBlock; else elseBlock"
-					></div>
-					<ng-template #thenBlock>
-						<mat-icon aria-hidden="false">school</mat-icon>
-						<div class="type">Bildung</div>
-					</ng-template>
-					<ng-template #elseBlock>
-						<fa-icon [icon]="['fas', 'award']"></fa-icon>
-						<div class="type">Qualifikationen</div>
-					</ng-template>
-				</div>
-				<div class="card__overlay__detail__container__point">
-					{{ person?.education }}
-				</div>
-			</div>
-			<div class="card__overlay__detail__container">
-				<div class="card__overlay__detail__container__header">
-					<!-- <mat-icon aria-hidden="false">person</mat-icon> -->
-					<fa-icon [icon]="['fas', 'sitemap']"></fa-icon>
-					<div class="type">Rolle</div>
-				</div>
-				<div class="card__overlay__detail__container__point">
-					{{ person?.role }}
-				</div>
-			</div>
-			<div class="card__overlay__detail__container">
-				<div class="card__overlay__detail__container__header">
-					<fa-icon [icon]="['far', 'heart']"></fa-icon>
-					<div class="type">Leidenschaft</div>
-				</div>
-				<div class="card__overlay__detail__container__point">
-					{{ person?.random }}
-				</div>
-			</div>
-		</div>
-	</div>
+  <div *ngFor="let person of descriptions; let i = index" class="card">
+    <div class="card__side card__side--front">
+      <div [class]="'card__picture card__picture--' + (i + 1)">&nbsp;</div>
+      <h4 class="card__heading">
+        <span class="card__heading-span card__heading-span--1">
+          {{ person.fullname }}
+        </span>
+      </h4>
+      <div class="card__details">
+        <span>{{ person.title }}</span>
+        <div class="card__icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon"
+            >arrow_forward_ios</mat-icon
+          >
+        </div>
+      </div>
+    </div>
+    <div class="card__overlay">
+      <div class="card__overlay__detail__container">
+        <div class="card__overlay__detail__container__header">
+          <div
+            *ngIf="
+              person.fullname !== 'Markus Schopp';
+              then thenBlock;
+              else elseBlock
+            "
+          ></div>
+          <ng-template #thenBlock>
+            <mat-icon aria-hidden="false">school</mat-icon>
+            <div class="type">Bildung</div>
+          </ng-template>
+          <ng-template #elseBlock>
+            <fa-icon [icon]="['fas', 'award']"></fa-icon>
+            <div class="type">Qualifikationen</div>
+          </ng-template>
+        </div>
+        <div class="card__overlay__detail__container__point">
+          {{ person?.education }}
+        </div>
+      </div>
+      <div class="card__overlay__detail__container">
+        <div class="card__overlay__detail__container__header">
+          <!-- <mat-icon aria-hidden="false">person</mat-icon> -->
+          <fa-icon [icon]="['fas', 'sitemap']"></fa-icon>
+          <div class="type">Rolle</div>
+        </div>
+        <div class="card__overlay__detail__container__point">
+          {{ person?.role }}
+        </div>
+      </div>
+      <div class="card__overlay__detail__container">
+        <div class="card__overlay__detail__container__header">
+          <fa-icon [icon]="['far', 'heart']"></fa-icon>
+          <div class="type">Leidenschaft</div>
+        </div>
+        <div class="card__overlay__detail__container__point">
+          {{ person?.random }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

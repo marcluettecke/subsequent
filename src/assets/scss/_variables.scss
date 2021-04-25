@@ -6,8 +6,6 @@ $bp-large: 62em; // 992px (992 / 16 --> average font-size)
 $bp-medium: 48em; // 768px (768 / 16 --> average font-size)
 $bp-small: 36em; // 576px (576 / 16 --> average font-size)
 
-
-
 $--primary: #8cd0de;
 $--primary-light: #ddf1f5;
 $--primary-dark: #6fbed1;
@@ -21,6 +19,5 @@ $--warning-light: #b6bcc5;
 $--warning-dark: #0c1229;
 
 $--black: #191919;
-$--black-transparent-05: rgba(0, 0,0,0.5);
+$--black-transparent-05: rgba(0, 0, 0, 0.5);
 $--white: #ffffff;
-
