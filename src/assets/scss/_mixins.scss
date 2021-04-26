@@ -1,29 +1,29 @@
 // Small devices
-@import "variables";
+@import 'variables';
 
 @mixin sm {
-  @media (max-width: #{$bp-small}) {
-    @content;
-  }
+	@media (max-width: #{$bp-small}) {
+		@content;
+	}
 }
 
 // Medium devices
 @mixin md {
-  @media screen and(max-width: #{$bp-medium}) {
-    @content;
-  }
+	@media screen and(max-width: #{$bp-medium}) {
+		@content;
+	}
 }
 
 // Large devices
 @mixin lg {
-  @media screen and(max-width: #{$bp-large}) {
-    @content;
-  }
+	@media screen and(max-width: #{$bp-large}) {
+		@content;
+	}
 }
 
 // Extra large devices
 @mixin xl {
-  @media screen and(max-width: #{$bp-largest}) {
-    @content;
-  }
+	@media screen and(max-width: #{$bp-largest}) {
+		@content;
+	}
 }

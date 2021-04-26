@@ -1,10 +1,10 @@
 // breakpoints
 
 // RESPONSIVE BREAKPOINTS
-$bp-largest: 75em; // 1200px (1200 / 16 --> average font-size)
-$bp-large: 62em; // 992px (992 / 16 --> average font-size)
-$bp-medium: 48em; // 768px (768 / 16 --> average font-size)
-$bp-small: 36em; // 576px (576 / 16 --> average font-size)
+$bp-largest: 1200px;
+$bp-large: 992px;
+$bp-medium: 768px;
+$bp-small: 578px;
 
 $--primary: #8cd0de;
 $--primary-light: #ddf1f5;
