@@ -12,11 +12,24 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * scrollTo searches for the given element and scrolls to it, with the
+   * headerHeight as offset.
+   *
+   * @param searchID the element that should be scrolled to
+   */
   scrollTo(searchID: string) {
     console.log("scrollTo clicked, searchID: ", searchID);
     const element = document.querySelector(searchID);
     console.log("scrollTo clicked, element: ", element);
-    if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+    const headerElement = document.querySelector("#header-container");
+    if (element && headerElement) {
+      const headerHeight = headerElement.getBoundingClientRect().height;
+      const elementRect = element.getBoundingClientRect().top;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const scrollToPosition = elementRect - bodyRect - headerHeight;
+      window.scrollTo({ top: scrollToPosition, behavior: "smooth" });
+    }
   }
 
   burgerMenuClicked() {
