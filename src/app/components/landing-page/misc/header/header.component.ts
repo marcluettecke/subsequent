@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     console.log("scrollTo clicked, searchID: ", searchID);
     const element = document.querySelector(searchID);
     console.log("scrollTo clicked, element: ", element);
-    const headerElement = document.querySelector("#header-container");
+    const headerElement = document.querySelector("#header");
     if (element && headerElement) {
       const headerHeight = headerElement.getBoundingClientRect().height;
       const elementRect = element.getBoundingClientRect().top;

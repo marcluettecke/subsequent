@@ -45,11 +45,19 @@ mat-dialog-container#modal-component {
   background-color: $--black;
 }
 
-.inner-container {
-  display: inline-block;
+.container {
+  position: relative;
+  text-align: center;
   width: 100%;
-  max-width: 120rem;
-  margin: 0 auto;
+  padding: 15px;
+
+  .inner-container {
+    display: inline-block;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    text-align: left;
+  }
 }
 
 /* Hide scrollbar for IE, Edge add Firefox */

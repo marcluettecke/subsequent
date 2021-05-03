@@ -1,107 +1,107 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 .container {
-	position: fixed;
-	text-align: center;
-	width: 100%;
-	padding: 20px;
-	background-color: rgba(0, 0, 0, 0.6);
-	z-index: 99;
-	color: #fff;
-	.inner-container {
-		.header {
-			display: grid;
-			grid-template-columns: [logo] auto [desk-nav] 1fr [burger-menu] auto;
-			grid-template-rows: auto;
-			.logo-wrapper {
-				display: inline-block;
-				align-self: center;
-				justify-self: center;
-				max-width: 200px;
-				img {
-					width: 100%;
-					height: 60px;
-				}
-			}
-			.desktop-nav-wrapper {
-				align-self: center;
-				justify-self: end;
-				.desktop-nav {
-					display: flex;
-					margin-left: 20px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  color: #fff;
+  .inner-container {
+    .header-grid {
+      display: grid;
+      grid-template-columns: [logo] auto [desk-nav] 1fr [burger-menu] auto;
+      grid-template-rows: auto;
+      .logo-wrapper {
+        display: inline-block;
+        align-self: center;
+        justify-self: center;
+        max-width: 200px;
+        img {
+          width: 100%;
+          height: 60px;
+        }
+      }
+      .desktop-nav-wrapper {
+        align-self: center;
+        justify-self: end;
+        .desktop-nav {
+          display: flex;
+          margin-left: 20px;
 
-					a {
-						margin-right: 15px;
-					}
-				}
-			}
-			.mobile-nav {
-				display: none;
-				position: relative;
-				align-self: center;
-				justify-self: center;
-				padding: 5px;
-				&.isOpen {
-					background-color: #000;
-					transition: background-color ease-in 0.2s;
-				}
-				span {
-					display: block;
-					width: 33px;
-					height: 4px;
-					margin-bottom: 5px;
-					position: relative;
-					background: #fff;
-					border-radius: 3px;
-					z-index: 1;
-					&:last-child {
-						margin-bottom: 0px;
-					}
-				}
-				.circle-nav {
-					display: flex;
-					flex-direction: column;
-					position: absolute;
-					top: 32px;
-					right: 0px;
-					padding: 20px;
-					background-color: #000;
-					text-align: left;
-					white-space: nowrap;
-					opacity: 0;
-					&.fadeIn {
-						opacity: 1;
-						transition: opacity ease-in 0.3s;
-					}
+          a {
+            margin-right: 15px;
+          }
+        }
+      }
+      .mobile-nav {
+        display: none;
+        position: relative;
+        align-self: center;
+        justify-self: center;
+        padding: 5px;
+        &.isOpen {
+          background-color: #000;
+          transition: background-color ease-in 0.2s;
+        }
+        span {
+          display: block;
+          width: 33px;
+          height: 4px;
+          margin-bottom: 5px;
+          position: relative;
+          background: #fff;
+          border-radius: 3px;
+          z-index: 1;
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+        .circle-nav {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 32px;
+          right: 0px;
+          padding: 20px;
+          background-color: #000;
+          text-align: left;
+          white-space: nowrap;
+          opacity: 0;
+          &.fadeIn {
+            opacity: 1;
+            transition: opacity ease-in 0.3s;
+          }
 
-					a {
-						margin-bottom: 5px;
-						&:last-child {
-							margin-bottom: 0px;
-						}
-					}
-				}
-			}
-			.nav-container {
-				text-transform: uppercase;
-				letter-spacing: 1px;
-				font-size: 1.4rem;
-				a {
-					&:hover {
-						cursor: pointer;
-						color: $--primary;
-					}
-				}
-			}
-			@include md {
-				.desktop-nav-wrapper .desktop-nav {
-					display: none;
-				}
-				.mobile-nav {
-					display: inline-block;
-				}
-			}
-		}
-	}
+          a {
+            margin-bottom: 5px;
+            &:last-child {
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+      .nav-container {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+        a {
+          &:hover {
+            cursor: pointer;
+            color: $--primary;
+          }
+        }
+      }
+      @include md {
+        .desktop-nav-wrapper .desktop-nav {
+          display: none;
+        }
+        .mobile-nav {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }
