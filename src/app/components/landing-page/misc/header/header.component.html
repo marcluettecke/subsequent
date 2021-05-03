@@ -35,15 +35,24 @@
           *ngIf="circleNavMenuExtraClass"
           [ngClass]="circleNavMenuExtraClass"
         >
-          <a (click)="scrollTo('#feature-overview')">{{
-            "sidenav.sidenav-items.overview" | translate
-          }}</a>
-          <a (click)="scrollTo('#container-featureList')">{{
-            "sidenav.sidenav-items.details" | translate
-          }}</a>
-          <a (click)="scrollTo('#footer')">{{
-            "sidenav.sidenav-items.contact-us" | translate
-          }}</a>
+          <div class="curved-nav-line">
+            <a
+              class="circle-menu-item item-1"
+              (click)="scrollTo('#feature-overview')"
+              ><span></span>
+              {{ "sidenav.sidenav-items.overview" | translate }}</a
+            >
+            <a
+              class="circle-menu-item item-2"
+              (click)="scrollTo('#container-featureList')"
+              ><span></span>
+              {{ "sidenav.sidenav-items.details" | translate }}</a
+            >
+            <a class="circle-menu-item item-3" (click)="scrollTo('#footer')"
+              ><span></span>
+              {{ "sidenav.sidenav-items.contact-us" | translate }}</a
+            >
+          </div>
         </div>
         <span></span>
         <span></span>
