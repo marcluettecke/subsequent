@@ -104,7 +104,7 @@
   }
 
   .layout-container {
-    height: 174vh;
+    // height: 174vh;
     z-index: 97;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -124,7 +124,9 @@
 
     .extraction-container {
       grid-area: extraction;
-      background-color: white;
+      background: #fff url("/assets/images/background-light.jpg") no-repeat
+        center;
+      background-size: cover;
       .text-container-extraction {
         margin-top: 4rem;
 
@@ -136,6 +138,9 @@
 
     .analysis-container {
       grid-area: analysis;
+      background: #fff url("/assets/images/background-dark.jpg") no-repeat
+        center;
+      background-size: cover;
       .text-container-analysis {
         margin-top: 4rem;
 
@@ -146,16 +151,135 @@
     }
 
     .container-featureList {
+      position: relative;
       grid-area: details;
-      background: linear-gradient(
-        to right,
-        $--white,
-        $--white 50%,
-        $--black 50%
-      );
-
+      // background: linear-gradient(
+      //   to right,
+      //   $--white,
+      //   $--white 50%,
+      //   $--black 50%
+      // );
       display: grid;
-      grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
+      // grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
+      grid-template-columns: 1fr 1fr;
+
+      //logic for network-graphic-size:
+      $networkGraphicwrapperWidth: 1200px;
+      $heightRatio: 0.66;
+      $networkGraphicwrapperHeight: $networkGraphicwrapperWidth * $heightRatio;
+      $outerScreenBorderColor: #888;
+      $innerScreenBorderColor: #333;
+      $screenRotation: rotateX(-28deg) rotateY(28deg);
+      $screenTranslate: translate3d(-50%, -50%, 0);
+      // padding-bottom: $heightRatio;
+      min-height: $networkGraphicwrapperHeight;
+
+      .background-container {
+        width: 100%;
+        height: 100%;
+        &.light-background {
+          background-color: #fff;
+        }
+        &.dark-background {
+          background-color: #1c1c1c;
+        }
+      }
+
+      .network-graphic-container {
+        position: absolute;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        .network-graphic-wrapper {
+          position: relative;
+          justify-self: center;
+          align-self: center;
+          width: $networkGraphicwrapperWidth;
+          height: 100%;
+
+          //FEATURE SCREENS
+          $pos-left-screen-0: 15%;
+          $pos-top-screen-0: 30%;
+          $size-screen-0: 180px;
+          $pos-left-screen-3: 80%;
+          $pos-top-screen-3: 70%;
+          $size-screen-3: 160px;
+          .feature-screen-wrapper {
+            position: absolute;
+            z-index: 3;
+            border-left: #000 solid 8px;
+            border-top: #000 solid 5px;
+            border-color: $outerScreenBorderColor;
+            transform: $screenTranslate $screenRotation;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+              cursor: pointer;
+              border-color: $--primary;
+              box-shadow: 0 0 10px $--primary;
+              transition: all 0.3s ease-out;
+            }
+
+            .feature-screen-border {
+              border: $innerScreenBorderColor solid 5px;
+            }
+
+            &#feature-screen-wrapper-0 {
+              width: $size-screen-0;
+              left: $pos-left-screen-0;
+              top: $pos-top-screen-0;
+            }
+            &#feature-screen-wrapper-3 {
+              width: $size-screen-3;
+              left: $pos-left-screen-3;
+              top: $pos-top-screen-3;
+            }
+          }
+
+          //CABLES
+          $cable-width: 2px;
+          //MAIN CABLES:
+          $m-c-pos-left: 45%;
+          $m-c-pos-right: 55%;
+          $m-c-height: 10%;
+          .graphic-cable {
+            position: absolute;
+            z-index: 2;
+            width: $cable-width;
+            &.g-c-left {
+              background-color: $--primary;
+            }
+            &.g-c-right {
+              background-color: #fff;
+            }
+            &.g-c-main {
+              top: 0px;
+              width: 2px;
+              height: $m-c-height;
+              &.g-c-left {
+                left: $m-c-pos-left;
+                background-color: $--primary;
+              }
+              &.g-c-right {
+                left: $m-c-pos-right;
+                background-color: #fff;
+              }
+            }
+            &.g-c-connect-main-with-0 {
+              $leftDist: (($pos-left-screen-0 + $m-c-pos-left) / 2);
+              $topDist: (($pos-top-screen-0 + $m-c-height) / 2);
+              left: $leftDist;
+              top: $topDist;
+              height: 398px;
+              transform: translate3d(-50%, -50%, 0) rotate(66.2deg);
+            }
+          }
+        }
+      }
 
       .details-grid {
         grid-column: 2;
@@ -204,14 +328,14 @@
         display: block;
         object-fit: cover;
 
-        $rotation: rotateX(-29deg) rotateY(51deg);
-        transform: $rotation;
+        // $rotation: rotateX(-29deg) rotateY(51deg);
+        // transform: $rotation;
 
-        &:hover {
-          transition: 0.5s;
-          transform: $rotation scale(1.2);
-          cursor: pointer;
-        }
+        // &:hover {
+        //   transition: 0.5s;
+        //   transform: $rotation scale(1.2);
+        //   cursor: pointer;
+        // }
       }
     }
   }
