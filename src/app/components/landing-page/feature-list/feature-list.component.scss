@@ -1,277 +1,213 @@
-@import "variables";
-@import "mixins";
+@import 'variables';
+@import 'mixins';
 
 %heading {
-  font-size: 5rem;
-  font-weight: bold;
-  letter-spacing: 0.5rem;
+	font-size: 5rem;
+	font-weight: bold;
+	letter-spacing: 0.5rem;
+}
+
+.feature-bullet {
+	font-size: 3rem;
+}
+
+.analysis-features {
+	color: white;
+}
+
+.text-container-analysis {
+	margin-top: 4rem;
+
+	h1 {
+		@extend %heading;
+		color: $--white;
+	}
 }
 
 #feature-overview {
-  width: 100%;
-  background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
-  color: $--black;
+	position: relative;
 
-  //does not show overlapping images
-  overflow: hidden;
+	.datapoints {
+		z-index: -1;
+		&__1 {
+			position: absolute;
+			width: 65rem;
+			top: 100vh;
+			left: -27rem;
 
-  @include lg {
-    background: linear-gradient(
-      to bottom,
-      $--white,
-      $--white 50%,
-      $--black 50%
-    );
-  }
-  .feature-grid {
-    height: calc(100vh - 6rem);
-    display: grid;
-    grid-template: min-content repeat(3, 1fr) / minmax(3rem, 0.5fr) max-content 1fr 1fr max-content minmax(
-        3rem,
-        0.5fr
-      );
-    grid-template-areas:
-      "heading1 heading1 heading1 heading2 heading2 heading2"
-      ". feature1 rotating rotating feature4 ."
-      ". feature2 rotating rotating feature5 ."
-      ". feature3 rotating rotating feature6 .";
-    grid-gap: 1.5rem;
-    align-items: center;
-    justify-items: center;
-    position: relative;
-    z-index: 2;
+			@include lg {
+				width: 68rem;
+				top: 94vh;
+				left: -40rem;
+			}
+		}
+		&__2 {
+			position: absolute;
+			height: 45rem;
+			top: 100vh;
+			left: 90rem;
+			transform: rotate(120deg);
 
-    @include lg {
-      grid-template-rows: min-content repeat(3, 1fr) min-content repeat(3, 1fr);
-      grid-template-columns: minmax(0.5rem, 0.3fr) max-content 1fr minmax(
-          0.5rem,
-          0.3fr
-        );
-      grid-template-areas:
-        ". heading1 rotating ."
-        ". feature1 rotating ."
-        ". feature2 rotating ."
-        ". feature3 rotating ."
-        ". heading2 rotating ."
-        ". feature4 rotating ."
-        ". feature5 rotating ."
-        ". feature6 rotating .";
-    }
-    @include md {
-      grid-template-rows: min-content repeat(3, 1fr) min-content repeat(3, 1fr);
-      grid-template-columns: minmax(0.5rem, 0.3fr) max-content minmax(
-          0.5rem,
-          0.3fr
-        );
-      grid-template-areas:
-        ". heading1 ."
-        ". feature1 ."
-        ". feature2 ."
-        ". feature3 ."
-        ". heading2 ."
-        ". feature4 ."
-        ". feature5 ."
-        ". feature6 .";
-      justify-content: center;
-    }
+			@include lg {
+				top: 91vh;
+			}
+			@include md {
+				display: none;
+			}
+		}
+		&__3 {
+			position: absolute;
+			height: 60rem;
+			top: -11rem;
+			left: 75rem;
+			transform: rotate(230deg);
 
-    .rotating-body {
-      grid-area: rotating;
+			@include lg {
+				left: 67rem;
+			}
+			@include md {
+				left: 50rem;
+			}
+		}
+		&__4 {
+			position: absolute;
+			height: 40rem;
+			top: 35rem;
+			transform: rotate(130deg);
 
-      @include md {
-        display: none;
-      }
+			@include lg {
+				height: 40rem;
+				top: 50rem;
+			}
+			@include md {
+				height: 40rem;
+				top: 50rem;
+			}
+		}
+	}
 
-      video {
-        width: 100%;
-        height: auto;
-        max-height: 65vh;
-      }
-    }
-    .feature-bullet {
-      font-size: 3rem;
-    }
+	.rotating-body {
+		position: absolute;
+		top: 10%;
+		left: 25%;
+		z-index: 98;
 
-    .text-container-extraction {
-      grid-area: heading1;
-      margin-top: 4rem;
+		@include md {
+			display: none;
+		}
 
-      h1 {
-        @extend %heading;
-      }
-    }
+		video {
+			width: 100%;
+			height: auto;
+			max-height: 65vh;
+		}
+	}
 
-    .text-container-analysis {
-      grid-area: heading2;
-      margin-top: 4rem;
+	.layout-container {
+		height: 174vh;
+		z-index: 97;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+			'extraction analysis'
+			'details details';
 
-      h1 {
-        @extend %heading;
-        color: $--white;
-      }
-    }
+		@include md {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(3, 1fr);
+			grid-template-areas:
+				'extraction'
+				'analysis'
+				'details';
+		}
 
-    .first-feature {
-      grid-area: feature1;
-    }
+		.extraction-container {
+			grid-area: extraction;
+			background-color: white;
+			.text-container-extraction {
+				margin-top: 4rem;
 
-    .second-feature {
-      grid-area: feature2;
-    }
+				h1 {
+					@extend %heading;
+				}
+			}
+		}
 
-    .third-feature {
-      grid-area: feature3;
-    }
+		.analysis-container {
+			grid-area: analysis;
+			.text-container-analysis {
+				margin-top: 4rem;
 
-    .fourth-feature {
-      grid-area: feature4;
-    }
+				h1 {
+					@extend %heading;
+				}
+			}
+		}
 
-    .fifth-feature {
-      grid-area: feature5;
-    }
+		.container-featureList {
+			grid-area: details;
+			background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
 
-    .sixth-feature {
-      grid-area: feature6;
-    }
+			display: grid;
+			grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
 
-    .analysis-features {
-      color: white;
-    }
-  }
+			.details-grid {
+				grid-column: 2;
+				height: 87vh;
+				margin-bottom: 5rem;
+				z-index: 2;
 
-  .datapoints {
-    &__1 {
-      position: absolute;
-      width: 65rem;
-      top: 100vh;
-      left: -27rem;
-      z-index: 1;
+				// width: auto;
 
-      @include lg {
-        width: 68rem;
-        top: 94vh;
-        left: -40rem;
-      }
-    }
-    &__2 {
-      position: absolute;
-      height: 45rem;
-      top: 100vh;
-      left: 90rem;
-      z-index: 1;
-      transform: rotate(120deg);
+				display: grid;
+				grid-template-columns: repeat(8, 1fr);
+				grid-template-rows: repeat(7, 1fr);
+				grid-gap: 3rem;
+				justify-items: center;
+				align-items: center;
 
-      @include lg {
-        top: 91vh;
-      }
-      @include md {
-        display: none;
-      }
-    }
-  }
-}
+				.first-extraction-feature {
+					grid-row: 2 / span 2;
+					grid-column: 2 / span 3;
+				}
+				.second-extraction-feature {
+					grid-row: 5 / span 2;
+					grid-column: 2 / span 2;
+				}
+				.third-extraction-feature {
+					grid-row: 6 / span 1;
+					grid-column: 4 / span 2;
+				}
+				.first-analysis-feature {
+					grid-row: 3 / span 2;
+					grid-column: 5 / span 2;
+				}
+				.second-analysis-feature {
+					grid-row: 4 / span 2;
+					grid-column: 8 / span 1;
+				}
+				.third-analysis-feature {
+					grid-row: 6 / span 1;
+					grid-column: 6 / span 2;
+				}
+			}
 
-#feature_details {
-  position: relative;
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+				object-fit: cover;
 
-  //does not show overlapping images
-  overflow: hidden;
+				$rotation: rotateX(-29deg) rotateY(51deg);
+				transform: $rotation;
 
-  .datapoints {
-    &__3 {
-      position: absolute;
-      height: 60rem;
-      top: -11rem;
-      left: 75rem;
-      z-index: 1;
-      transform: rotate(230deg);
-
-      @include lg {
-        left: 67rem;
-      }
-      @include md {
-        left: 50rem;
-      }
-    }
-    &__4 {
-      position: absolute;
-      height: 40rem;
-      top: 35rem;
-      z-index: 1;
-      transform: rotate(130deg);
-
-      @include lg {
-        height: 40rem;
-        top: 50rem;
-      }
-      @include md {
-        height: 40rem;
-        top: 50rem;
-      }
-    }
-  }
-  .container-featureList {
-    background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
-
-    display: grid;
-    grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
-
-    .details-grid {
-      grid-column: 2;
-      height: calc(100vh - 6rem);
-      margin-bottom: 5rem;
-      z-index: 2;
-
-      // width: auto;
-
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: repeat(7, 1fr);
-      grid-gap: 3rem;
-      justify-items: center;
-      align-items: center;
-
-      .first-extraction-feature {
-        grid-row: 2 / span 2;
-        grid-column: 2 / span 3;
-      }
-      .second-extraction-feature {
-        grid-row: 5 / span 2;
-        grid-column: 2 / span 2;
-      }
-      .third-extraction-feature {
-        grid-row: 6 / span 1;
-        grid-column: 4 / span 2;
-      }
-      .first-analysis-feature {
-        grid-row: 3 / span 2;
-        grid-column: 5 / span 2;
-      }
-      .second-analysis-feature {
-        grid-row: 4 / span 2;
-        grid-column: 8 / span 1;
-      }
-      .third-analysis-feature {
-        grid-row: 6 / span 1;
-        grid-column: 6 / span 2;
-      }
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-
-      $rotation: rotateX(-29deg) rotateY(51deg);
-      transform: $rotation;
-
-      &:hover {
-        transition: 0.5s;
-        transform: $rotation scale(1.2);
-        cursor: pointer;
-      }
-    }
-  }
+				&:hover {
+					transition: 0.5s;
+					transform: $rotation scale(1.2);
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }
