@@ -1,213 +1,218 @@
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 %heading {
-	font-size: 5rem;
-	font-weight: bold;
-	letter-spacing: 0.5rem;
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
 }
 
 .feature-bullet {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 
 .analysis-features {
-	color: white;
+  color: white;
 }
 
 .text-container-analysis {
-	margin-top: 4rem;
+  margin-top: 4rem;
 
-	h1 {
-		@extend %heading;
-		color: $--white;
-	}
+  h1 {
+    @extend %heading;
+    color: $--white;
+  }
 }
 
 #feature-overview {
-	position: relative;
+  position: relative;
 
-	.datapoints {
-		z-index: -1;
-		&__1 {
-			position: absolute;
-			width: 65rem;
-			top: 100vh;
-			left: -27rem;
+  .datapoints {
+    z-index: -1;
+    &__1 {
+      position: absolute;
+      width: 65rem;
+      top: 100vh;
+      left: -27rem;
 
-			@include lg {
-				width: 68rem;
-				top: 94vh;
-				left: -40rem;
-			}
-		}
-		&__2 {
-			position: absolute;
-			height: 45rem;
-			top: 100vh;
-			left: 90rem;
-			transform: rotate(120deg);
+      @include lg {
+        width: 68rem;
+        top: 94vh;
+        left: -40rem;
+      }
+    }
+    &__2 {
+      position: absolute;
+      height: 45rem;
+      top: 100vh;
+      left: 90rem;
+      transform: rotate(120deg);
 
-			@include lg {
-				top: 91vh;
-			}
-			@include md {
-				display: none;
-			}
-		}
-		&__3 {
-			position: absolute;
-			height: 60rem;
-			top: -11rem;
-			left: 75rem;
-			transform: rotate(230deg);
+      @include lg {
+        top: 91vh;
+      }
+      @include md {
+        display: none;
+      }
+    }
+    &__3 {
+      position: absolute;
+      height: 60rem;
+      top: -11rem;
+      left: 75rem;
+      transform: rotate(230deg);
 
-			@include lg {
-				left: 67rem;
-			}
-			@include md {
-				left: 50rem;
-			}
-		}
-		&__4 {
-			position: absolute;
-			height: 40rem;
-			top: 35rem;
-			transform: rotate(130deg);
+      @include lg {
+        left: 67rem;
+      }
+      @include md {
+        left: 50rem;
+      }
+    }
+    &__4 {
+      position: absolute;
+      height: 40rem;
+      top: 35rem;
+      transform: rotate(130deg);
 
-			@include lg {
-				height: 40rem;
-				top: 50rem;
-			}
-			@include md {
-				height: 40rem;
-				top: 50rem;
-			}
-		}
-	}
+      @include lg {
+        height: 40rem;
+        top: 50rem;
+      }
+      @include md {
+        height: 40rem;
+        top: 50rem;
+      }
+    }
+  }
 
-	.rotating-body {
-		position: absolute;
-		top: 10%;
-		left: 25%;
-		z-index: 98;
+  .rotating-body {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    z-index: 98;
 
-		@include md {
-			display: none;
-		}
+    @include md {
+      display: none;
+    }
 
-		video {
-			width: 100%;
-			height: auto;
-			max-height: 65vh;
-		}
-	}
+    video {
+      width: 100%;
+      height: auto;
+      max-height: 65vh;
+    }
+  }
 
-	.layout-container {
-		height: 174vh;
-		z-index: 97;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		grid-template-areas:
-			'extraction analysis'
-			'details details';
+  .layout-container {
+    height: 174vh;
+    z-index: 97;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "extraction analysis"
+      "details details";
 
-		@include md {
-			grid-template-columns: 1fr;
-			grid-template-rows: repeat(3, 1fr);
-			grid-template-areas:
-				'extraction'
-				'analysis'
-				'details';
-		}
+    @include md {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-areas:
+        "extraction"
+        "analysis"
+        "details";
+    }
 
-		.extraction-container {
-			grid-area: extraction;
-			background-color: white;
-			.text-container-extraction {
-				margin-top: 4rem;
+    .extraction-container {
+      grid-area: extraction;
+      background-color: white;
+      .text-container-extraction {
+        margin-top: 4rem;
 
-				h1 {
-					@extend %heading;
-				}
-			}
-		}
+        h1 {
+          @extend %heading;
+        }
+      }
+    }
 
-		.analysis-container {
-			grid-area: analysis;
-			.text-container-analysis {
-				margin-top: 4rem;
+    .analysis-container {
+      grid-area: analysis;
+      .text-container-analysis {
+        margin-top: 4rem;
 
-				h1 {
-					@extend %heading;
-				}
-			}
-		}
+        h1 {
+          @extend %heading;
+        }
+      }
+    }
 
-		.container-featureList {
-			grid-area: details;
-			background: linear-gradient(to right, $--white, $--white 50%, $--black 50%);
+    .container-featureList {
+      grid-area: details;
+      background: linear-gradient(
+        to right,
+        $--white,
+        $--white 50%,
+        $--black 50%
+      );
 
-			display: grid;
-			grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
+      display: grid;
+      grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
 
-			.details-grid {
-				grid-column: 2;
-				height: 87vh;
-				margin-bottom: 5rem;
-				z-index: 2;
+      .details-grid {
+        grid-column: 2;
+        height: 87vh;
+        margin-bottom: 5rem;
+        z-index: 2;
 
-				// width: auto;
+        // width: auto;
 
-				display: grid;
-				grid-template-columns: repeat(8, 1fr);
-				grid-template-rows: repeat(7, 1fr);
-				grid-gap: 3rem;
-				justify-items: center;
-				align-items: center;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-gap: 3rem;
+        justify-items: center;
+        align-items: center;
 
-				.first-extraction-feature {
-					grid-row: 2 / span 2;
-					grid-column: 2 / span 3;
-				}
-				.second-extraction-feature {
-					grid-row: 5 / span 2;
-					grid-column: 2 / span 2;
-				}
-				.third-extraction-feature {
-					grid-row: 6 / span 1;
-					grid-column: 4 / span 2;
-				}
-				.first-analysis-feature {
-					grid-row: 3 / span 2;
-					grid-column: 5 / span 2;
-				}
-				.second-analysis-feature {
-					grid-row: 4 / span 2;
-					grid-column: 8 / span 1;
-				}
-				.third-analysis-feature {
-					grid-row: 6 / span 1;
-					grid-column: 6 / span 2;
-				}
-			}
+        .first-extraction-feature {
+          grid-row: 2 / span 2;
+          grid-column: 2 / span 3;
+        }
+        .second-extraction-feature {
+          grid-row: 5 / span 2;
+          grid-column: 2 / span 2;
+        }
+        .third-extraction-feature {
+          grid-row: 6 / span 1;
+          grid-column: 4 / span 2;
+        }
+        .first-analysis-feature {
+          grid-row: 3 / span 2;
+          grid-column: 5 / span 2;
+        }
+        .second-analysis-feature {
+          grid-row: 4 / span 2;
+          grid-column: 8 / span 1;
+        }
+        .third-analysis-feature {
+          grid-row: 6 / span 1;
+          grid-column: 6 / span 2;
+        }
+      }
 
-			img {
-				width: 100%;
-				height: auto;
-				display: block;
-				object-fit: cover;
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
 
-				$rotation: rotateX(-29deg) rotateY(51deg);
-				transform: $rotation;
+        $rotation: rotateX(-29deg) rotateY(51deg);
+        transform: $rotation;
 
-				&:hover {
-					transition: 0.5s;
-					transform: $rotation scale(1.2);
-					cursor: pointer;
-				}
-			}
-		}
-	}
+        &:hover {
+          transition: 0.5s;
+          transform: $rotation scale(1.2);
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
