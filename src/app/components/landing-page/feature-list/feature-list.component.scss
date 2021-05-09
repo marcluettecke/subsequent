@@ -201,13 +201,32 @@
           width: $networkGraphicwrapperWidth;
           height: 100%;
 
+          #networkGraphicCanvas {
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+
+            line.networkCable {
+              stroke-width: 3;
+              &.left {
+                stroke: #8cd0de;
+              }
+              &.right {
+                stroke: #fff;
+              }
+            }
+          }
+
           //FEATURE SCREENS
           $pos-left-screen-0: 15%;
           $pos-top-screen-0: 30%;
-          $size-screen-0: 180px;
+          $size-screen-0: 15%;
           $pos-left-screen-3: 80%;
           $pos-top-screen-3: 70%;
-          $size-screen-3: 160px;
+          $size-screen-3: 13%;
           .feature-screen-wrapper {
             position: absolute;
             z-index: 3;

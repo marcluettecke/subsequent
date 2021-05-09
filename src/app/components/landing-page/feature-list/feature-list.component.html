@@ -70,21 +70,25 @@
       <div class="background-container dark-background"></div>
       <div class="network-graphic-container">
         <div class="network-graphic-wrapper">
+          <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
           <!-- CABLES -->
           <div class="graphic-cable g-c-left g-c-main"></div>
           <div class="graphic-cable g-c-right g-c-main"></div>
           <div class="graphic-cable g-c-left g-c-connect-main-with-0"></div>
           <!-- FEATURE SCREENS -->
-          <div id="feature-screen-wrapper-0" class="feature-screen-wrapper">
+          <div
+            *ngFor="let screen of networkScreens"
+            [id]="'feature-screen-wrapper-' + screen.id"
+            class="feature-screen-wrapper"
+          >
             <div class="feature-screen-border">
               <img
-                [src]="featureImagePath[0]"
-                (click)="openModal($event, 0)"
-                class="first-extraction-feature"
+                [src]="featureImagePath[screen.id]"
+                (click)="openModal($event, screen.id)"
               />
             </div>
           </div>
-          <div id="feature-screen-wrapper-3" class="feature-screen-wrapper">
+          <!-- <div id="feature-screen-wrapper-3" class="feature-screen-wrapper">
             <div class="feature-screen-border">
               <img
                 [src]="featureImagePath[3]"
@@ -92,7 +96,7 @@
                 class="first-extraction-feature"
               />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- <div class="details-grid">
