@@ -163,8 +163,16 @@
       // grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
       grid-template-columns: 1fr 1fr;
 
+      /*
+      $bp-largest: 1200px;
+$bp-large: 992px;
+$bp-medium: 768px;
+$bp-small: 578px;
+      */
+
       //logic for network-graphic-size:
       $networkGraphicwrapperWidth: 1200px;
+
       $heightRatio: 0.66;
       $networkGraphicwrapperHeight: $networkGraphicwrapperWidth * $heightRatio;
       $outerScreenBorderColor: #888;
@@ -172,7 +180,23 @@
       $screenRotation: rotateX(-28deg) rotateY(28deg);
       $screenTranslate: translate3d(-50%, -50%, 0);
       // padding-bottom: $heightRatio;
-      min-height: $networkGraphicwrapperHeight;
+      min-height: 1200px * $heightRatio;
+      @include xl {
+        // $networkGraphicwrapperWidth: 992px;
+        min-height: 992px * $heightRatio;
+      }
+      @include lg {
+        // $networkGraphicwrapperWidth: 768px;
+        min-height: 768px * $heightRatio;
+      }
+      @include md {
+        // $networkGraphicwrapperWidth: 578px;
+        min-height: 578px * $heightRatio;
+      }
+      @include sm {
+        // $networkGraphicwrapperWidth: 320px;
+        min-height: 320px * $heightRatio;
+      }
 
       .background-container {
         width: 100%;
@@ -198,7 +222,19 @@
           position: relative;
           justify-self: center;
           align-self: center;
-          width: $networkGraphicwrapperWidth;
+          width: 1200px;
+          @include xl {
+            width: 992px;
+          }
+          @include lg {
+            width: 768px;
+          }
+          @include md {
+            width: 578px;
+          }
+          @include sm {
+            width: 320px;
+          }
           height: 100%;
 
           #networkGraphicCanvas {
@@ -209,7 +245,7 @@
             width: 100%;
             height: 100%;
 
-            line.networkCable {
+            line.network-cable {
               stroke-width: 3;
               &.left {
                 stroke: #8cd0de;
@@ -217,84 +253,38 @@
               &.right {
                 stroke: #fff;
               }
+              @include md {
+                stroke-width: 2;
+              }
             }
           }
 
           //FEATURE SCREENS
-          $pos-left-screen-0: 15%;
-          $pos-top-screen-0: 30%;
-          $size-screen-0: 15%;
-          $pos-left-screen-3: 80%;
-          $pos-top-screen-3: 70%;
-          $size-screen-3: 13%;
           .feature-screen-wrapper {
             position: absolute;
             z-index: 3;
             border-left: #000 solid 8px;
             border-top: #000 solid 5px;
+            @include md {
+              border-left: #000 solid 4px;
+              border-top: #000 solid 2px;
+            }
             border-color: $outerScreenBorderColor;
             transform: $screenTranslate $screenRotation;
-            transition: all 0.3s ease-out;
+            transition: border 0.3s ease-out, box-shadow 0.3s ease-out;
 
             &:hover {
               cursor: pointer;
               border-color: $--primary;
               box-shadow: 0 0 10px $--primary;
-              transition: all 0.3s ease-out;
+              transition: border 0.3s ease-out, box-shadow 0.3s ease-out;
             }
 
             .feature-screen-border {
               border: $innerScreenBorderColor solid 5px;
-            }
-
-            &#feature-screen-wrapper-0 {
-              width: $size-screen-0;
-              left: $pos-left-screen-0;
-              top: $pos-top-screen-0;
-            }
-            &#feature-screen-wrapper-3 {
-              width: $size-screen-3;
-              left: $pos-left-screen-3;
-              top: $pos-top-screen-3;
-            }
-          }
-
-          //CABLES
-          $cable-width: 2px;
-          //MAIN CABLES:
-          $m-c-pos-left: 45%;
-          $m-c-pos-right: 55%;
-          $m-c-height: 10%;
-          .graphic-cable {
-            position: absolute;
-            z-index: 2;
-            width: $cable-width;
-            &.g-c-left {
-              background-color: $--primary;
-            }
-            &.g-c-right {
-              background-color: #fff;
-            }
-            &.g-c-main {
-              top: 0px;
-              width: 2px;
-              height: $m-c-height;
-              &.g-c-left {
-                left: $m-c-pos-left;
-                background-color: $--primary;
+              @include md {
+                border: $innerScreenBorderColor solid 1px;
               }
-              &.g-c-right {
-                left: $m-c-pos-right;
-                background-color: #fff;
-              }
-            }
-            &.g-c-connect-main-with-0 {
-              $leftDist: (($pos-left-screen-0 + $m-c-pos-left) / 2);
-              $topDist: (($pos-top-screen-0 + $m-c-height) / 2);
-              left: $leftDist;
-              top: $topDist;
-              height: 398px;
-              transform: translate3d(-50%, -50%, 0) rotate(66.2deg);
             }
           }
         }

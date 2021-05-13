@@ -69,17 +69,15 @@
       <div class="background-container light-background"></div>
       <div class="background-container dark-background"></div>
       <div class="network-graphic-container">
-        <div class="network-graphic-wrapper">
-          <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
+        <div #networkGraphicWrapper class="network-graphic-wrapper">
           <!-- CABLES -->
-          <div class="graphic-cable g-c-left g-c-main"></div>
-          <div class="graphic-cable g-c-right g-c-main"></div>
-          <div class="graphic-cable g-c-left g-c-connect-main-with-0"></div>
+          <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
           <!-- FEATURE SCREENS -->
           <div
             *ngFor="let screen of networkScreens"
             [id]="'feature-screen-wrapper-' + screen.id"
             class="feature-screen-wrapper"
+            [style]="screen.style"
           >
             <div class="feature-screen-border">
               <img

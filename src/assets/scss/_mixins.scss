@@ -2,7 +2,7 @@
 @import "variables";
 
 @mixin sm {
-  @media (max-width: #{$bp-small}) {
+  @media screen and(max-width: #{$bp-small}) {
     @content;
   }
 }
