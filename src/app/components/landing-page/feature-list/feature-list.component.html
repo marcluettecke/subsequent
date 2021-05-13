@@ -1,5 +1,5 @@
 <section id="feature-overview" class="container">
-  <!-- <img
+	<!-- <img
     src="../../../../../assets/images/Datennetz-light.svg"
     alt="Datennetz"
     class="datapoints__1"
@@ -19,83 +19,80 @@
     alt="Datennetz"
     class="datapoints__4"
   /> -->
-  <div class="rotating-body">
-    <video
-      autoplay=""
-      loop=""
-      muted=""
-      width="100%"
-      height="100%"
-      preload="auto"
-      autobuffer="true"
-    >
-      <source
-        type="video/mp4"
-        src="../../../../assets/videos/spaceX_rotation_cropped.mp4"
-      />
-    </video>
-  </div>
-  <div class="layout-container">
-    <div class="extraction-container feature-container">
-      <div class="text-container-extraction">
-        <h1 id="extraction">{{ "layout.data-extraction" | translate }}</h1>
-      </div>
-      <div class="first-feature feature-bullet">
-        {{ "features-extraction.first.title" | translate }}
-      </div>
-      <div class="second-feature feature-bullet">
-        {{ "features-extraction.second.title" | translate }}
-      </div>
-      <div class="third-feature feature-bullet">
-        {{ "features-extraction.third.title" | translate }}
-      </div>
-    </div>
-    <div class="analysis-container feature-container">
-      <div class="text-container-analysis">
-        <h1 id="analysis">{{ "layout.data-analysis" | translate }}</h1>
-      </div>
+	<div class="rotating-body">
+		<video
+			autoplay=""
+			loop=""
+			muted=""
+			width="100%"
+			height="100%"
+			preload="auto"
+			autobuffer="true"
+		>
+			<source type="video/mp4" src="../../../../assets/videos/body_running_cropped.mp4" />
+		</video>
+	</div>
+	<div class="layout-container">
+		<div class="extraction-container feature-container">
+			<div class="text-container-extraction">
+				<h1 id="extraction">{{ 'layout.data-extraction' | translate }}</h1>
+			</div>
+			<div class="first-feature feature-bullet">
+				{{ 'features-extraction.first.title' | translate }}
+			</div>
+			<div class="second-feature feature-bullet">
+				{{ 'features-extraction.second.title' | translate }}
+			</div>
+			<div class="third-feature feature-bullet">
+				{{ 'features-extraction.third.title' | translate }}
+			</div>
+		</div>
+		<div class="analysis-container feature-container">
+			<div class="text-container-analysis">
+				<h1 id="analysis">{{ 'layout.data-analysis' | translate }}</h1>
+			</div>
 
-      <div class="fourth-feature feature-bullet analysis-features">
-        {{ "features-analysis.first.title" | translate }}
-      </div>
-      <div class="fifth-feature feature-bullet analysis-features">
-        {{ "features-analysis.second.title" | translate }}
-      </div>
-      <div class="sixth-feature feature-bullet analysis-features">
-        {{ "features-analysis.third.title" | translate }}
-      </div>
-    </div>
-    <div id="container-featureList" class="container container-featureList">
-      <div class="background-container light-background"></div>
-      <div class="background-container dark-background"></div>
-      <div class="network-graphic-container">
-        <div class="network-graphic-wrapper">
-          <!-- CABLES -->
-          <div class="graphic-cable g-c-left g-c-main"></div>
-          <div class="graphic-cable g-c-right g-c-main"></div>
-          <div class="graphic-cable g-c-left g-c-connect-main-with-0"></div>
-          <!-- FEATURE SCREENS -->
-          <div id="feature-screen-wrapper-0" class="feature-screen-wrapper">
-            <div class="feature-screen-border">
-              <img
-                [src]="featureImagePath[0]"
-                (click)="openModal($event, 0)"
-                class="first-extraction-feature"
-              />
-            </div>
-          </div>
-          <div id="feature-screen-wrapper-3" class="feature-screen-wrapper">
-            <div class="feature-screen-border">
-              <img
-                [src]="featureImagePath[3]"
-                (click)="openModal($event, 3)"
-                class="first-extraction-feature"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="details-grid">
+			<div class="fourth-feature feature-bullet analysis-features">
+				{{ 'features-analysis.first.title' | translate }}
+			</div>
+			<div class="fifth-feature feature-bullet analysis-features">
+				{{ 'features-analysis.second.title' | translate }}
+			</div>
+			<div class="sixth-feature feature-bullet analysis-features">
+				{{ 'features-analysis.third.title' | translate }}
+			</div>
+		</div>
+		<div id="container-featureList" class="container container-featureList">
+			<div class="background-container light-background"></div>
+			<div class="background-container dark-background"></div>
+			<div class="network-graphic-container">
+				<div class="network-graphic-wrapper">
+					<!-- CABLES -->
+					<div class="graphic-cable g-c-left g-c-main"></div>
+					<div class="graphic-cable g-c-right g-c-main"></div>
+					<div class="graphic-cable g-c-left g-c-connect-main-with-0"></div>
+					<!-- FEATURE SCREENS -->
+					<div id="feature-screen-wrapper-0" class="feature-screen-wrapper">
+						<div class="feature-screen-border">
+							<img
+								[src]="featureImagePath[0]"
+								(click)="openModal($event, 0)"
+								class="first-extraction-feature"
+							/>
+						</div>
+					</div>
+					<div id="feature-screen-wrapper-3" class="feature-screen-wrapper">
+						<div class="feature-screen-border">
+							<img
+								[src]="featureImagePath[3]"
+								(click)="openModal($event, 3)"
+								class="first-extraction-feature"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="details-grid">
         <img
           [src]="featureImagePath[0]"
           (click)="openModal($event, 0)"
@@ -127,6 +124,6 @@
           class="third-analysis-feature"
         />
       </div> -->
-    </div>
-  </div>
+		</div>
+	</div>
 </section>
