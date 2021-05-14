@@ -15,6 +15,7 @@ import {
 import { FeatureModalComponent } from "./feature-modal/feature-modal.component";
 import {
   FeatureNetworkScreen,
+  FeatureNetworkScreenPosition,
   FeatureNetworkCable,
 } from "../models/LandingPage";
 
@@ -30,92 +31,143 @@ export class FeatureListComponent implements OnInit {
   @ViewChild("networkGraphicWrapper", { static: false })
   networkGraphicWrapper: ElementRef;
 
-  networkScreens: Array<FeatureNetworkScreen> = [
-    {
-      id: 0,
-      xPerc: 0.15,
-      yPerc: 0.3,
-      widthPerc: 0.15,
-      pos: {
-        x: null,
-        y: null,
+  @ViewChild("networkGraphicContainer", { static: false })
+  networkGraphicContainer: ElementRef;
+
+  networkScreenPositions: {
+    desktop: Array<FeatureNetworkScreenPosition>;
+    mobile: Array<FeatureNetworkScreenPosition>;
+  } = {
+    desktop: [
+      {
+        id: 0,
+        xPerc: 0.1,
+        yPerc: 0.2,
+        widthPerc: 0.2,
       },
-    },
-    {
-      id: 1,
-      xPerc: 0.15,
-      yPerc: 0.75,
-      widthPerc: 0.12,
-      pos: {
-        x: null,
-        y: null,
+      {
+        id: 1,
+        xPerc: 0.3,
+        yPerc: 0.45,
+        widthPerc: 0.18,
       },
-    },
-    {
-      id: 2,
-      xPerc: 0.35,
-      yPerc: 0.5,
-      widthPerc: 0.14,
-      pos: {
-        x: null,
-        y: null,
+      {
+        id: 2,
+        xPerc: 0.2,
+        yPerc: 0.75,
+        widthPerc: 0.18,
       },
-    },
-    {
-      id: 3,
-      xPerc: 0.8,
-      yPerc: 0.7,
-      widthPerc: 0.13,
-      pos: {
-        x: null,
-        y: null,
+      {
+        id: 3,
+        xPerc: 0.9,
+        yPerc: 0.23,
+        widthPerc: 0.18,
       },
-    },
-    {
-      id: 4,
-      xPerc: 0.7,
-      yPerc: 0.3,
-      widthPerc: 0.15,
-      pos: {
-        x: null,
-        y: null,
+      {
+        id: 4,
+        xPerc: 0.68,
+        yPerc: 0.35,
+        widthPerc: 0.15,
       },
-    },
-    {
-      id: 5,
-      xPerc: 0.65,
-      yPerc: 0.5,
-      widthPerc: 0.13,
-      pos: {
-        x: null,
-        y: null,
+      {
+        id: 5,
+        xPerc: 0.8,
+        yPerc: 0.7,
+        widthPerc: 0.23,
       },
-    },
-  ];
+    ],
+    mobile: [
+      {
+        id: 0,
+        xPerc: 0.27,
+        yPerc: 0.15,
+        widthPerc: 0.35,
+      },
+      {
+        id: 1,
+        xPerc: 0.25,
+        yPerc: 0.48,
+        widthPerc: 0.35,
+      },
+      {
+        id: 2,
+        xPerc: 0.26,
+        yPerc: 0.75,
+        widthPerc: 0.35,
+      },
+      {
+        id: 3,
+        xPerc: 0.73,
+        yPerc: 0.15,
+        widthPerc: 0.3,
+      },
+      {
+        id: 4,
+        xPerc: 0.72,
+        yPerc: 0.4,
+        widthPerc: 0.35,
+      },
+      {
+        id: 5,
+        xPerc: 0.73,
+        yPerc: 0.75,
+        widthPerc: 0.35,
+      },
+    ],
+  };
+
+  networkScreens: Array<FeatureNetworkScreen>;
 
   networkCables: Array<FeatureNetworkCable> = [];
 
+  /**
+   * 0 is mCableIndex for left side, 1 for the right side
+   */
   mainCableAnchorPoints = {
-    left: {
-      pos1: {
-        xPerc: 0.45, // initially % value
-        yPerc: 0.0,
+    desktop: [
+      {
+        pos1: {
+          xPerc: 0.45,
+          yPerc: 0.0,
+        },
+        pos2: {
+          xPerc: 0.45,
+          yPerc: 0.25,
+        },
       },
-      pos2: {
-        xPerc: 0.45, // initially % value
-        yPerc: 0.25,
+      {
+        pos1: {
+          xPerc: 0.55,
+          yPerc: 0.0,
+        },
+        pos2: {
+          xPerc: 0.55,
+          yPerc: 0.25,
+        },
       },
-    },
-    right: {
-      pos1: {
-        xPerc: 0.55, // initially % value
-        yPerc: 0.0,
+    ],
+    mobile: [
+      {
+        pos1: {
+          xPerc: 0.05,
+          yPerc: 0.0,
+        },
+        pos2: {
+          xPerc: 0.05,
+          yPerc: 0.25,
+        },
       },
-      pos2: {
-        xPerc: 0.55, // initially % value
-        yPerc: 0.25,
+      {
+        pos1: {
+          xPerc: 0.95,
+          yPerc: 0.0,
+        },
+        pos2: {
+          xPerc: 0.95,
+          yPerc: 0.25,
+        },
       },
-    },
+    ],
   };
 
   canvasWidth: number = 0;
@@ -130,6 +182,8 @@ export class FeatureListComponent implements OnInit {
     "../../../../../assets/images/featureSnapshots/skeletal.png",
     "../../../../../assets/images/featureSnapshots/freespace.jpg",
   ];
+
+  isXSmallSubscription: Subscription;
 
   isXSmall: Observable<BreakpointState> = this.breakpointObserver.observe(
     Breakpoints.XSmall
@@ -159,6 +213,8 @@ export class FeatureListComponent implements OnInit {
     Breakpoints.XLarge
   );
 
+  screenMode: "desktop" | "mobile" = "desktop";
+
   constructor(
     private matDialog: MatDialog,
     private readonly breakpointObserver: BreakpointObserver,
@@ -167,12 +223,17 @@ export class FeatureListComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.drawNetwork();
-      const resizeFunction = () => {
-        setTimeout(() => {
+      const resizeFunction = (size: any) => {
+        if (size.matches) {
+          if (this.networkGraphicContainer.nativeElement.offsetWidth < 600) {
+            this.screenMode = "mobile";
+          } else {
+            this.screenMode = "desktop";
+          }
           this.drawNetwork();
-        }, 300);
+        }
       };
+      this.isXSmallSubscription = this.isXSmall.subscribe(resizeFunction);
       this.isSmallSubscription = this.isSmall.subscribe(resizeFunction);
       this.isMediumSubscription = this.isMedium.subscribe(resizeFunction);
       this.isLargeSubscription = this.isLarge.subscribe(resizeFunction);
@@ -181,6 +242,7 @@ export class FeatureListComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    this.isXSmallSubscription.unsubscribe();
     this.isSmallSubscription.unsubscribe();
     this.isMediumSubscription.unsubscribe();
     this.isLargeSubscription.unsubscribe();
@@ -193,60 +255,137 @@ export class FeatureListComponent implements OnInit {
    * recalculates all fields of all feature screens
    */
   recalculateScreens() {
-    this.networkScreens.forEach((screen, index) => {
-      this.networkScreens[index].pos = {
-        x: this.canvasWidth * screen.xPerc,
-        y: this.canvasHeight * screen.yPerc,
-      };
-      this.networkScreens[index].width = this.canvasWidth * screen.widthPerc;
-      this.networkScreens[
-        index
-      ].style = `left:${screen.pos.x}px;top:${screen.pos.y}px;width:${screen.width}px;`;
-    });
+    this.networkScreens = [];
+    this.networkScreenPositions[this.screenMode].forEach(
+      (screenPos: {
+        id: number;
+        xPerc: number;
+        yPerc: number;
+        widthPerc: number;
+      }) => {
+        const newFeatureScreen: FeatureNetworkScreen = {
+          id: screenPos.id,
+          pos: {
+            x: this.canvasWidth * screenPos.xPerc,
+            y: this.canvasHeight * screenPos.yPerc,
+          },
+          width: this.canvasWidth * screenPos.widthPerc,
+          inLight: false,
+        };
+        if (screenPos.xPerc < 0.5) {
+          newFeatureScreen.inLight = true;
+        }
+        newFeatureScreen.style = `left:${newFeatureScreen.pos.x}px;top:${newFeatureScreen.pos.y}px;width:${newFeatureScreen.width}px;`;
+        this.networkScreens.push(newFeatureScreen);
+      }
+    );
   }
 
   /**
    * recalculates all fields of all cables
    */
   recalculateCables() {
+    // options:
+    let supportCableAngle = 27;
+    let screenCableAnchorDistance = 50;
+    if (this.screenMode === "mobile") {
+      supportCableAngle = 30;
+      screenCableAnchorDistance = 25;
+    }
     this.networkCables = [
       {
         class: "network-cable main-cable left",
         pos1: {
-          x: this.canvasWidth * this.mainCableAnchorPoints.left.pos1.xPerc,
-          y: this.canvasHeight * this.mainCableAnchorPoints.left.pos1.yPerc,
+          x:
+            this.canvasWidth *
+            this.mainCableAnchorPoints[this.screenMode][0].pos1.xPerc,
+          y:
+            this.canvasHeight *
+            this.mainCableAnchorPoints[this.screenMode][0].pos1.yPerc,
         },
         pos2: {
-          x: this.canvasWidth * this.mainCableAnchorPoints.left.pos2.xPerc,
-          y: this.canvasHeight * this.mainCableAnchorPoints.left.pos2.yPerc,
+          x:
+            this.canvasWidth *
+            this.mainCableAnchorPoints[this.screenMode][0].pos2.xPerc,
+          y:
+            this.canvasHeight *
+            this.mainCableAnchorPoints[this.screenMode][0].pos2.yPerc,
         },
       },
       {
         class: "network-cable main-cable right",
         pos1: {
-          x: this.canvasWidth * this.mainCableAnchorPoints.right.pos1.xPerc,
-          y: this.canvasHeight * this.mainCableAnchorPoints.right.pos1.yPerc,
+          x:
+            this.canvasWidth *
+            this.mainCableAnchorPoints[this.screenMode][1].pos1.xPerc,
+          y:
+            this.canvasHeight *
+            this.mainCableAnchorPoints[this.screenMode][1].pos1.yPerc,
         },
         pos2: {
-          x: this.canvasWidth * this.mainCableAnchorPoints.right.pos2.xPerc,
-          y: this.canvasHeight * this.mainCableAnchorPoints.right.pos2.yPerc,
+          x:
+            this.canvasWidth *
+            this.mainCableAnchorPoints[this.screenMode][1].pos2.xPerc,
+          y:
+            this.canvasHeight *
+            this.mainCableAnchorPoints[this.screenMode][1].pos2.yPerc,
         },
       },
     ];
     this.networkScreens.forEach((screen) => {
-      let mCableIndex = 1;
-      let sideClass = "right";
-      if (screen.pos.x && screen.pos.x < this.canvasWidth / 2) {
-        mCableIndex = 0;
-        sideClass = "left";
+      if (screen.pos.x && screen.pos.y) {
+        // determine side and mainCable connection
+        let mCableIndex = 1;
+        let sideClass = "right";
+        if (screen.pos.x && screen.pos.x < this.canvasWidth / 2) {
+          mCableIndex = 0;
+          sideClass = "left";
+        }
+        // determine anchorpoints
+        const screenAnchorPoint = {
+          x: screen.pos.x,
+          y: screen.pos.y - screenCableAnchorDistance,
+        };
+        const mCableConnectorY =
+          screenAnchorPoint.y -
+          this.calcOppositeCathetus(
+            supportCableAngle,
+            Math.abs(screen.pos.x - this.networkCables[mCableIndex].pos1.x)
+          );
+        if (this.networkCables[mCableIndex].pos2.y < mCableConnectorY) {
+          this.networkCables[mCableIndex].pos2.y = mCableConnectorY;
+        }
+        const mCableConnectionPoint = {
+          x: this.networkCables[mCableIndex].pos1.x,
+          y: mCableConnectorY,
+        };
+        this.networkCables.push({
+          class: `network-cable ${sideClass}`,
+          screenID: screen.id,
+          pos1: mCableConnectionPoint,
+          pos2: screenAnchorPoint,
+        });
+        // set final cable section
+        this.networkCables.push({
+          class: `network-cable ${sideClass}`,
+          screenID: screen.id,
+          pos1: screenAnchorPoint,
+          pos2: screen.pos,
+        });
       }
-      this.networkCables.push({
-        class: `network-cable ${sideClass}`,
-        screenID: screen.id,
-        pos1: this.networkCables[mCableIndex].pos2,
-        pos2: screen.pos,
-      });
     });
+  }
+
+  private toRadians(degrees: number) {
+    return degrees * (Math.PI / 180);
+  }
+
+  private calcOppositeCathetus(alpha: number, cathetus: number) {
+    return (
+      cathetus *
+      Math.sin(this.toRadians(alpha)) *
+      Math.sin(this.toRadians(alpha))
+    );
   }
 
   /**
@@ -262,7 +401,6 @@ export class FeatureListComponent implements OnInit {
     }
     // setup network SCREENS:
     this.recalculateScreens();
-    console.log("this.networkScreens: ", this.networkScreens);
 
     // delete old CABLES:
     const childElements = this.networkGraphicCanvas.nativeElement.children;
@@ -286,7 +424,6 @@ export class FeatureListComponent implements OnInit {
       line1.setAttributeNS(null, "class", cable.class);
       this.networkGraphicCanvas.nativeElement.appendChild(line1);
     });
-    console.log("this.networkCables: ", this.networkCables);
   }
 
   openModal(event: MouseEvent, index: number) {

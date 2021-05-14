@@ -1,14 +1,21 @@
 @import "variables";
 @import "mixins";
+@import "functions";
 
 %heading {
   font-size: 5rem;
   font-weight: bold;
   letter-spacing: 0.5rem;
+  @include xSmall {
+    font-size: 3rem;
+  }
 }
 
 .feature-bullet {
   font-size: 3rem;
+  @include xSmall {
+    font-size: 2.2rem;
+  }
 }
 
 .analysis-features {
@@ -88,11 +95,14 @@
 
   .rotating-body {
     position: absolute;
-    top: 10%;
-    left: 25%;
+    top: 25%;
+    left: 50%;
+    max-width: 300px;
     z-index: 98;
 
-    @include md {
+    transform: translate3d(-50%, -50%, 0);
+
+    @include xSmall {
       display: none;
     }
 
@@ -122,30 +132,49 @@
         "details";
     }
 
-    .extraction-container {
-      grid-area: extraction;
-      background: #fff url("/assets/images/background-light.jpg") no-repeat
-        center;
-      background-size: cover;
-      .text-container-extraction {
-        margin-top: 4rem;
-
-        h1 {
-          @extend %heading;
+    .feature-container {
+      position: relative;
+      .mobile-background-sidebar {
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        width: 60px;
+        height: 100%;
+        &.light {
+          left: 0px;
+          background-color: $--white;
+        }
+        &.dark {
+          right: 0px;
+          background-color: $--black;
         }
       }
-    }
 
-    .analysis-container {
-      grid-area: analysis;
-      background: #fff url("/assets/images/background-dark.jpg") no-repeat
-        center;
-      background-size: cover;
-      .text-container-analysis {
-        margin-top: 4rem;
+      &.extraction-container {
+        grid-area: extraction;
+        background: #fff url("/assets/images/background-light.jpg") no-repeat
+          center;
+        background-size: cover;
+        .text-container-extraction {
+          margin-top: 4rem;
 
-        h1 {
-          @extend %heading;
+          h1 {
+            @extend %heading;
+          }
+        }
+      }
+
+      &.analysis-container {
+        grid-area: analysis;
+        background: #fff url("/assets/images/background-dark.jpg") no-repeat
+          center;
+        background-size: cover;
+        .text-container-analysis {
+          margin-top: 4rem;
+
+          h1 {
+            @extend %heading;
+          }
         }
       }
     }
@@ -153,22 +182,8 @@
     .container-featureList {
       position: relative;
       grid-area: details;
-      // background: linear-gradient(
-      //   to right,
-      //   $--white,
-      //   $--white 50%,
-      //   $--black 50%
-      // );
       display: grid;
-      // grid-template-columns: minmax(0.5rem, 0.1fr) 1fr minmax(0.5rem, 0.1fr);
       grid-template-columns: 1fr 1fr;
-
-      /*
-      $bp-largest: 1200px;
-$bp-large: 992px;
-$bp-medium: 768px;
-$bp-small: 578px;
-      */
 
       //logic for network-graphic-size:
       $networkGraphicwrapperWidth: 1200px;
@@ -178,7 +193,47 @@ $bp-small: 578px;
       $outerScreenBorderColor: #888;
       $innerScreenBorderColor: #333;
       $screenRotation: rotateX(-28deg) rotateY(28deg);
-      $screenTranslate: translate3d(-50%, -50%, 0);
+      $screenTranslate: translate3d(-50%, -15px, 0);
+
+      //animations
+      @keyframes pulsatingScreenLight {
+        0% {
+          border-color: $outerScreenBorderColor;
+          box-shadow: none;
+        }
+        16% {
+          border-color: $--primary;
+          box-shadow: 0 0 10px $--primary;
+        }
+        30% {
+          border-color: $--primary;
+          box-shadow: 0 0 10px $--primary;
+        }
+        48% {
+          border-color: $outerScreenBorderColor;
+          box-shadow: none;
+        }
+      }
+
+      @keyframes pulsatingScreenDark {
+        0% {
+          border-color: $outerScreenBorderColor;
+          box-shadow: none;
+        }
+        16% {
+          border-color: $--white;
+          box-shadow: 0 0 10px $--white;
+        }
+        30% {
+          border-color: $--white;
+          box-shadow: 0 0 10px $--white;
+        }
+        48% {
+          border-color: $outerScreenBorderColor;
+          box-shadow: none;
+        }
+      }
+
       // padding-bottom: $heightRatio;
       min-height: 1200px * $heightRatio;
       @include xl {
@@ -202,11 +257,14 @@ $bp-small: 578px;
         width: 100%;
         height: 100%;
         &.light-background {
-          background-color: #fff;
+          background: #fff url("/assets/images/background-light.jpg") no-repeat
+            center;
         }
         &.dark-background {
-          background-color: #1c1c1c;
+          background: #000 url("/assets/images/background-dark.jpg") no-repeat
+            center;
         }
+        background-size: cover;
       }
 
       .network-graphic-container {
@@ -223,16 +281,13 @@ $bp-small: 578px;
           justify-self: center;
           align-self: center;
           width: 1200px;
-          @include xl {
-            width: 992px;
+          @include medium {
+            width: 940px;
           }
-          @include lg {
-            width: 768px;
-          }
-          @include md {
+          @include small {
             width: 578px;
           }
-          @include sm {
+          @include xSmall {
             width: 320px;
           }
           height: 100%;
@@ -263,7 +318,7 @@ $bp-small: 578px;
           .feature-screen-wrapper {
             position: absolute;
             z-index: 3;
-            border-left: #000 solid 8px;
+            border-left: #000 solid 6px;
             border-top: #000 solid 5px;
             @include md {
               border-left: #000 solid 4px;
@@ -278,6 +333,28 @@ $bp-small: 578px;
               border-color: $--primary;
               box-shadow: 0 0 10px $--primary;
               transition: border 0.3s ease-out, box-shadow 0.3s ease-out;
+            }
+            &:not(:hover) {
+              @for $i from 1 through 6 {
+                &:nth-of-type(#{$i}) {
+                  &.in-light {
+                    animation: pulsatingScreenLight
+                      5s
+                      linear
+                      infinite
+                      #{randomNum(5, 30) /
+                      3}s;
+                  }
+                  &.in-dark {
+                    animation: pulsatingScreenDark
+                      5s
+                      linear
+                      infinite
+                      #{randomNum(5, 30) /
+                      3}s;
+                  }
+                }
+              }
             }
 
             .feature-screen-border {

@@ -18,7 +18,7 @@
     "target": "es2015",
     "module": "es2020",
     "lib": ["es2018", "dom"],
-    "types": ["resize-observer-browser"]
+    "types": []
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

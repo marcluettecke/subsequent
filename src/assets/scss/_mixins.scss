@@ -27,3 +27,30 @@
     @content;
   }
 }
+
+//same classes as BreakpointObserver uses
+@mixin xSmall {
+  @media screen and(max-width: #{$bp-x-small-max}) {
+    @content;
+  }
+}
+@mixin small {
+  @media screen and (min-width: #{$bp-small-min}) and (max-width: #{$bp-small-max}) {
+    @content;
+  }
+}
+@mixin medium {
+  @media screen and (min-width: #{$bp-medium-min}) and (max-width: #{$bp-medium-max}) {
+    @content;
+  }
+}
+@mixin large {
+  @media screen and (min-width: #{$bp-large-min}) and (max-width: #{$bp-large-max}) {
+    @content;
+  }
+}
+@mixin xLarge {
+  @media screen and (min-width: #{$bp-x-large-min}) {
+    @content;
+  }
+}

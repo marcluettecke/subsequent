@@ -36,7 +36,11 @@
     </video>
   </div>
   <div class="layout-container">
-    <div class="extraction-container feature-container">
+    <div class="inner-container feature-container extraction-container">
+      <!-- <div
+        *ngIf="screenMode === 'mobile'"
+        class="mobile-background-sidebar dark"
+      ></div> -->
       <div class="text-container-extraction">
         <h1 id="extraction">{{ "layout.data-extraction" | translate }}</h1>
       </div>
@@ -50,7 +54,11 @@
         {{ "features-extraction.third.title" | translate }}
       </div>
     </div>
-    <div class="analysis-container feature-container">
+    <div class="feature-container analysis-container">
+      <div
+        *ngIf="screenMode === 'mobile'"
+        class="mobile-background-sidebar light"
+      ></div>
       <div class="text-container-analysis">
         <h1 id="analysis">{{ "layout.data-analysis" | translate }}</h1>
       </div>
@@ -68,7 +76,7 @@
     <div id="container-featureList" class="container container-featureList">
       <div class="background-container light-background"></div>
       <div class="background-container dark-background"></div>
-      <div class="network-graphic-container">
+      <div #networkGraphicContainer class="network-graphic-container">
         <div #networkGraphicWrapper class="network-graphic-wrapper">
           <!-- CABLES -->
           <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
@@ -78,6 +86,7 @@
             [id]="'feature-screen-wrapper-' + screen.id"
             class="feature-screen-wrapper"
             [style]="screen.style"
+            [class]="screen.inLight ? 'in-light' : 'in-dark'"
           >
             <div class="feature-screen-border">
               <img
