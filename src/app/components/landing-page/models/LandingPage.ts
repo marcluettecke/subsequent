@@ -10,11 +10,12 @@ export interface IPersonalDescription {
   random: string;
 }
 
-export interface FeatureNetworkScreenPosition {
+export interface FeatureNetworkScreenTemplate {
   id: number;
   xPerc: number;
   yPerc: number;
   widthPerc: number;
+  imgSrc: string;
 }
 
 export interface FeatureNetworkScreen {
@@ -24,6 +25,7 @@ export interface FeatureNetworkScreen {
     y: number;
   };
   width: number;
+  imgSrc: string;
   style?: string;
   inLight?: boolean;
 }

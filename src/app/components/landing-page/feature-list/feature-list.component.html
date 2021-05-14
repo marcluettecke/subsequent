@@ -82,62 +82,18 @@
           <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
           <!-- FEATURE SCREENS -->
           <div
-            *ngFor="let screen of networkScreens"
+            *ngFor="let screen of networkScreens; let i = index"
             [id]="'feature-screen-wrapper-' + screen.id"
             class="feature-screen-wrapper"
             [style]="screen.style"
             [class]="screen.inLight ? 'in-light' : 'in-dark'"
           >
             <div class="feature-screen-border">
-              <img
-                [src]="featureImagePath[screen.id]"
-                (click)="openModal($event, screen.id)"
-              />
+              <img [src]="screen.imgSrc" (click)="openModal($event, i)" />
             </div>
           </div>
-          <!-- <div id="feature-screen-wrapper-3" class="feature-screen-wrapper">
-            <div class="feature-screen-border">
-              <img
-                [src]="featureImagePath[3]"
-                (click)="openModal($event, 3)"
-                class="first-extraction-feature"
-              />
-            </div>
-          </div> -->
         </div>
       </div>
-      <!-- <div class="details-grid">
-        <img
-          [src]="featureImagePath[0]"
-          (click)="openModal($event, 0)"
-          class="first-extraction-feature"
-        />
-        <img
-          [src]="featureImagePath[1]"
-          (click)="openModal($event, 1)"
-          class="first-analysis-feature"
-        />
-        <img
-          [src]="featureImagePath[2]"
-          (click)="openModal($event, 2)"
-          class="second-extraction-feature"
-        />
-        <img
-          [src]="featureImagePath[3]"
-          (click)="openModal($event, 3)"
-          class="second-analysis-feature"
-        />
-        <img
-          [src]="featureImagePath[4]"
-          (click)="openModal($event, 4)"
-          class="third-extraction-feature"
-        />
-        <img
-          [src]="featureImagePath[5]"
-          (click)="openModal($event, 5)"
-          class="third-analysis-feature"
-        />
-      </div> -->
     </div>
   </div>
 </section>

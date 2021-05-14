@@ -15,7 +15,7 @@ import {
 import { FeatureModalComponent } from "./feature-modal/feature-modal.component";
 import {
   FeatureNetworkScreen,
-  FeatureNetworkScreenPosition,
+  FeatureNetworkScreenTemplate,
   FeatureNetworkCable,
 } from "../models/LandingPage";
 
@@ -34,9 +34,13 @@ export class FeatureListComponent implements OnInit {
   @ViewChild("networkGraphicContainer", { static: false })
   networkGraphicContainer: ElementRef;
 
-  networkScreenPositions: {
-    desktop: Array<FeatureNetworkScreenPosition>;
-    mobile: Array<FeatureNetworkScreenPosition>;
+  /**
+   * NetworkScreenTemplates:
+   * Here you can create and edit all Featurescreen positions, size and their images
+   */
+  networkScreenTemplates: {
+    desktop: Array<FeatureNetworkScreenTemplate>;
+    mobile: Array<FeatureNetworkScreenTemplate>;
   } = {
     desktop: [
       {
@@ -44,36 +48,42 @@ export class FeatureListComponent implements OnInit {
         xPerc: 0.1,
         yPerc: 0.2,
         widthPerc: 0.2,
+        imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 1,
         xPerc: 0.3,
         yPerc: 0.45,
         widthPerc: 0.18,
+        imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 2,
         xPerc: 0.2,
         yPerc: 0.75,
         widthPerc: 0.18,
+        imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 3,
         xPerc: 0.9,
         yPerc: 0.23,
         widthPerc: 0.18,
+        imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 4,
         xPerc: 0.68,
         yPerc: 0.35,
         widthPerc: 0.15,
+        imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 5,
         xPerc: 0.8,
         yPerc: 0.7,
         widthPerc: 0.23,
+        imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
     ],
     mobile: [
@@ -82,36 +92,42 @@ export class FeatureListComponent implements OnInit {
         xPerc: 0.27,
         yPerc: 0.15,
         widthPerc: 0.35,
+        imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 1,
         xPerc: 0.25,
         yPerc: 0.48,
         widthPerc: 0.35,
+        imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 2,
         xPerc: 0.26,
         yPerc: 0.75,
         widthPerc: 0.35,
+        imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 3,
         xPerc: 0.73,
         yPerc: 0.15,
         widthPerc: 0.3,
+        imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 4,
         xPerc: 0.72,
         yPerc: 0.4,
         widthPerc: 0.35,
+        imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 5,
         xPerc: 0.73,
         yPerc: 0.75,
         widthPerc: 0.35,
+        imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
     ],
   };
@@ -121,7 +137,11 @@ export class FeatureListComponent implements OnInit {
   networkCables: Array<FeatureNetworkCable> = [];
 
   /**
-   * 0 is mCableIndex for left side, 1 for the right side
+   * MainCableanchorpoints
+   *
+   * INDEXES:
+   * 0 is for left side
+   * 1 for the right side
    */
   mainCableAnchorPoints = {
     desktop: [
@@ -173,15 +193,6 @@ export class FeatureListComponent implements OnInit {
   canvasWidth: number = 0;
 
   canvasHeight: number = 0;
-
-  featureImagePath = [
-    "../../../../../assets/images/featureSnapshots/skeletal.png",
-    "../../../../../assets/images/featureSnapshots/freespace.jpg",
-    "../../../../../assets/images/featureSnapshots/skeletal.png",
-    "../../../../../assets/images/featureSnapshots/freespace.jpg",
-    "../../../../../assets/images/featureSnapshots/skeletal.png",
-    "../../../../../assets/images/featureSnapshots/freespace.jpg",
-  ];
 
   isXSmallSubscription: Subscription;
 
@@ -256,23 +267,19 @@ export class FeatureListComponent implements OnInit {
    */
   recalculateScreens() {
     this.networkScreens = [];
-    this.networkScreenPositions[this.screenMode].forEach(
-      (screenPos: {
-        id: number;
-        xPerc: number;
-        yPerc: number;
-        widthPerc: number;
-      }) => {
+    this.networkScreenTemplates[this.screenMode].forEach(
+      (screenTemplate: FeatureNetworkScreenTemplate) => {
         const newFeatureScreen: FeatureNetworkScreen = {
-          id: screenPos.id,
+          id: screenTemplate.id,
           pos: {
-            x: this.canvasWidth * screenPos.xPerc,
-            y: this.canvasHeight * screenPos.yPerc,
+            x: this.canvasWidth * screenTemplate.xPerc,
+            y: this.canvasHeight * screenTemplate.yPerc,
           },
-          width: this.canvasWidth * screenPos.widthPerc,
+          width: this.canvasWidth * screenTemplate.widthPerc,
+          imgSrc: screenTemplate.imgSrc,
           inLight: false,
         };
-        if (screenPos.xPerc < 0.5) {
+        if (screenTemplate.xPerc < 0.5) {
           newFeatureScreen.inLight = true;
         }
         newFeatureScreen.style = `left:${newFeatureScreen.pos.x}px;top:${newFeatureScreen.pos.y}px;width:${newFeatureScreen.width}px;`;
@@ -402,7 +409,7 @@ export class FeatureListComponent implements OnInit {
     // setup network SCREENS:
     this.recalculateScreens();
 
-    // delete old CABLES:
+    // clear CABLE drawCanvas:
     const childElements = this.networkGraphicCanvas.nativeElement.children;
     for (let i = 0; i < childElements.length; i++) {
       this.renderer2.removeChild(
@@ -410,6 +417,7 @@ export class FeatureListComponent implements OnInit {
         childElements[i]
       );
     }
+
     // draw network CABLES:
     this.recalculateCables();
     this.networkCables.forEach((cable) => {
@@ -429,7 +437,7 @@ export class FeatureListComponent implements OnInit {
   openModal(event: MouseEvent, index: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
-      imgPath: this.featureImagePath[index],
+      imgPath: this.networkScreens[index].imgSrc,
       descriptionID: index,
     };
     dialogConfig.id = "modal-component";
