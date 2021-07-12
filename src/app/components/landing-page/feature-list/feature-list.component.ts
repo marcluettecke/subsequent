@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   Renderer2,
   ViewChild,
@@ -33,6 +34,8 @@ export class FeatureListComponent implements OnInit {
 
   @ViewChild("networkGraphicContainer", { static: false })
   networkGraphicContainer: ElementRef;
+
+  showRunningManVideoClass: string = "";
 
   /**
    * NetworkScreenTemplates:
@@ -147,21 +150,21 @@ export class FeatureListComponent implements OnInit {
     desktop: [
       {
         pos1: {
-          xPerc: 0.45,
+          xPerc: 0.05,
           yPerc: 0.0,
         },
         pos2: {
-          xPerc: 0.45,
+          xPerc: 0.05,
           yPerc: 0.25,
         },
       },
       {
         pos1: {
-          xPerc: 0.55,
+          xPerc: 0.95,
           yPerc: 0.0,
         },
         pos2: {
-          xPerc: 0.55,
+          xPerc: 0.95,
           yPerc: 0.25,
         },
       },
@@ -226,6 +229,19 @@ export class FeatureListComponent implements OnInit {
 
   screenMode: "desktop" | "mobile" = "desktop";
 
+  @ViewChild("bgVidBreakPointElement") bgVidBreakPointElement: ElementRef;
+
+  @HostListener("window:scroll", ["$event"]) onScroll() {
+    if (
+      this.bgVidBreakPointElement.nativeElement.getBoundingClientRect().top <=
+      -250
+    ) {
+      this.showRunningManVideoClass = "show";
+    } else {
+      this.showRunningManVideoClass = "";
+    }
+  }
+
   constructor(
     private matDialog: MatDialog,
     private readonly breakpointObserver: BreakpointObserver,
@@ -251,6 +267,8 @@ export class FeatureListComponent implements OnInit {
       this.isXLargeSubscription = this.isXLarge.subscribe(resizeFunction);
     }, 300);
   }
+
+  ngAfterViewInit() {}
 
   ngOnDestroy(): void {
     this.isXSmallSubscription.unsubscribe();

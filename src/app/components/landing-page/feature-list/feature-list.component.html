@@ -1,25 +1,25 @@
 <section id="feature-overview" class="container">
   <!-- <img
-    src="../../../../../assets/images/Datennetz-light.svg"
+    src="/assets/images/Datennetz-light.svg"
     alt="Datennetz"
     class="datapoints__1"
   />
   <img
-    src="../../../../../assets/images/Datennetz-dark.svg"
+    src="/assets/images/Datennetz-dark.svg"
     alt="Datennetz"
     class="datapoints__2"
   />
   <img
-    src="../../../../../assets/images/Datennetz-dark.svg"
+    src="/assets/images/Datennetz-dark.svg"
     alt="Datennetz"
     class="datapoints__3"
   />
   <img
-    src="../../../../../assets/images/Datennetz-light.svg"
+    src="/assets/images/Datennetz-light.svg"
     alt="Datennetz"
     class="datapoints__4"
   /> -->
-  <div class="rotating-body">
+  <!-- <div class="rotating-body">
     <video
       autoplay=""
       loop=""
@@ -31,16 +31,130 @@
     >
       <source
         type="video/mp4"
-        src="../../../../assets/videos/body_running_cropped.mp4"
+        src="/assets/videos/body_running_cropped.mp4"
       />
     </video>
+  </div> -->
+  <div class="top-disclaimer">
+    <h1>Disclaimer H1 Headline</h1>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, remaining essentially
+      unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop
+      publishing software like Aldus PageMaker including versions of Lorem
+      Ipsum.
+    </p>
   </div>
-  <div class="layout-container">
+  <div id="background-video-container">
+    <div class="img-video-wrapper">
+      <video
+        [ngClass]="showRunningManVideoClass"
+        autoplay="true"
+        loop=""
+        muted=""
+        width="100%"
+        height="100%"
+        preload="auto"
+        autobuffer="true"
+      >
+        <source
+          type="video/mp4"
+          src="/assets/videos/running_man_background.mp4"
+        />
+      </video>
+      <img
+        src="/assets/images/running-man-background-static.jpg"
+        alt="bg-image"
+      />
+    </div>
+    <div class="slide-page-content-1" #bgVidBreakPointElement>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting
+      </p>
+    </div>
+    <div class="slide-page-content-2">
+      <div class="inner-container">
+        <div class="bullets-container bullets-container-left">
+          <h2 class="pillar-headline">
+            {{ "layout.data-extraction" | translate }}
+          </h2>
+          <p class="bullet-point-item">
+            <img src="/assets/images/bullet_point.svg" />{{
+              "features-extraction.first.title" | translate
+            }}
+          </p>
+          <p class="bullet-point-item">
+            <img src="/assets/images/bullet_point.svg" />{{
+              "features-extraction.second.title" | translate
+            }}
+          </p>
+          <p class="bullet-point-item">
+            <img src="/assets/images/bullet_point.svg" />{{
+              "features-extraction.third.title" | translate
+            }}
+          </p>
+        </div>
+        <div class="bullets-container bullets-container-right">
+          <h2 class="pillar-headline">
+            {{ "layout.data-analysis" | translate }}
+          </h2>
+          <p class="bullet-point-item">
+            <img src="/assets/images/bullet_point.svg" />{{
+              "features-analysis.first.title" | translate
+            }}
+          </p>
+          <p class="bullet-point-item">
+            <img src="/assets/images/bullet_point.svg" />{{
+              "features-analysis.second.title" | translate
+            }}
+          </p>
+          <p class="bullet-point-item">
+            <img src="/assets/images/bullet_point.svg" />{{
+              "features-analysis.third.title" | translate
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-network-container">
+    <div id="container-featureList" class="container container-featureList">
+      <div class="background-container light-background"></div>
+      <div class="background-container dark-background"></div>
+      <div #networkGraphicContainer class="network-graphic-container">
+        <div #networkGraphicWrapper class="network-graphic-wrapper">
+          <!-- CABLES -->
+          <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
+          <!-- FEATURE SCREENS -->
+          <div
+            *ngFor="let screen of networkScreens; let i = index"
+            [id]="'feature-screen-wrapper-' + screen.id"
+            class="feature-screen-wrapper"
+            [style]="screen.style"
+            [class]="screen.inLight ? 'in-light' : 'in-dark'"
+          >
+            <div class="feature-screen-border">
+              <img [src]="screen.imgSrc" (click)="openModal($event, i)" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="layout-container">
     <div class="inner-container feature-container extraction-container">
-      <!-- <div
+      <div
         *ngIf="screenMode === 'mobile'"
         class="mobile-background-sidebar dark"
-      ></div> -->
+      ></div>
       <div class="text-container-extraction">
         <h1 id="extraction">{{ "layout.data-extraction" | translate }}</h1>
       </div>
@@ -78,9 +192,9 @@
       <div class="background-container dark-background"></div>
       <div #networkGraphicContainer class="network-graphic-container">
         <div #networkGraphicWrapper class="network-graphic-wrapper">
-          <!-- CABLES -->
+          CABLES
           <svg #networkGraphicCanvas id="networkGraphicCanvas"></svg>
-          <!-- FEATURE SCREENS -->
+          FEATURE SCREENS
           <div
             *ngFor="let screen of networkScreens; let i = index"
             [id]="'feature-screen-wrapper-' + screen.id"
@@ -95,5 +209,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
