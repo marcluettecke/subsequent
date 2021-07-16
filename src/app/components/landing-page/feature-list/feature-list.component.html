@@ -52,10 +52,11 @@
   <div id="background-video-container">
     <div class="img-video-wrapper">
       <video
+        #runningManVideo
         [ngClass]="showRunningManVideoClass"
-        autoplay="true"
-        loop=""
-        muted=""
+        [muted]="true"
+        [autoplay]="false"
+        [loop]="true"
         width="100%"
         height="100%"
         preload="auto"

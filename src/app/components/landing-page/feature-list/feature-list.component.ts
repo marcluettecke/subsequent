@@ -35,6 +35,8 @@ export class FeatureListComponent implements OnInit {
   @ViewChild("networkGraphicContainer", { static: false })
   networkGraphicContainer: ElementRef;
 
+  @ViewChild("runningManVideo", {static: false}) runningManVideoRef: ElementRef;
+
   showRunningManVideoClass: string = "";
 
   /**
@@ -48,15 +50,15 @@ export class FeatureListComponent implements OnInit {
     desktop: [
       {
         id: 0,
-        xPerc: 0.1,
-        yPerc: 0.2,
+        xPerc: 0.25,
+        yPerc: 0.15,
         widthPerc: 0.2,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 1,
         xPerc: 0.3,
-        yPerc: 0.45,
+        yPerc: 0.5,
         widthPerc: 0.18,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
@@ -69,22 +71,22 @@ export class FeatureListComponent implements OnInit {
       },
       {
         id: 3,
-        xPerc: 0.9,
-        yPerc: 0.23,
+        xPerc: 0.65,
+        yPerc: 0.21,
         widthPerc: 0.18,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 4,
-        xPerc: 0.68,
-        yPerc: 0.35,
+        xPerc: 0.78,
+        yPerc: 0.4,
         widthPerc: 0.15,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 5,
-        xPerc: 0.8,
-        yPerc: 0.7,
+        xPerc: 0.7,
+        yPerc: 0.73,
         widthPerc: 0.23,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
@@ -236,9 +238,19 @@ export class FeatureListComponent implements OnInit {
       this.bgVidBreakPointElement.nativeElement.getBoundingClientRect().top <=
       -250
     ) {
-      this.showRunningManVideoClass = "show";
+      if(this.showRunningManVideoClass !== "show") {
+        this.showRunningManVideoClass = "show";
+        this.runningManVideoRef.nativeElement.muted = true;
+        this.runningManVideoRef.nativeElement.currentTime = 0;
+        this.runningManVideoRef.nativeElement.play();
+      }
     } else {
-      this.showRunningManVideoClass = "";
+      if (this.showRunningManVideoClass !== "") {
+        this.showRunningManVideoClass = "";
+        this.runningManVideoRef.nativeElement.muted = true;
+        this.runningManVideoRef.nativeElement.pause();
+        this.runningManVideoRef.nativeElement.currentTime = 0;
+      }
     }
   }
 
