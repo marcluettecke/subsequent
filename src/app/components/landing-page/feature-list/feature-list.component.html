@@ -49,11 +49,14 @@
       Ipsum.
     </p>
   </div>
-  <div id="background-video-container">
-    <div class="img-video-wrapper">
+  <div id="background-video-container" #bgVideoContainer>
+    <div
+      #runningManVideoWrapper
+      class="img-video-wrapper"
+      [ngClass]="showRunningManVideoClass"
+    >
       <video
         #runningManVideo
-        [ngClass]="showRunningManVideoClass"
         [muted]="true"
         [autoplay]="false"
         [loop]="true"
@@ -73,13 +76,15 @@
       />
     </div>
     <div class="slide-page-content-1" #bgVidBreakPointElement>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting
-      </p>
+      <div class="inner-container">
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting
+        </p>
+      </div>
     </div>
     <div class="slide-page-content-2">
       <div class="inner-container">
@@ -102,6 +107,9 @@
               "features-extraction.third.title" | translate
             }}
           </p>
+          <div class="cable-container">
+            <div class="inner-cable"></div>
+          </div>
         </div>
         <div class="bullets-container bullets-container-right">
           <h2 class="pillar-headline">
@@ -122,6 +130,9 @@
               "features-analysis.third.title" | translate
             }}
           </p>
+          <div class="cable-container">
+            <div class="inner-cable"></div>
+          </div>
         </div>
       </div>
     </div>

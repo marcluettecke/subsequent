@@ -38,6 +38,7 @@
   padding: 60px;
   h1 {
     font-size: 34px;
+    font-weight: bold;
   }
   p {
     width: 100%;
@@ -50,12 +51,15 @@
   position: relative;
   color: #fff;
   .img-video-wrapper {
-    position: fixed;
+    position: absolute;
+    &.fixed-position {
+      position: fixed;
+    }
     top: 0px;
     left: 0px;
     width: 100%;
-    min-height: 100%;
     height: 100vh;
+    min-height: 100vh;
     z-index: -1;
     overflow: hidden;
     img,
@@ -77,13 +81,15 @@
       opacity: 0;
       z-index: 1;
       transition: opacity 0.5s ease;
-      &.show {
+    }
+    &.show-video {
+      video {
         opacity: 1;
         transition: opacity 0.5s ease;
       }
     }
 
-    @include xSmall {
+    @include sm {
       display: none;
     }
   }
@@ -92,27 +98,31 @@
     width: 100%;
     height: 100vh;
     min-height: 100vh;
-    p {
-      position: absolute;
-      width: 25%;
-      left: 10%;
-      top: 50%;
-      transform: translate3d(-50%, -50%);
-      text-align: left;
-    }
-    @include xSmall {
-      height: auto;
-      min-height: 0px;
-      padding: 60px 20px;
+    .inner-container {
+      position: relative;
+      min-height: 100vh;
       p {
-        position: relative;
-        left: inherit;
-        width: 100%;
+        position: absolute;
+        width: 25%;
+        left: 75px;
+        top: 50%;
+        transform: translate3d(-50%, -50%);
+        text-align: left;
       }
+      @include sm {
+        height: auto;
+        min-height: 0px;
+        padding: 60px 20px;
+        p {
+          position: relative;
+          left: inherit;
+          width: 100%;
+        }
 
-      background: $--black url("/assets/images/background-dark.jpg") no-repeat
-      center;
-      background-size: cover;
+        background: $--black url("/assets/images/background-dark.jpg") no-repeat
+          center;
+        background-size: cover;
+      }
     }
   }
   .slide-page-content-2 {
@@ -126,6 +136,7 @@
       justify-content: space-between;
       align-items: center;
       .bullets-container {
+        position: relative;
         .pillar-headline {
           font-size: 34px;
           font-weight: bold;
@@ -145,6 +156,21 @@
         }
         $outerMargin: 75px;
         $innerItemMargin: 45px;
+        .cable-container {
+          display: inline-block;
+          position: absolute;
+          top: calc(15vh + 20px);
+          // background: #ccf;
+          width: 30px;
+          height: 90vh;
+          text-align: center;
+          .inner-cable {
+            display: inline-block;
+            min-height: 100%;
+            min-width: 3px;
+            background-color: $--primary-dark;
+          }
+        }
         &.bullets-container-left {
           justify-self: start;
           text-align: left;
@@ -154,6 +180,9 @@
             img {
               left: -45px;
             }
+          }
+          .cable-container {
+            left: -30px;
           }
         }
         &.bullets-container-right {
@@ -166,10 +195,16 @@
               right: -45px;
             }
           }
+          .cable-container {
+            right: -30px;
+            .inner-cable {
+              background-color: $--white;
+            }
+          }
         }
       }
     }
-    @include xSmall {
+    @include sm {
       height: auto;
       min-height: 0px;
       .inner-container {
@@ -189,8 +224,8 @@
           $innerItemMargin: 90px;
           &.bullets-container-left {
             margin-left: 0px;
-            background: $--white url("/assets/images/background-light.jpg") no-repeat
-              center;
+            background: $--white url("/assets/images/background-light.jpg")
+              no-repeat center;
             background-size: cover;
             color: $--black;
             p {
@@ -199,8 +234,8 @@
           }
           &.bullets-container-right {
             margin-right: 0px;
-            background: $--black url("/assets/images/background-dark.jpg") no-repeat
-              center;
+            background: $--black url("/assets/images/background-dark.jpg")
+              no-repeat center;
             background-size: cover;
             color: $--white;
             p {
@@ -371,7 +406,7 @@
     //logic for network-graphic-size:
     $networkGraphicwrapperWidth: 1200px;
 
-    $heightRatio: 0.66;
+    $heightRatio: 0.85;
     $networkGraphicwrapperHeight: $networkGraphicwrapperWidth * $heightRatio;
     $outerScreenBorderColor: #888;
     $innerScreenBorderColor: #333;
@@ -492,7 +527,7 @@
               stroke: #fff;
             }
             @include md {
-              stroke-width: 2;
+              stroke-width: 2.5;
             }
           }
         }

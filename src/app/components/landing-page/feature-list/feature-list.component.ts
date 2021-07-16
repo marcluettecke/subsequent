@@ -35,9 +35,13 @@ export class FeatureListComponent implements OnInit {
   @ViewChild("networkGraphicContainer", { static: false })
   networkGraphicContainer: ElementRef;
 
-  @ViewChild("runningManVideo", {static: false}) runningManVideoRef: ElementRef;
+  @ViewChild("runningManVideo", { static: false })
+  runningManVideoRef: ElementRef;
 
-  showRunningManVideoClass: string = "";
+  @ViewChild("runningManVideoWrapper", { static: false })
+  runningManVideoWrapper: ElementRef;
+
+  showRunningManVideoClass: string[] = [];
 
   /**
    * NetworkScreenTemplates:
@@ -94,44 +98,44 @@ export class FeatureListComponent implements OnInit {
     mobile: [
       {
         id: 0,
-        xPerc: 0.27,
+        xPerc: 0.29,
         yPerc: 0.15,
-        widthPerc: 0.35,
+        widthPerc: 0.27,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 1,
-        xPerc: 0.25,
+        xPerc: 0.23,
         yPerc: 0.48,
-        widthPerc: 0.35,
+        widthPerc: 0.28,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 2,
-        xPerc: 0.26,
+        xPerc: 0.2,
         yPerc: 0.75,
-        widthPerc: 0.35,
+        widthPerc: 0.27,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 3,
-        xPerc: 0.73,
+        xPerc: 0.71,
         yPerc: 0.15,
-        widthPerc: 0.3,
+        widthPerc: 0.28,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 4,
-        xPerc: 0.72,
+        xPerc: 0.74,
         yPerc: 0.4,
-        widthPerc: 0.35,
+        widthPerc: 0.31,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 5,
         xPerc: 0.73,
         yPerc: 0.75,
-        widthPerc: 0.35,
+        widthPerc: 0.3,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
     ],
@@ -233,25 +237,41 @@ export class FeatureListComponent implements OnInit {
 
   @ViewChild("bgVidBreakPointElement") bgVidBreakPointElement: ElementRef;
 
+  @ViewChild("bgVideoContainer") bgVideoContainer: ElementRef;
+
   @HostListener("window:scroll", ["$event"]) onScroll() {
     if (
       this.bgVidBreakPointElement.nativeElement.getBoundingClientRect().top <=
       -250
     ) {
-      if(this.showRunningManVideoClass !== "show") {
-        this.showRunningManVideoClass = "show";
+      if (!this.showRunningManVideoClass.includes("show-video")) {
+        this.showRunningManVideoClass.push("show-video");
         this.runningManVideoRef.nativeElement.muted = true;
         this.runningManVideoRef.nativeElement.currentTime = 0;
         this.runningManVideoRef.nativeElement.play();
       }
     } else {
-      if (this.showRunningManVideoClass !== "") {
-        this.showRunningManVideoClass = "";
+      if (this.showRunningManVideoClass.includes("show-video")) {
+        this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
+          (e) => e !== "show-video"
+        );
         this.runningManVideoRef.nativeElement.muted = true;
         this.runningManVideoRef.nativeElement.pause();
         this.runningManVideoRef.nativeElement.currentTime = 0;
       }
     }
+    if (this.bgVideoContainer.nativeElement.getBoundingClientRect().top <= 0) {
+      if (!this.showRunningManVideoClass.includes("fixed-position")) {
+        this.showRunningManVideoClass.push("fixed-position");
+      }
+    } else {
+      if (this.showRunningManVideoClass.includes("fixed-position")) {
+        this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
+          (e) => e !== "fixed-position"
+        );
+      }
+    }
+    // fixed-position
   }
 
   constructor(
