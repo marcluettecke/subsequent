@@ -20,6 +20,8 @@ import {
   FeatureNetworkCable,
 } from "../models/LandingPage";
 
+declare let particlesJS: any;
+
 @Component({
   selector: "app-feature-list",
   templateUrl: "./feature-list.component.html",
@@ -62,27 +64,27 @@ export class FeatureListComponent implements OnInit {
       {
         id: 1,
         xPerc: 0.3,
-        yPerc: 0.5,
+        yPerc: 0.4,
         widthPerc: 0.18,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 2,
-        xPerc: 0.2,
-        yPerc: 0.75,
+        xPerc: 0.33,
+        yPerc: 0.65,
         widthPerc: 0.18,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
       },
       {
         id: 3,
-        xPerc: 0.65,
+        xPerc: 0.77,
         yPerc: 0.21,
         widthPerc: 0.18,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
       {
         id: 4,
-        xPerc: 0.78,
+        xPerc: 0.65,
         yPerc: 0.4,
         widthPerc: 0.15,
         imgSrc: "/assets/images/featureSnapshots/skeletal.png",
@@ -90,7 +92,7 @@ export class FeatureListComponent implements OnInit {
       {
         id: 5,
         xPerc: 0.7,
-        yPerc: 0.73,
+        yPerc: 0.67,
         widthPerc: 0.23,
         imgSrc: "/assets/images/featureSnapshots/freespace.jpg",
       },
@@ -156,21 +158,21 @@ export class FeatureListComponent implements OnInit {
     desktop: [
       {
         pos1: {
-          xPerc: 0.05,
+          xPerc: 0.45,
           yPerc: 0.0,
         },
         pos2: {
-          xPerc: 0.05,
+          xPerc: 0.45,
           yPerc: 0.25,
         },
       },
       {
         pos1: {
-          xPerc: 0.95,
+          xPerc: 0.55,
           yPerc: 0.0,
         },
         pos2: {
-          xPerc: 0.95,
+          xPerc: 0.55,
           yPerc: 0.25,
         },
       },
@@ -237,12 +239,16 @@ export class FeatureListComponent implements OnInit {
 
   @ViewChild("bgVidBreakPointElement") bgVidBreakPointElement: ElementRef;
 
+  @ViewChild("bgVidBreakPointElement2") bgVidBreakPointElement2: ElementRef;
+
   @ViewChild("bgVideoContainer") bgVideoContainer: ElementRef;
+
+  @ViewChild("bottomNetworkContainer") bottomNetworkContainer: ElementRef;
 
   @HostListener("window:scroll", ["$event"]) onScroll() {
     if (
       this.bgVidBreakPointElement.nativeElement.getBoundingClientRect().top <=
-      -250
+      -550
     ) {
       if (!this.showRunningManVideoClass.includes("show-video")) {
         this.showRunningManVideoClass.push("show-video");
@@ -250,26 +256,36 @@ export class FeatureListComponent implements OnInit {
         this.runningManVideoRef.nativeElement.currentTime = 0;
         this.runningManVideoRef.nativeElement.play();
       }
-    } else {
-      if (this.showRunningManVideoClass.includes("show-video")) {
-        this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
-          (e) => e !== "show-video"
-        );
-        this.runningManVideoRef.nativeElement.muted = true;
-        this.runningManVideoRef.nativeElement.pause();
-        this.runningManVideoRef.nativeElement.currentTime = 0;
-      }
+    } else if (this.showRunningManVideoClass.includes("show-video")) {
+      this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
+        (e) => e !== "show-video"
+      );
+      this.runningManVideoRef.nativeElement.muted = true;
+      this.runningManVideoRef.nativeElement.pause();
+      this.runningManVideoRef.nativeElement.currentTime = 0;
     }
     if (this.bgVideoContainer.nativeElement.getBoundingClientRect().top <= 0) {
       if (!this.showRunningManVideoClass.includes("fixed-position")) {
         this.showRunningManVideoClass.push("fixed-position");
       }
+    } else if (this.showRunningManVideoClass.includes("fixed-position")) {
+      this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
+        (e) => e !== "fixed-position"
+      );
+    }
+    if (
+      this.bgVidBreakPointElement2.nativeElement.getBoundingClientRect().top <=
+      0
+    ) {
+      this.showRunningManVideoClass.push("sticky-bottom");
+      this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
+        (e) => e !== "sticky-top"
+      );
     } else {
-      if (this.showRunningManVideoClass.includes("fixed-position")) {
-        this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
-          (e) => e !== "fixed-position"
-        );
-      }
+      this.showRunningManVideoClass = this.showRunningManVideoClass.filter(
+        (e) => e !== "sticky-bottom"
+      );
+      this.showRunningManVideoClass.push("sticky-top");
     }
     // fixed-position
   }
@@ -300,7 +316,9 @@ export class FeatureListComponent implements OnInit {
     }, 300);
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.initParticles();
+  }
 
   ngOnDestroy(): void {
     this.isXSmallSubscription.unsubscribe();
@@ -311,6 +329,70 @@ export class FeatureListComponent implements OnInit {
   }
 
   ngAfterViewChecked(): void {}
+
+  initParticles() {
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 40, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: {
+          type: "circle",
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 },
+          image: { src: "img/github.svg", width: 100, height: 100 },
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: { enable: false, rotateX: 600, rotateY: 1200 },
+        },
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true,
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: {
+            distance: 400,
+            size: 40,
+            duration: 2,
+            opacity: 8,
+            speed: 3,
+          },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 },
+        },
+      },
+      retina_detect: true,
+    });
+  }
 
   /**
    * recalculates all fields of all feature screens

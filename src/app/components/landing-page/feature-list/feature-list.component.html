@@ -86,7 +86,7 @@
         </p>
       </div>
     </div>
-    <div class="slide-page-content-2">
+    <div class="slide-page-content-2" #bgVidBreakPointElement2>
       <div class="inner-container">
         <div class="bullets-container bullets-container-left">
           <h2 class="pillar-headline">
@@ -137,10 +137,11 @@
       </div>
     </div>
   </div>
-  <div class="bottom-network-container">
+  <div class="bottom-network-container" #bottomNetworkContainer>
     <div id="container-featureList" class="container container-featureList">
-      <div class="background-container light-background"></div>
-      <div class="background-container dark-background"></div>
+      <!-- <div class="background-container light-background"></div>
+      <div class="background-container dark-background"></div>-->
+      <div class="particle-container" id="particles-js"></div>
       <div #networkGraphicContainer class="network-graphic-container">
         <div #networkGraphicWrapper class="network-graphic-wrapper">
           <!-- CABLES -->
